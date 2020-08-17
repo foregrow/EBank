@@ -6,4 +6,5 @@ import demo.app.entity.Korisnik;
 
 public interface KorisnikRepository extends JpaRepository<Korisnik, Long> {
 
+	Korisnik findByKorisnickoIme(String korIme);
 }
