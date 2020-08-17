@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import demo.app.enums.UlogaKorisnika;
 
@@ -21,7 +22,7 @@ public class Korisnik {
 	@Column(unique = false, nullable = false)
 	private UlogaKorisnika uloga;
 
-	@Column(unique = false, nullable = true)
+	@OneToOne
 	private Klijent klijent;
 	
 	public Korisnik() {

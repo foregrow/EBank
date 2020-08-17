@@ -15,8 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-
-
 @Entity
 public class Racun {
 
@@ -32,19 +30,13 @@ public class Racun {
 	@Column(unique = false, nullable = false)
 	private boolean izbrisan;
 	
-	@Column(unique = false, nullable = true)
 	@OneToOne(mappedBy="racunZaUkidanje")
 	private UkidanjeRacuna ukidanjeRacuna;
 	
-	@Column(unique = false, nullable = false)
 	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	private Banka banka;
-	
-	@Column(unique = false, nullable = false)
 	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	private Klijent klijent;
-	
-	@Column(unique = false, nullable = false)
 	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	private Valuta valuta;
 	

@@ -2,6 +2,7 @@ package demo.app.entity;
 
 import java.util.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,11 +23,9 @@ public class UkidanjeRacuna {
 	@Column(unique = false, nullable = false)
 	private boolean zavrseno;
 	
-	@Column(unique = false, nullable = false)
 	@OneToOne
 	private Racun racunZaUkidanje;
-	
-	@Column(unique = false, nullable = true)
+	@OneToOne
 	private Racun racunZaPrenosNovca;
 	
 	public UkidanjeRacuna() {

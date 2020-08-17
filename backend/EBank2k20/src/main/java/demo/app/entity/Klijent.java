@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import demo.app.enums.TipKlijenta;
 
@@ -35,10 +36,9 @@ public class Klijent {
 	@Column(unique = false, nullable = false)
 	private TipKlijenta tipKlijenta;
 	
-	@Column(unique = false, nullable = false)
+	@OneToOne
 	private Korisnik korisnik;
 	
-	@Column(unique = false, nullable = true)
 	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	private Delatnost delatnost;
 	
