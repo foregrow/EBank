@@ -1,0 +1,18 @@
+<div class="mt-5 col-3">
+    <form [formGroup]="loginForm">
+        <h2 class="h2">Prijava</h2>
+
+            <div class="form-group">
+                <input formControlName="korisnickoIme" type="text" placeholder="Korisnicko ime"
+                    class="form-control">
+            </div>
+    
+            <div class="form-group">
+                <input formControlName="lozinka" type="password" placeholder="Lozinka"
+                    class="form-control">
+            </div>
+    
+            <button class="btn btn-primary" (click)="submitLogin()" type="submit" >Ulogujte se</button>
+            <button class="btn btn-secondary ml-1" (click)="submitZahtev()" type="submit" >Zahtev za otvaranje naloga</button>
+    </form>
+</div>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { KorisnikService } from './services/korisnik.service';
+import { RouterLink, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'EBank2k20';
+  constructor(public korisnikService: KorisnikService,
+    public router: ActivatedRoute){
+
+  }
 }
