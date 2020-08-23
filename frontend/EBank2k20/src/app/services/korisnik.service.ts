@@ -50,4 +50,18 @@ export class KorisnikService {
     localStorage.removeItem('role');
     this._router.navigate(['login'])
   }
+
+  isAuthorized(roles): boolean {
+    var isMatch = false;
+    
+    var role = localStorage.getItem('role');
+    roles.forEach(element => {
+      if(element === role){
+        isMatch = true;
+        return false;
+      }
+    });
+    
+    return isMatch;
+  }
 }

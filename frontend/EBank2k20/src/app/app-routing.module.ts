@@ -4,13 +4,20 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { KorisnikComponent } from './components/korisnik/korisnik.component';
 import { AuthGuard } from './guards/auth.guard';
+import { RoleGuard } from './guards/role.guard';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'korisnik', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
-  {path: 'korisnik', component: KorisnikComponent, canActivate: [AuthGuard]},
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+      roles: ['ADMIN']
+    }},
+  {path: 'korisnik', component: KorisnikComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+      roles: ['KORISNIK']
+    }},
   {path: '**', redirectTo: 'korisnik', pathMatch: 'full'}
 ];
 

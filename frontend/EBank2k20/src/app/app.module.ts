@@ -8,6 +8,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { KorisnikService } from './services/korisnik.service';
 import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { RoleGuard } from './guards/role.guard';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,12 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [KorisnikService,AuthGuard,
+  providers: [KorisnikService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true //za multiple interceptors ako su potrebni
-    }],
+    },AuthGuard,RoleGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
