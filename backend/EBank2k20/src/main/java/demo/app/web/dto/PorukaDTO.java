@@ -2,30 +2,21 @@ package demo.app.web.dto;
 
 import java.sql.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+
 
 import demo.app.enums.TipPoruke;
 
-@Entity
 public class PorukaDTO {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	@Column(unique = false, nullable = true)
 	private TipPoruke tipPoruke;
-	@Column(unique = false, nullable = true)
 	private double iznos;
-	@Column(unique = false, nullable = true)
 	private String sifraValute;
-	@Column(unique = false, nullable = true)
+
 	private Date datumValute;
 	
-	/*@OneToMany(mappedBy = "poruka")
+	/*
 	private Set<Nalog> nalozi = new HashSet<Nalog>();*/
 	
 	public PorukaDTO() {
