@@ -17,7 +17,7 @@ import demo.app.web.dto.KorisnikDTO;
 
 
 @RestController
-@RequestMapping(value="api/korisnici")
+@RequestMapping(value="api/korisnik")
 public class KorisnikController {
 
 	@Autowired

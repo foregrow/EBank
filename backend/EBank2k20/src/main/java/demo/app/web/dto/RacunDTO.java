@@ -13,6 +13,7 @@ public class RacunDTO {
 	private double stanje;
 	private Date datumKreiranja;
 	private boolean izbrisan;
+	private boolean odobren;
 	
 	private UkidanjeRacunaDTO ukidanjeRacuna;
 	
@@ -32,6 +33,7 @@ public class RacunDTO {
 		stanje = obj.getStanje();
 		datumKreiranja = obj.getDatumKreiranja();
 		izbrisan = obj.isIzbrisan();
+		odobren = obj.isOdobren();
 		
 		if(obj.getBanka() != null)
 			banka = new BankaDTO(obj.getBanka());
@@ -43,7 +45,7 @@ public class RacunDTO {
 
 	public RacunDTO(long id, String brojRacuna, double stanje, Date datumKreiranja, boolean izbrisan,
 			UkidanjeRacunaDTO ukidanjeRacuna, BankaDTO banka, KlijentDTO klijent, ValutaDTO valuta,
-			List<DnevnoStanjeDTO> dnevnoStanje) {
+			List<DnevnoStanjeDTO> dnevnoStanje, boolean odobren) {
 		super();
 		this.id = id;
 		this.brojRacuna = brojRacuna;
@@ -55,6 +57,7 @@ public class RacunDTO {
 		this.klijent = klijent;
 		this.valuta = valuta;
 		this.dnevnoStanje = dnevnoStanje;
+		this.odobren = odobren;
 	}
 
 	public long getId() {
@@ -132,6 +135,15 @@ public class RacunDTO {
 	public List<DnevnoStanjeDTO> getDnevnoStanje() {
 		return dnevnoStanje;
 	}
+
+	public boolean isOdobren() {
+		return odobren;
+	}
+
+	public void setOdobren(boolean odobren) {
+		this.odobren = odobren;
+	}
+	
 
 	
 }
