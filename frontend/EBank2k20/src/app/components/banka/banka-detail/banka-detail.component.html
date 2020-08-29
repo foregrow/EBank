@@ -1,1 +1,51 @@
-<p>banka-detail works!</p>
+<div class="container-fluid">
+    <h4 class="mt-5 mb-3" *ngIf="this.addEditParam === 'add'">Dodavanje nove banke</h4>
+    <h4 class="mt-5 mb-3" *ngIf="this.addEditParam !== 'add'">Informacije o banci</h4>
+    <form [formGroup]="addEditForm" class="w-25">
+        <div class="form-group">
+            <label>Naziv</label>
+            <input formControlName="naziv" type="text" class="form-control">
+            <small [class.d-none]="naziv.valid || naziv.untouched" class="text-danger">Naziv je obavezan!</small> 
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input formControlName="email" type="text" class="form-control">
+          <small [class.d-none]="email.valid || email.untouched" class="text-danger">Email je obavezan i mora biti u ispravnom formatu!</small> 
+      </div>
+      <div class="form-group">
+        <label>Adresa</label>
+        <input formControlName="adresa" type="text" class="form-control">
+        <small [class.d-none]="adresa.valid || adresa.untouched" class="text-danger">Adresa je obavezna!</small> 
+    </div>
+    <div class="form-group">
+        <label>Fax</label>
+        <input formControlName="fax" type="text" class="form-control">
+        <small [class.d-none]="fax.valid || fax.untouched" class="text-danger">Fax je obavezan!</small> 
+    </div>
+    <div class="form-group">
+        <label>Telefon</label>
+        <input formControlName="telefon" type="text" class="form-control">
+        <small [class.d-none]="telefon.valid || telefon.untouched" class="text-danger">Telefon je obavezan!</small> 
+    </div>
+    <div class="form-group">
+        <label>Web</label>
+        <input formControlName="web" type="text" class="form-control">
+        <small [class.d-none]="web.valid || web.untouched" class="text-danger">Web adresa je obavezna!</small> 
+    </div>
+    <div class="form-group">
+        <label>SWIFT</label>
+        <input formControlName="swift" type="text" class="form-control">
+        <small [class.d-none]="swift.valid || swift.untouched" class="text-danger">SWIFT kod je obavezan i mora biti u ispravnom formatu!(XXXXXX11)</small> 
+        <small *ngIf="swiftExists" class="text-danger">SWIFT kod vec postoji!</small>
+    </div>
+    <div class="form-group">
+        <label>Sifra</label>
+        <input formControlName="sifra" type="text" class="form-control">
+        <small [class.d-none]="sifra.valid || sifra.untouched" class="text-danger">Sifra je obavezna i mora biti u ispravnom formatu!(XXXX)</small> 
+        <small *ngIf="sifraExists" class="text-danger">Sifra vec postoji!</small>
+    </div>
+    <button *ngIf="this.addEditParam === 'add'" class="btn btn-primary" (click)="submitBanku('add')" [disabled]="addEditForm.invalid || sifraExists || swiftExists" type="submit">Dodaj</button>
+    <button *ngIf="this.addEditParam !== 'add' && this.addEditParam !== undefined" (click)="submitBanku('edit')" class="btn btn-primary" [disabled]="addEditForm.invalid || sifraExists || swiftExists" type="submit">Izmeni</button>
+
+    </form>
+</div>

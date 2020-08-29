@@ -24,4 +24,8 @@ export class BankaService {
   delete(id): Observable<Banka[]>{
     return this._http.delete<Banka[]>(`${this.bankaBaseUrl}/${+id}`);
   }
+
+  add(data:Banka){
+    return this._http.post<any>(this.bankaBaseUrl,data);
+  }
 }

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,9 +46,19 @@ public class BankaController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
-	public ResponseEntity<?> save(){
-	
-		return null;
+	public ResponseEntity<?> save(@RequestBody BankaDTO dto){
+		Banka banka = new Banka();
+		banka.setAdresa(dto.getAdresa());
+		banka.setEmail(dto.getEmail());
+		banka.setNaziv(dto.getNaziv());
+		banka.setFax(dto.getFax());
+		banka.setSifra(dto.getSifra());
+		banka.setSwift(dto.getSwift());
+		banka.setTelefon(dto.getTelefon());
+		banka.setWeb(dto.getWeb());
+		
+		bs.save(banka);
+		return new ResponseEntity<>(new BankaDTO(banka), HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")

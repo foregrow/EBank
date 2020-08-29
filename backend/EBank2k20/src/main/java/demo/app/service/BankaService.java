@@ -12,6 +12,7 @@ import demo.app.repository.BankaRepository;
 
 
 @Service
+@Transactional(readOnly = true)
 public class BankaService  implements BankaServiceInterface {
 
 	@Autowired
@@ -26,10 +27,12 @@ public class BankaService  implements BankaServiceInterface {
 		return br.findById(id).orElse(null);
 	}
 	@Override
-	public Banka save(Banka kor) {
-		return br.save(kor);
+	@Transactional(readOnly = false)
+	public Banka save(Banka ban) {
+		return br.save(ban);
 	}
 	@Override
+	@Transactional(readOnly = false)
 	public void remove(long id) {
 		br.deleteById(id);
 	}
