@@ -1,0 +1,30 @@
+<div class="container">
+    <h2 class="mt-5 mb-5">Sve banke<a class="btn btn-sm text-white btn-success ml-3" (click)="navigateToAdd('add')">Dodaj novu banku</a></h2>
+    <!-- w-25,75,50.. klasa za width tabele  -->
+    <table class="table table-hover w-75">
+        <thead>
+          <tr>
+            <th >#</th>
+            <th> Naziv</th>
+            <th> Adresa</th>
+            <th> Fax</th>
+            <th> Sifra</th>
+            <th> Web</th>
+          </tr>
+        
+        </thead>
+        <tbody *ngFor="let obj of banke; index as i">
+
+          <tr>
+            <td>{{i+1}}</td>
+            <td>{{obj.naziv}}</td>
+            <td>{{obj.adresa}}</td>
+            <td>{{obj.fax}}</td>
+            <td>{{obj.sifra}}</td>
+            <td>{{obj.web}}</td>
+            <td><a class="btn btn-sm text-white btn-primary" (click)="details(obj)">Detalji</a></td>
+            <td><a class="btn btn-sm text-white btn-danger" (click)="delete(obj.id)">Izbrisi</a></td>
+        </tr>
+        </tbody>
+      </table>
+</div>

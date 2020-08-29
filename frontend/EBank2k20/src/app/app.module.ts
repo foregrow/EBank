@@ -9,6 +9,10 @@ import { KorisnikService } from './services/korisnik.service';
 import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { RoleGuard } from './guards/role.guard';
+import { BankaService } from './services/banka.service';
+import { DelatnostService } from './services/delatnost.service';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,7 @@ import { RoleGuard } from './guards/role.guard';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [KorisnikService,
+  providers: [KorisnikService,BankaService,DelatnostService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

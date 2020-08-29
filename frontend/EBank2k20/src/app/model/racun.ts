@@ -26,7 +26,7 @@ export class Racun{
    stanje: number;
    datumKreiranja: any;
    izbrisan: boolean;
-
+   odobren: boolean;
    ukidanjeRacuna: UkidanjeRacuna;
    banka: Banka;
    klijent: Klijent;
@@ -35,7 +35,7 @@ export class Racun{
 
    constructor(id:number,brojRacuna:string,stanje:number,datumKreiranja:any,
     izbrisan:boolean,ukidanjeRacuna:UkidanjeRacuna,banka:Banka,klijent:Klijent,
-    valuta:Valuta,dnevnoStanje:DnevnoStanje[]){
+    valuta:Valuta,dnevnoStanje:DnevnoStanje[], odobren: boolean){
     this.id = id;
     this.brojRacuna = brojRacuna;
     this.stanje = stanje;
@@ -46,5 +46,6 @@ export class Racun{
     this.klijent = klijent;
     this.valuta = valuta;
     this.dnevnoStanje = dnevnoStanje;
+    this.odobren = odobren;
     }
 }
