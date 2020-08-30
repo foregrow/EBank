@@ -1,6 +1,7 @@
 package demo.app.web.controller;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,10 +40,13 @@ public class BankaController {
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<BankaDTO> getById(@PathVariable long id){
 		Banka b = bs.findOne(id);
+		
 		if(b == null)
 			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
-		
-		return new ResponseEntity<>(new BankaDTO(b), HttpStatus.OK);
+		BankaDTO dto = new BankaDTO(b);
+		dto.setRacuniListFromSet(b.getRacuni()); //pretvara set tipa Racun u listu tipa RacunDTO
+		dto.setKursneListeListFromSet(b.getKursneListe());
+		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
@@ -62,9 +66,19 @@ public class BankaController {
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
-	public ResponseEntity<?> update(){
+	public ResponseEntity<?> update(@RequestBody BankaDTO dto){
+		Banka banka = bs.findOne(dto.getId());
+		if(banka == null)
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		banka.setAdresa(dto.getAdresa());
+		banka.setEmail(dto.getEmail());
+		banka.setNaziv(dto.getNaziv());
+		banka.setFax(dto.getFax());
+		banka.setTelefon(dto.getTelefon());
+		banka.setWeb(dto.getWeb());
 		
-		return null;
+		bs.save(banka);
+		return new ResponseEntity<>(new BankaDTO(banka), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)

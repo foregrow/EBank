@@ -28,4 +28,8 @@ export class BankaService {
   add(data:Banka){
     return this._http.post<any>(this.bankaBaseUrl,data);
   }
+
+  update(data:Banka){
+    return this._http.put<any>(this.bankaBaseUrl,data);
+  }
 }

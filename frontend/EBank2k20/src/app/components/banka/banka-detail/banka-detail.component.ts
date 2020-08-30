@@ -18,6 +18,7 @@ export class BankaDetailComponent implements OnInit {
   swiftBanaka: string[] = [];
   sifraExists = false;
   swiftExists = false;
+  banka;
   constructor(
     private _fb: FormBuilder,
     private _router: Router,
@@ -28,6 +29,9 @@ export class BankaDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.addEditParam = this._route.snapshot.paramMap.get('id');
+    if(isNaN(this.addEditParam) && this.addEditParam !== 'add'){
+      this._router.navigate(['not-found']);
+    }
     this.addEditForm = this._fb.group({
       naziv: ['',Validators.required],
       email: ['',[Validators.required,Validators.email]],
@@ -43,11 +47,37 @@ export class BankaDetailComponent implements OnInit {
       {
         this.existingSifra();
       });
-      this.swift.valueChanges.subscribe(data =>
-        {
-          this.existingSwift();
-        });
+    this.swift.valueChanges.subscribe(data =>
+      {
+        this.existingSwift();
+      });
+    if(this.addEditParam !== 'add'){
+      //znaci da je edit..
+      this.addEditForm.controls['swift'].disable();
+      this.addEditForm.controls['sifra'].disable();
+      this.getByIdAndSetValues(this.addEditParam);
+    }
   }
+
+  getByIdAndSetValues(id){
+    this._bs.getById(id).subscribe(
+       data => {
+         this.banka = data;
+ 
+         this.addEditForm.patchValue({
+          naziv: this.banka.naziv,
+          email: this.banka.email,
+          adresa: this.banka.adresa,
+          fax: this.banka.fax,
+          telefon: this.banka.telefon,
+          web: this.banka.web,
+          swift: this.banka.swift,
+          sifra: this.banka.sifra
+        });
+
+       });
+       
+   }
 
 
   getAllSifreAndSwift(){
@@ -93,10 +123,19 @@ export class BankaDetailComponent implements OnInit {
           this._router.navigate(['banke']);
         },
         error =>{ alert('Greska prilikom dodavanja banke!');
-      }
-      )
+      });
     }else if(param === 'edit'){
+      var banka: Banka = new Banka(this.banka.id,sifra,naziv,adresa,email,web,telefon,fax,swift,null,null,null);
 
+      this._bs.update(banka).subscribe(
+        response =>{
+          this.getByIdAndSetValues(response.id);
+          alert('Uspesna izmena!');
+
+        },error=>{
+          alert('Greska!');
+        }
+      );
     }
   }
 

@@ -9,6 +9,7 @@ import { BankaComponent } from './components/banka/banka.component';
 import { DelatnostComponent } from './components/delatnost/delatnost.component';
 import { DelatnostDetailComponent } from './components/delatnost/delatnost-detail/delatnost-detail.component';
 import { BankaDetailComponent } from './components/banka/banka-detail/banka-detail.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'korisnik', pathMatch: 'full'},
@@ -39,6 +40,7 @@ const routes: Routes = [
   data: {
       roles: ['ADMIN']
     }},
+  {path: 'not-found', component:NotFoundComponent},
   {path: '**', redirectTo: 'korisnik', pathMatch: 'full'}
 ];
 
@@ -49,4 +51,5 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 export const routingComponents = [
-LoginComponent,AdminComponent,KorisnikComponent,BankaComponent,DelatnostComponent,BankaDetailComponent,DelatnostDetailComponent]
+LoginComponent,AdminComponent,KorisnikComponent,BankaComponent,DelatnostComponent,BankaDetailComponent,DelatnostDetailComponent,
+NotFoundComponent]

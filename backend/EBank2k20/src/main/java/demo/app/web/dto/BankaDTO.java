@@ -3,8 +3,11 @@ package demo.app.web.dto;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.Set;
 
 import demo.app.entity.Banka;
+import demo.app.entity.KursnaLista;
+import demo.app.entity.Racun;
 
 public class BankaDTO {
 
@@ -143,6 +146,18 @@ public class BankaDTO {
 
 	public List<KursnaListaDTO> getKursneListe() {
 		return kursneListe;
+	}
+
+	public void setRacuniListFromSet(Set<Racun> racuni) {
+		List<Racun> rl = new ArrayList<Racun>(racuni);
+		for(Racun obj : rl)
+			this.racuni.add(new RacunDTO(obj));
+	}
+
+	public void setKursneListeListFromSet(Set<KursnaLista> kursneListe) {
+		List<KursnaLista> kl = new ArrayList<KursnaLista>(kursneListe);
+		for(KursnaLista obj : kl)
+			this.kursneListe.add(new KursnaListaDTO(obj));
 	}
 
 	
