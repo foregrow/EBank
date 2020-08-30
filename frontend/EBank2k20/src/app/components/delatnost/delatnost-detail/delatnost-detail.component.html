@@ -1,1 +1,41 @@
-<p>delatnost-detail works!</p>
+<div class="container-fluid">
+    <h4 class="mt-5 mb-3" *ngIf="this.addEditParam === 'add'">Dodavanje nove delatnosti</h4>
+    <h4 class="mt-5 mb-3" *ngIf="this.addEditParam !== 'add'">Informacije o delatnosti</h4>
+    <form [formGroup]="addEditForm" class="w-25">
+        <div class="form-group">
+            <label>Naziv</label>
+            <input formControlName="naziv" type="text" class="form-control">
+            <small [class.d-none]="naziv.valid || naziv.untouched" class="text-danger">Naziv je obavezan!</small> 
+        </div>
+    <div class="form-group">
+        <label>Sifra</label>
+        <input formControlName="sifra" type="text" class="form-control">
+        <small [class.d-none]="sifra.valid || sifra.untouched" class="text-danger">Sifra je obavezna i mora biti u ispravnom formatu!(X100)</small> 
+        <small *ngIf="sifraExists && addEditParam === 'add'" class="text-danger">Sifra vec postoji!</small>
+    </div>
+    <button *ngIf="this.addEditParam === 'add'" class="btn btn-primary" (click)="submitDelatnost('add')" [disabled]="addEditForm.invalid || sifraExists" type="submit">Dodaj</button>
+    <button *ngIf="this.addEditParam !== 'add' && this.addEditParam !== undefined" (click)="submitDelatnost('edit')" class="btn btn-primary" [disabled]="addEditForm.invalid" type="submit">Izmeni</button>
+
+    </form>
+
+    <div class="container-fluid mt-5" *ngIf="delatnost !== undefined">
+        <h2 class="mt-3">Klijenti delatnosti: </h2>
+        <table class="table table-hover w-50">
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Tip klijenta</th>   
+                <th>Adresa</th>  
+                </tr>
+            </thead>
+            <tbody *ngFor="let obj of delatnost.klijenti; index as i">
+                <tr>
+                <td>{{i+1}}</td><td>{{obj.ime}}</td><td>{{obj.prezime}}</td>
+                <td>{{obj.tipKlijenta}}</td><td>{{obj.adresa}}</td>
+                </tr>
+            </tbody>
+            </table>
+    </div>
+</div>

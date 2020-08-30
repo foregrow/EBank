@@ -3,6 +3,7 @@ package demo.app.service;
 import java.util.List;
 
 import demo.app.entity.Korisnik;
+import demo.app.web.dto.KorisnikDTO;
 
 public interface KorisnikServiceInterface {
 
@@ -15,5 +16,7 @@ public interface KorisnikServiceInterface {
 	void remove(long id);
 	
 	Korisnik findByKorisnickoIme(String korime);
+	
+	List<KorisnikDTO> getAllDTOs(List<Korisnik> korisnici);
 	
 }

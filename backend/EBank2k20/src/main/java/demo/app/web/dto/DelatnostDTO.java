@@ -2,9 +2,12 @@ package demo.app.web.dto;
 
 
 import java.util.ArrayList;
+
 import java.util.List;
+import java.util.Set;
 
 import demo.app.entity.Delatnost;
+import demo.app.entity.Klijent;
 
 public class DelatnostDTO {
 	
@@ -58,6 +61,12 @@ public class DelatnostDTO {
 
 	public List<KlijentDTO> getKlijenti() {
 		return klijenti;
+	}
+	
+	public void setKlijentiListFromSet(Set<Klijent> klijenti) {
+		List<Klijent> kl = new ArrayList<Klijent>(klijenti);
+		for(Klijent obj : kl)
+			this.klijenti.add(new KlijentDTO(obj));
 	}
 
 	

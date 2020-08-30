@@ -1,6 +1,5 @@
 package demo.app.web.controller;
 
-import java.util.ArrayList;
 
 import java.util.List;
 
@@ -27,9 +26,7 @@ public class KorisnikController {
 	public ResponseEntity<List<KorisnikDTO>> getAll() {
 		List<Korisnik> korisnici = ks.findAll();
 		
-		List<KorisnikDTO> dtos = new ArrayList<>();
-		for (Korisnik s : korisnici)
-			dtos.add(new KorisnikDTO(s));
+		List<KorisnikDTO> dtos = ks.getAllDTOs(korisnici);
 		
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
 	}

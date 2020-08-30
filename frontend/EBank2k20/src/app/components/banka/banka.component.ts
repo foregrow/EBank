@@ -31,11 +31,10 @@ export class BankaComponent implements OnInit {
     this._router.navigate(['banke-detail/'+banka.id]);
   }
   delete(id){
-    console.log(id);
     this._bs.delete(id)
-    .subscribe(
-      data => this.banke = data
-    ); 
+      .subscribe(
+        data => this.banke = data
+      ); 
   }
   
     

@@ -1,5 +1,6 @@
 package demo.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import demo.app.entity.Banka;
 import demo.app.repository.BankaRepository;
+import demo.app.web.dto.BankaDTO;
 
 
 @Service
@@ -35,6 +37,17 @@ public class BankaService  implements BankaServiceInterface {
 	@Transactional(readOnly = false)
 	public void remove(long id) {
 		br.deleteById(id);
+	}
+	@Override
+	public List<BankaDTO> getAllDTOs(List<Banka> banke) {
+		List<BankaDTO> dtos = new ArrayList<>();
+		for (Banka b : banke) {
+			BankaDTO dto = new BankaDTO(b);
+			dto.setRacuniListFromSet(b.getRacuni()); //pretvara set tipa Racun u listu tipa RacunDTO
+			dto.setKursneListeListFromSet(b.getKursneListe());
+			dtos.add(dto);
+		}
+		return dtos;
 	}
 
 }

@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import demo.app.entity.Korisnik;
 import demo.app.repository.KorisnikRepository;
+import demo.app.web.dto.KorisnikDTO;
 
 @Service
 @Transactional(readOnly = true)
@@ -50,5 +51,15 @@ public class KorisnikService  implements KorisnikServiceInterface, UserDetailsSe
 	@Override
 	public Korisnik findByKorisnickoIme(String username) {
 		return kr.findByKorisnickoIme(username);
+	}
+	
+	@Override
+	public List<KorisnikDTO> getAllDTOs(List<Korisnik> korisnici) {
+		List<KorisnikDTO> dtos = new ArrayList<>();
+		for (Korisnik s : korisnici) {
+			KorisnikDTO dto = new KorisnikDTO(s);
+			dtos.add(dto);
+		}
+		return dtos;	
 	}
 }

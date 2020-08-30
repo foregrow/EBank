@@ -1,6 +1,6 @@
 package demo.app.web.controller;
 
-import java.util.ArrayList;
+
 
 import java.util.List;
 
@@ -28,11 +28,8 @@ public class BankaController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<BankaDTO>> getAll() {
-		List<Banka> banke = bs.findAll();
-		
-		List<BankaDTO> dtos = new ArrayList<>();
-		for (Banka b : banke)
-			dtos.add(new BankaDTO(b));
+		List<Banka> banke = bs.findAll();	
+		List<BankaDTO> dtos = bs.getAllDTOs(banke);		
 		
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
 	}
@@ -88,9 +85,7 @@ public class BankaController {
 		if (banka != null){
 			bs.remove(id);
 			List<Banka> banke = bs.findAll();
-			List<BankaDTO> dtos = new ArrayList<>();
-			for(Banka b : banke)
-				dtos.add(new BankaDTO(b));
+			List<BankaDTO> dtos = bs.getAllDTOs(banke);
 			
 			return new ResponseEntity<>(dtos, HttpStatus.OK);
 		} else		
