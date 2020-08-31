@@ -1,3 +1,4 @@
+import { KorisniciComponent } from './components/korisnici/korisnici.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -22,6 +23,10 @@ const routes: Routes = [
   data: {
       roles: ['KORISNIK']
     }},
+    {path: 'korisnici', component: KorisniciComponent, canActivate: [AuthGuard,RoleGuard],
+    data: {
+        roles: ['ADMIN']
+      }},
 
   {path: 'banke', component: BankaComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
@@ -52,4 +57,4 @@ export class AppRoutingModule { }
 
 export const routingComponents = [
 LoginComponent,AdminComponent,KorisnikComponent,BankaComponent,DelatnostComponent,BankaDetailComponent,DelatnostDetailComponent,
-NotFoundComponent]
+NotFoundComponent,KorisniciComponent]

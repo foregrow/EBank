@@ -11,13 +11,16 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { RoleGuard } from './guards/role.guard';
 import { BankaService } from './services/banka.service';
 import { DelatnostService } from './services/delatnost.service';
+import { KorisniciComponent } from './components/korisnici/korisnici.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    KorisniciComponent,
   ],
   imports: [
     BrowserModule,
