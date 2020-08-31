@@ -11,7 +11,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { RoleGuard } from './guards/role.guard';
 import { BankaService } from './services/banka.service';
 import { DelatnostService } from './services/delatnost.service';
-import { KorisniciComponent } from './components/korisnici/korisnici.component';
+import { DrzavaService } from './services/drzava.service';
+import { ValutaService } from './services/valuta.service';
+
 
 
 
@@ -19,8 +21,7 @@ import { KorisniciComponent } from './components/korisnici/korisnici.component';
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
-    KorisniciComponent,
+    routingComponents
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,7 @@ import { KorisniciComponent } from './components/korisnici/korisnici.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [KorisnikService,BankaService,DelatnostService,
+  providers: [KorisnikService,BankaService,DelatnostService,DrzavaService,ValutaService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

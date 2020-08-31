@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Server } from '../util/server';
+import { Observable } from 'rxjs';
+import { Korisnik } from '../model/korisnik';
 
 
 @Injectable({
@@ -9,9 +11,16 @@ import { Server } from '../util/server';
 })
 export class KorisnikService {
 
+  private readonly korisnikBaseUrl = `${Server.baseUrl}/${Server.api}/${Server.korisnik}`;
+
+  
   constructor(private _http: HttpClient,
     private _router: Router
     ) { }
+
+  getAll() : Observable<Korisnik[]>{
+    return this._http.get<Korisnik[]>(this.korisnikBaseUrl);
+  }
 
   login(userData){
     console.log(userData);

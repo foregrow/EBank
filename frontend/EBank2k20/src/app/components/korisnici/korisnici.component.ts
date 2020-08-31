@@ -1,6 +1,6 @@
-import { KorisniciService } from './../../services/korisnici.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { KorisnikService } from 'src/app/services/korisnik.service';
 
 @Component({
   selector: 'app-korisnici',
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class KorisniciComponent implements OnInit {
 
   korisnici;
-  constructor(private _ks: KorisniciService,
+  constructor(private _ks: KorisnikService,
     private _activatedRoute: ActivatedRoute, 
     private _router: Router) { }
 

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { KorisnikComponent } from './components/korisnik/korisnik.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
 import { BankaComponent } from './components/banka/banka.component';
@@ -11,6 +10,9 @@ import { DelatnostComponent } from './components/delatnost/delatnost.component';
 import { DelatnostDetailComponent } from './components/delatnost/delatnost-detail/delatnost-detail.component';
 import { BankaDetailComponent } from './components/banka/banka-detail/banka-detail.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { KorisnikComponent } from './components/korisnik/korisnik.component';
+import { DrzavaComponent } from './components/drzava/drzava.component';
+import { ValutaComponent } from './components/valuta/valuta.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'korisnik', pathMatch: 'full'},
@@ -45,6 +47,15 @@ const routes: Routes = [
   data: {
       roles: ['ADMIN']
     }},
+
+  {path: 'valute', component: ValutaComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+      roles: ['ADMIN']
+    }},
+  {path: 'drzave', component: DrzavaComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+    roles: ['ADMIN']
+  }},
   {path: 'not-found', component:NotFoundComponent},
   {path: '**', redirectTo: 'korisnik', pathMatch: 'full'}
 ];
@@ -57,4 +68,4 @@ export class AppRoutingModule { }
 
 export const routingComponents = [
 LoginComponent,AdminComponent,KorisnikComponent,BankaComponent,DelatnostComponent,BankaDetailComponent,DelatnostDetailComponent,
-NotFoundComponent,KorisniciComponent]
+NotFoundComponent,KorisniciComponent,DrzavaComponent,ValutaComponent]

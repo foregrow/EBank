@@ -27,5 +27,11 @@ export class AdminComponent implements OnInit {
   viewKlijenti(){
     this._router.navigate(['klijenti']);
   }
+  viewDrzave(){
+    this._router.navigate(['drzave']);
+  }
+  viewValute(){
+    this._router.navigate(['valute']);
+  }
 
 }

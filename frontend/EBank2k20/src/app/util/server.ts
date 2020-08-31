@@ -5,6 +5,7 @@ export class Server{
     public static readonly korisnik: string = "korisnik";
     public static readonly banka: string = "banka";
     public static readonly delatnost: string = "delatnost";
-    public static readonly korisnici: string = "korisnici";
+    public static readonly drzava: string = "drzava";
+    public static readonly valuta: string = "valuta";
 }
 
