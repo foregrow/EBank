@@ -51,6 +51,12 @@ public class DelatnostService  implements DelatnostServiceInterface {
 		}
 		return dtos;
 	}
+	@Override
+	public DelatnostDTO getDelatnostDTO(Delatnost del) {
+		DelatnostDTO dto = new DelatnostDTO(del);
+		dto.setKlijentiListFromSet(del.getKlijenti());
+		return dto;
+	}
 
 
 }

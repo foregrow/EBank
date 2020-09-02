@@ -1,5 +1,6 @@
 import { Racun } from './racun';
 import { KursnaLista } from './kursnalista';
+import { Korisnik } from './korisnik';
 
 export class Banka{
     /*
@@ -30,10 +31,11 @@ export class Banka{
 
    racuni: Racun[] = [];
    kursneListe: KursnaLista[] = [];
-
+   izvrsioci: Korisnik[] = [];
    constructor(id:number,sifra:string,naziv:string,
     adresa:string, email:string, web:string, telefon: string, fax: string,
-    swift: string,obracunskiRacun: string,racuni: Racun[],kursneListe: KursnaLista[]){
+    swift: string,obracunskiRacun: string,racuni: Racun[],kursneListe: KursnaLista[],
+    izvrsioci: Korisnik[]){
     this.id = id;
     this.sifra = sifra;
     this.naziv = naziv;
@@ -46,5 +48,6 @@ export class Banka{
     this.obracunskiRacun = obracunskiRacun;
     this.racuni = racuni;
     this.kursneListe = kursneListe;
+    this.izvrsioci = izvrsioci;
     }
 }

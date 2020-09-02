@@ -45,9 +45,18 @@ public class BankaService  implements BankaServiceInterface {
 			BankaDTO dto = new BankaDTO(b);
 			dto.setRacuniListFromSet(b.getRacuni()); //pretvara set tipa Racun u listu tipa RacunDTO
 			dto.setKursneListeListFromSet(b.getKursneListe());
+			dto.setIzvrsiociListFromSet(b.getIzvrsioci());
 			dtos.add(dto);
 		}
 		return dtos;
+	}
+	@Override
+	public BankaDTO getBankaDTO(Banka b) {
+		BankaDTO dto = new BankaDTO(b);
+		dto.setRacuniListFromSet(b.getRacuni()); 
+		dto.setKursneListeListFromSet(b.getKursneListe());
+		dto.setIzvrsiociListFromSet(b.getIzvrsioci());
+		return dto;
 	}
 
 }

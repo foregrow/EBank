@@ -16,10 +16,10 @@ export class DelatnostComponent implements OnInit {
     private _router: Router) { }
 
   ngOnInit(): void {
-  this.fetchDelatnosti();
+  this.fetchData();
   }
 
-  fetchDelatnosti() {
+  fetchData() {
     this._ds.getAll()
         .subscribe(data=>{
           this.delatnosti = data;

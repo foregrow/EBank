@@ -19,4 +19,6 @@ public interface ValutaServiceInterface {
 	
 	List<ValutaDTO> getAllDTOs(List<Valuta> valute);
 	
+	ValutaDTO getValutaDTO(Valuta valuta);
+	
 }

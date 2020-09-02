@@ -39,13 +39,14 @@ public class Banka {
 	private Set<Racun> racuni = new HashSet<Racun>();
 	@OneToMany(mappedBy = "banka")
 	private Set<KursnaLista> kursneListe = new HashSet<KursnaLista>();
-	
+	@OneToMany(mappedBy = "banka")
+	private Set<Korisnik> izvrsioci = new HashSet<Korisnik>();
 	public Banka() {
 		
 	}
 	
 	public Banka(long id, String sifra, String naziv, String adresa, String email, String web, String telefon,
-			String fax, String swift, String obracunskiRacun, Set<Racun> racuni, Set<KursnaLista> kursneListe) {
+			String fax, String swift, String obracunskiRacun, Set<Racun> racuni, Set<KursnaLista> kursneListe,Set<Korisnik> izvrsioci) {
 		super();
 		this.id = id;
 		this.sifra = sifra;
@@ -59,6 +60,7 @@ public class Banka {
 		this.obracunskiRacun = obracunskiRacun;
 		this.racuni = racuni;
 		this.kursneListe = kursneListe;
+		this.izvrsioci = izvrsioci;
 	}
 
 	public long getId() {
@@ -155,6 +157,14 @@ public class Banka {
 
 	public void setKursneListe(Set<KursnaLista> kursneListe) {
 		this.kursneListe = kursneListe;
+	}
+
+	public Set<Korisnik> getIzvrsioci() {
+		return izvrsioci;
+	}
+
+	public void setIzvrsioci(Set<Korisnik> izvrsioci) {
+		this.izvrsioci = izvrsioci;
 	}
 	
 	

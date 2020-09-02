@@ -40,9 +40,8 @@ public class BankaController {
 		
 		if(b == null)
 			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
-		BankaDTO dto = new BankaDTO(b);
-		dto.setRacuniListFromSet(b.getRacuni()); //pretvara set tipa Racun u listu tipa RacunDTO
-		dto.setKursneListeListFromSet(b.getKursneListe());
+		BankaDTO dto = bs.getBankaDTO(b);
+		
 		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
 	

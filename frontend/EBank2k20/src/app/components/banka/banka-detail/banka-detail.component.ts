@@ -117,7 +117,7 @@ export class BankaDetailComponent implements OnInit {
     var sifra = this.sifra.value;
 
     if(param === 'add'){
-      var banka: Banka = new Banka(null,sifra,naziv,adresa,email,web,telefon,fax,swift,null,null,null);
+      var banka: Banka = new Banka(null,sifra,naziv,adresa,email,web,telefon,fax,swift,null,null,null,null);
       this._bs.add(banka).subscribe(
         response => {
           this._router.navigate(['banke']);
@@ -125,7 +125,7 @@ export class BankaDetailComponent implements OnInit {
         error =>{ alert('Greska prilikom dodavanja banke!');
       });
     }else if(param === 'edit'){
-      var banka: Banka = new Banka(this.banka.id,sifra,naziv,adresa,email,web,telefon,fax,swift,null,null,null);
+      var banka: Banka = new Banka(this.banka.id,sifra,naziv,adresa,email,web,telefon,fax,swift,null,null,null,null);
 
       this._bs.update(banka).subscribe(
         response =>{

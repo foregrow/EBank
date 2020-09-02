@@ -16,10 +16,10 @@ export class BankaComponent implements OnInit {
     private _router: Router) { }
 
   ngOnInit(): void {
-  this.fetchBanke();
+  this.fetchData();
   }
 
-  fetchBanke() {
+  fetchData() {
     this._bs.getAll()
         .subscribe(data => this.banke = data);
   }

@@ -62,4 +62,9 @@ public class KorisnikService  implements KorisnikServiceInterface, UserDetailsSe
 		}
 		return dtos;	
 	}
+	@Override
+	public KorisnikDTO getKorisnikDTO(Korisnik k) {
+		KorisnikDTO dto = new KorisnikDTO(k);
+		return dto;
+	}
 }

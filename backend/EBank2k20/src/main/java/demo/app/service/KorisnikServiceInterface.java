@@ -19,4 +19,6 @@ public interface KorisnikServiceInterface {
 	
 	List<KorisnikDTO> getAllDTOs(List<Korisnik> korisnici);
 	
+	KorisnikDTO getKorisnikDTO(Korisnik korisnik);
+	
 }

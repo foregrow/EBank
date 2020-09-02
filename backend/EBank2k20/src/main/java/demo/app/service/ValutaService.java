@@ -2,6 +2,7 @@ package demo.app.service;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 
 
@@ -46,11 +47,22 @@ public class ValutaService  implements ValutaServiceInterface {
 		List<ValutaDTO> dtos = new ArrayList<>();
 		for (Valuta v : valute) {
 			ValutaDTO dto = new ValutaDTO(v);
-			//dto.setRacuniListFromSet(b.getRacuni());
-			//dto.setKursneListeListFromSet(b.getKursneListe());
+			dto.setRacuniListFromSet(v.getRacuni());
+			dto.setKursKaoOsnovnaListFromSet(v.getKursKaoOsnovnaValuta());
+			dto.setKursKaoSporednaListFromSet(v.getKursKaoSporednaValuta());
+			dto.setNaloziListFromSet(v.getNalozi());
 			dtos.add(dto);
 		}
 		return dtos;
+	}
+	@Override
+	public ValutaDTO getValutaDTO(Valuta v) {
+		ValutaDTO dto = new ValutaDTO(v);
+		dto.setRacuniListFromSet(v.getRacuni());
+		dto.setKursKaoOsnovnaListFromSet(v.getKursKaoOsnovnaValuta());
+		dto.setKursKaoSporednaListFromSet(v.getKursKaoSporednaValuta());
+		dto.setNaloziListFromSet(v.getNalozi());
+		return dto;
 	}
 
 }

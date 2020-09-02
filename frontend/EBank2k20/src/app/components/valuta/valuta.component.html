@@ -1,1 +1,23 @@
-<p>valuta works!</p>
+<div class="container">
+    <h2 class="mt-5 mb-5">Sve valute </h2>
+    <!-- w-25,75,50.. klasa za width tabele  -->
+    <table class="table table-hover w-75">
+        <thead>
+          <tr>
+            <th >#</th>
+            <th> Naziv</th>
+            <th> Sifra</th>
+            <th> Drzava</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let obj of valute; index as i">
+          <tr>
+            <td>{{i+1}}</td>
+            <td>{{obj.naziv}}</td>
+            <td>{{obj.sifra}}</td>
+            <td>{{obj.drzava.naziv}}</td>
+            <td><a class="btn btn-sm text-white btn-danger" (click)="delete(obj.id)">Izbrisi</a></td>
+        </tr>
+        </tbody>
+      </table>
+</div>

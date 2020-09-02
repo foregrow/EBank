@@ -1,8 +1,13 @@
 package demo.app.web.dto;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
+import java.util.Set;
+
+import demo.app.entity.KursUValuti;
+import demo.app.entity.Nalog;
+import demo.app.entity.Racun;
 import demo.app.entity.Valuta;
 
 public class ValutaDTO {
@@ -91,6 +96,30 @@ public class ValutaDTO {
 	}
 	public List<NalogDTO> getNalozi() {
 		return nalozi;
+	}
+	
+	public void setRacuniListFromSet(Set<Racun> racuni) {
+		List<Racun> rl = new ArrayList<Racun>(racuni);
+		for(Racun obj : rl)
+			this.racuni.add(new RacunDTO(obj));
+	}
+
+	public void setKursKaoOsnovnaListFromSet(Set<KursUValuti> kurseviUValuti) {
+		List<KursUValuti> kuvl = new ArrayList<KursUValuti>(kurseviUValuti);
+		for(KursUValuti obj : kuvl)
+			this.kursKaoOsnovnaValuta.add(new KursUValutiDTO(obj));
+	}
+	
+	public void setKursKaoSporednaListFromSet(Set<KursUValuti> kurseviUValuti) {
+		List<KursUValuti> kuvl = new ArrayList<KursUValuti>(kurseviUValuti);
+		for(KursUValuti obj : kuvl)
+			this.kursKaoSporednaValuta.add(new KursUValutiDTO(obj));
+	}
+	
+	public void setNaloziListFromSet(Set<Nalog> nalozi) {
+		List<Nalog> nl = new ArrayList<Nalog>(nalozi);
+		for(Nalog obj : nl)
+			this.nalozi.add(new NalogDTO(obj));
 	}
 
 	

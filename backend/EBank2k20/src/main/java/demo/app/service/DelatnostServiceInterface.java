@@ -17,4 +17,6 @@ public interface DelatnostServiceInterface {
 	
 	List<DelatnostDTO> getAllDTOs(List<Delatnost> delatnosti);
 	
+	DelatnostDTO getDelatnostDTO(Delatnost del);
+	
 }

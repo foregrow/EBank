@@ -16,20 +16,14 @@ export class ValutaComponent implements OnInit {
     private _router: Router) { }
 
   ngOnInit(): void {
-  this.fetchBanke();
+  this.fetchData();
   }
 
-  fetchBanke() {
+  fetchData() {
     this._vs.getAll()
         .subscribe(data => this.valute = data);
   }
 
-  navigateToAdd(param){
-    this._router.navigate(['valute-detail/'+param]);
-  }
-  details(valuta){
-    this._router.navigate(['valute-detail/'+valuta.id]);
-  }
   delete(id){
     this._vs.delete(id)
       .subscribe(

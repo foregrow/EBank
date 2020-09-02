@@ -35,6 +35,8 @@ export class KorisnikService {
         this._router.navigate(['admin']);
       }else if(role == 'KORISNIK'){
         this._router.navigate(['korisnik']);
+      }else if(role == 'IZVRSILAC'){
+        this._router.navigate(['izvrsilac']);
       }
     }  
   }

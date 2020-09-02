@@ -17,4 +17,6 @@ public interface BankaServiceInterface {
 	
 	List<BankaDTO> getAllDTOs(List<Banka> banke);
 	
+	BankaDTO getBankaDTO(Banka banka);
+	
 }

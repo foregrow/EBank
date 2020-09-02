@@ -13,7 +13,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { KorisnikComponent } from './components/korisnik/korisnik.component';
 import { DrzavaComponent } from './components/drzava/drzava.component';
 import { ValutaComponent } from './components/valuta/valuta.component';
-
+import { IzvrsilacComponent } from './components/izvrsilac/izvrsilac.component';
 const routes: Routes = [
   {path: '', redirectTo: 'korisnik', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
@@ -25,6 +25,10 @@ const routes: Routes = [
   data: {
       roles: ['KORISNIK']
     }},
+  {path: 'izvrsilac', component: IzvrsilacComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+    roles: ['IZVRSILAC']
+  }},
     {path: 'korisnici', component: KorisniciComponent, canActivate: [AuthGuard,RoleGuard],
     data: {
         roles: ['ADMIN']
@@ -67,5 +71,5 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 export const routingComponents = [
-LoginComponent,AdminComponent,KorisnikComponent,BankaComponent,DelatnostComponent,BankaDetailComponent,DelatnostDetailComponent,
+LoginComponent,AdminComponent,KorisnikComponent,IzvrsilacComponent,BankaComponent,DelatnostComponent,BankaDetailComponent,DelatnostDetailComponent,
 NotFoundComponent,KorisniciComponent,DrzavaComponent,ValutaComponent]

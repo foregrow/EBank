@@ -1,10 +1,13 @@
 package demo.app.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import demo.app.enums.UlogaKorisnika;
@@ -25,18 +28,22 @@ public class Korisnik {
 	@OneToOne
 	private Klijent klijent;
 	
+	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	private Banka banka;
+	
 	public Korisnik() {
 		
 	}
 	
 
-	public Korisnik(long id, String korisnickoIme, String lozinka, UlogaKorisnika uloga, Klijent klijent) {
+	public Korisnik(long id, String korisnickoIme, String lozinka, UlogaKorisnika uloga, Klijent klijent, Banka banka) {
 		super();
 		this.id = id;
 		this.korisnickoIme = korisnickoIme;
 		this.lozinka = lozinka;
 		this.uloga = uloga;
 		this.klijent = klijent;
+		this.banka = banka;
 	}
 
 
@@ -78,6 +85,16 @@ public class Korisnik {
 
 	public void setKlijent(Klijent klijent) {
 		this.klijent = klijent;
+	}
+
+
+	public Banka getBanka() {
+		return banka;
+	}
+
+
+	public void setBanka(Banka banka) {
+		this.banka = banka;
 	}
 	
 	

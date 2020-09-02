@@ -41,8 +41,8 @@ public class DelatnostController {
 		
 		if(d == null)
 			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
-		DelatnostDTO dto = new DelatnostDTO(d);
-		dto.setKlijentiListFromSet(d.getKlijenti());
+		DelatnostDTO dto = ds.getDelatnostDTO(d);
+		
 		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
 	
