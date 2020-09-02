@@ -19,7 +19,7 @@ import demo.app.web.dto.KorisnikDTO;
 
 @Service
 @Transactional(readOnly = true)
-public class KorisnikService  implements KorisnikServiceInterface, UserDetailsService {
+public class KorisnikService  implements KorisnikServiceInterface, KorisnikDTOServiceInterface, UserDetailsService {
 
 	@Autowired
 	KorisnikRepository kr;

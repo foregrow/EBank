@@ -17,7 +17,7 @@ import demo.app.web.dto.DelatnostDTO;
 
 @Service
 @Transactional(readOnly = true)
-public class DelatnostService  implements DelatnostServiceInterface {
+public class DelatnostService  implements DelatnostServiceInterface, DelatnostDTOServiceInterface {
 
 	@Autowired
 	DelatnostRepository dr;

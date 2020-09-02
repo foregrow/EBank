@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <h4 class="mt-5 mb-3" *ngIf="this.addEditParam === 'add'">Dodavanje nove drzave</h4>
+    <h4 class="mt-5 mb-3" *ngIf="this.addEditParam !== 'add'">Informacije o drzavi</h4>
+    <form [formGroup]="addEditForm" class="w-25">
+        <div class="form-group">
+            <label>Naziv</label>
+            <input formControlName="naziv" type="text" class="form-control">
+            <small [class.d-none]="naziv.valid || naziv.untouched" class="text-danger">Naziv je obavezan!</small> 
+        </div>
+    <div class="form-group">
+        <label>Sifra</label>
+        <input formControlName="sifra" type="text" class="form-control">
+        <small [class.d-none]="sifra.valid || sifra.untouched" class="text-danger">Sifra je obavezna i mora biti u ispravnom formatu!(XX)</small> 
+        <small *ngIf="sifraExists && addEditParam === 'add'" class="text-danger">Sifra vec postoji!</small>
+    </div>
+    <button *ngIf="this.addEditParam === 'add'" class="btn btn-primary" (click)="submitDrzava('add')" [disabled]="addEditForm.invalid || sifraExists" type="submit">Dodaj</button>
+    </form>
+
+    <div class="container-fluid mt-5" *ngIf="drzava !== undefined">
+        <h2 class="mt-3">Valute u drzavi: </h2>
+        <table class="table table-hover w-50">
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>Naziv</th>
+                <th>Sifra</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let obj of drzava.valute; index as i">
+                <tr>
+                <td>{{i+1}}</td><td>{{obj.naziv}}</td><td>{{obj.sifra}}</td>
+                </tr>
+            </tbody>
+            </table>
+    </div>
+</div>

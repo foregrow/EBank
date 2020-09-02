@@ -19,7 +19,7 @@ import demo.app.web.dto.ValutaDTO;
 
 @Service
 @Transactional(readOnly = true)
-public class ValutaService  implements ValutaServiceInterface {
+public class ValutaService  implements ValutaServiceInterface, ValutaDTOServiceInterface {
 
 	@Autowired
 	ValutaRepository vr;

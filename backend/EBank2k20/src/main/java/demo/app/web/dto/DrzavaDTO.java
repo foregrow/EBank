@@ -1,9 +1,13 @@
 package demo.app.web.dto;
 
 import java.util.ArrayList;
+
 import java.util.List;
+import java.util.Set;
 
 import demo.app.entity.Drzava;
+import demo.app.entity.Nalog;
+import demo.app.entity.Valuta;
 
 public class DrzavaDTO {
 
@@ -63,6 +67,18 @@ public class DrzavaDTO {
 
 	public List<NalogDTO> getNalozi() {
 		return nalozi;
+	}
+	
+	public void setValuteListFromSet(Set<Valuta> valute) {
+		List<Valuta> vl = new ArrayList<Valuta>(valute);
+		for(Valuta obj : vl)
+			this.valute.add(new ValutaDTO(obj));
+	}
+	
+	public void setNaloziListFromSet(Set<Nalog> nalozi) {
+		List<Nalog> nl = new ArrayList<Nalog>(nalozi);
+		for(Nalog obj : nl)
+			this.nalozi.add(new NalogDTO(obj));
 	}
 
 	

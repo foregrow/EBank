@@ -31,4 +31,12 @@ export class ValutaComponent implements OnInit {
       ); 
   }
 
+  details(valuta){
+    this._router.navigate(['valute-detail/'+valuta.id]);
+  }
+
+  navigateToAdd(param){
+    this._router.navigate(['valute-detail/'+param]);
+  }
+
 }

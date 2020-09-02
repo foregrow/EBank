@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <h4 class="mt-5 mb-3" *ngIf="this.addEditParam === 'add'">Dodavanje nove valute</h4>
+    <h4 class="mt-5 mb-3" *ngIf="this.addEditParam !== 'add'">Informacije o valuti</h4>
+    <form [formGroup]="addEditForm" class="w-25">
+        <div class="form-group">
+            <label>Naziv</label>
+            <input formControlName="naziv" type="text" class="form-control">
+            <small [class.d-none]="naziv.valid || naziv.untouched" class="text-danger">Naziv je obavezan!</small> 
+        </div>
+    <div class="form-group">
+        <label>Sifra</label>
+        <input formControlName="sifra" type="text" class="form-control">
+        <small [class.d-none]="sifra.valid || sifra.untouched" class="text-danger">Sifra je obavezna i mora biti u ispravnom formatu!(XXX)</small> 
+        <small *ngIf="sifraExists && addEditParam === 'add'" class="text-danger">Sifra vec postoji!</small>
+    </div>
+    <div class="form-group" *ngIf="addEditParam !== 'add'">
+        <label>Drzava</label>
+        <input formControlName="drzavaEdit" type="text" class="form-control">
+    </div>
+    <div class="form-group" *ngIf="addEditParam === 'add'">
+        <label class="control-label">Drzava</label>
+        <select class="form-control" formControlName="drzava" >
+            <option [value]="null" disabled>Izaberite drzavu</option>
+            <option *ngFor="let drzava of drzave" [ngValue]="drzava">
+              {{ drzava.naziv }}, {{ drzava.sifra }}
+            </option>
+          </select> 
+    </div>
+    <button *ngIf="this.addEditParam === 'add'" class="btn btn-primary" (click)="submitValuta('add')" [disabled]="addEditForm.invalid || sifraExists || !drzavaSelected" type="submit">Dodaj</button>
+    </form>
+
+    <div class="container-fluid mt-5" *ngIf="valuta !== undefined">
+        <h2 class="mt-3">Racuni u valuti: </h2>
+        <table class="table table-hover w-50">
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>Broj racuna</th>
+                <th>Stanje</th>
+                <th>Banka</th>   
+                <th>Klijent</th>  
+                </tr>
+            </thead>
+            <tbody *ngFor="let obj of valuta.racuni; index as i">
+                <tr>
+                <td>{{i+1}}</td><td>{{obj.brojRacuna}}</td><td>{{obj.stanje}}</td>
+                <td>{{obj.banka.naziv}}</td><td>{{obj.klijent.ime}}</td>
+                </tr>
+            </tbody>
+            </table>
+    </div>
+</div>

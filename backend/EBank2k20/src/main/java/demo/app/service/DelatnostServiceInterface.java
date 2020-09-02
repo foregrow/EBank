@@ -2,8 +2,8 @@ package demo.app.service;
 
 import java.util.List;
 
+
 import demo.app.entity.Delatnost;
-import demo.app.web.dto.DelatnostDTO;
 
 public interface DelatnostServiceInterface {
 
@@ -14,9 +14,5 @@ public interface DelatnostServiceInterface {
 	Delatnost save(Delatnost del);
 	
 	void remove(long id);
-	
-	List<DelatnostDTO> getAllDTOs(List<Delatnost> delatnosti);
-	
-	DelatnostDTO getDelatnostDTO(Delatnost del);
-	
+
 }

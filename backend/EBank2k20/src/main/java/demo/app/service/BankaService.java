@@ -15,7 +15,7 @@ import demo.app.web.dto.BankaDTO;
 
 @Service
 @Transactional(readOnly = true)
-public class BankaService  implements BankaServiceInterface {
+public class BankaService  implements BankaServiceInterface, BankaDTOServiceInterface {
 
 	@Autowired
 	BankaRepository br;
