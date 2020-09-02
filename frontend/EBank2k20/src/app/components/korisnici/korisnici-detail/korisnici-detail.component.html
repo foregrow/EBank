@@ -1,0 +1,42 @@
+<!--<div class="container-fluid">
+    <h4 class="mt-5 mb-3" *ngIf="this.addEditParam === 'add'">Dodavanje nove drzave</h4>
+    <h4 class="mt-5 mb-3" *ngIf="this.addEditParam !== 'add'">Informacije o drzavi</h4>
+    <form [formGroup]="addEditForm" class="w-25">
+        <div class="form-group">
+            <label>Korisnicko ime</label>
+            <input [class.is-invalid]="korisnickoIme.invalid &&
+            korisnickoIme.touched" formControlName="korisnickoIme" type="text" class="form-control">
+            <small [class.d-none]="korisnickoIme.valid
+            || korisnickoIme.untouched" class="text-danger">Korisnicko ime je obavezno!</small>
+            <small *ngIf="korImeExists" class="text-danger">Uneto korisnicko ime je zauzeto!</small>
+        </div>
+        <div class="form-group">
+            <label>Lozinka</label>
+            <input [class.is-invalid]="lozinka.invalid &&
+            lozinka.touched" formControlName="lozinka" type="password" class="form-control">
+            <small [class.d-none]="lozinka.valid
+            || lozinka.untouched" class="text-danger">Lozinka je obavezna!</small>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Uloga korisnika</label>
+            <select class="form-control" formControlName="uloga" (change)="chosenKorisnik()" required>
+                <option [ngValue]="null" disabled>Izaberite ulogu korisnika</option>
+                <option *ngFor="let uloga of uloge" [ngValue]="uloga">
+                 {{ uloga }}
+                </option>
+              </select> 
+        </div>
+        <div class="form-group" *ngIf="izvrsilacSelected" >
+            <label class="control-label">Banka</label>
+            <select class="form-control"  formControlName="banka">
+                <option [ngValue]="null" disabled>Izaberite banku</option>
+                <option *ngFor="let banka of banke" [ngValue]="banka">
+                 {{ banka.naziv }}, {{ banka.sifra}}
+                </option>
+              </select> 
+        </div>
+    <button *ngIf="this.addEditParam === 'add'" class="btn btn-primary" (click)="submitKorisnik('add')" [disabled]="addEditForm.invalid || sifraExists" type="submit">Dodaj</button>
+    </form>
+
+</div>-->

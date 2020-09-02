@@ -22,6 +22,10 @@ export class KorisnikService {
     return this._http.get<Korisnik[]>(this.korisnikBaseUrl);
   }
 
+  add(data:Korisnik){
+    return this._http.post<any>(this.korisnikBaseUrl,data);
+  }
+
   login(userData){
     console.log(userData);
     return this._http.post<any>(`${Server.baseUrl}/${Server.authenticateUrl}`, userData);

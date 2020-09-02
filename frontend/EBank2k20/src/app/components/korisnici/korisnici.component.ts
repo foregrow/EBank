@@ -15,12 +15,20 @@ export class KorisniciComponent implements OnInit {
     private _router: Router) { }
 
     ngOnInit(): void {
-      this.fetchKorisnici();
-      }
+      this.fetchData();
+    }
     
-      fetchKorisnici() {
-        this._ks.getAll()
-            .subscribe(data => this.korisnici = data);
-      }
+    fetchData() {
+      this._ks.getAll()
+          .subscribe(data => this.korisnici = data);
+    }
+
+    details(kor){
+      this._router.navigate(['korisnici-detail/'+kor.id]);
+    }
+  
+    navigateToAdd(param){
+      this._router.navigate(['korisnici-detail/'+param]);
+    }
 
 }

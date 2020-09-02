@@ -1,6 +1,6 @@
 <div class="container">
-    <h2 class="mt-5 mb-5">Svi korisnici</h2>
-    <!-- w-25,75,50.. klasa za width tabele  -->
+  <h2 class="mt-5 mb-5">Svi korisnici<a class="btn btn-sm text-white btn-success ml-3" (click)="navigateToAdd('add')">Dodaj novog korisnika</a></h2>
+  <!-- w-25,75,50.. klasa za width tabele  -->
     <table class="table table-hover w-75">
         <thead>
           <tr>
@@ -16,6 +16,7 @@
             <td>{{i+1}}</td>
             <td>{{obj.korisnickoIme}}</td>
             <td>{{obj.uloga}}</td>
+            <td><a class="btn btn-sm text-white btn-primary" (click)="details(obj)">Detalji</a></td>
         </tr>
         </tbody>
       </table>
