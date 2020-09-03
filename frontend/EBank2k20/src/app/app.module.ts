@@ -13,13 +13,15 @@ import { BankaService } from './services/banka.service';
 import { DelatnostService } from './services/delatnost.service';
 import { DrzavaService } from './services/drzava.service';
 import { ValutaService } from './services/valuta.service';
+import { KlijentiComponent } from './components/klijenti/klijenti.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    KlijentiComponent
   ],
   imports: [
     BrowserModule,

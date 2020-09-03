@@ -2,8 +2,10 @@ package demo.app.web.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import demo.app.entity.Klijent;
+import demo.app.entity.Racun;
 import demo.app.enums.TipKlijenta;
 
 
@@ -130,6 +132,12 @@ public class KlijentDTO {
 
 	public List<RacunDTO> getRacuni() {
 		return racuni;
+	}
+	
+	public void setRacuniListFromSet(Set<Racun> racuni) {
+		List<Racun> ra = new ArrayList<Racun>(racuni);
+		for(Racun obj: ra)
+			this.racuni.add(new RacunDTO(obj));
 	}
 
 	

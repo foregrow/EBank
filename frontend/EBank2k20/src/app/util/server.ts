@@ -7,5 +7,6 @@ export class Server{
     public static readonly delatnost: string = "delatnost";
     public static readonly drzava: string = "drzava";
     public static readonly valuta: string = "valuta";
+    public static readonly klijent: string = "klijent";
 }
 
