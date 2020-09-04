@@ -13,15 +13,14 @@ import { BankaService } from './services/banka.service';
 import { DelatnostService } from './services/delatnost.service';
 import { DrzavaService } from './services/drzava.service';
 import { ValutaService } from './services/valuta.service';
-import { KlijentiComponent } from './components/klijenti/klijenti.component';
+import { KlijentService } from './services/klijent.service';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
-    KlijentiComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,
@@ -30,7 +29,7 @@ import { KlijentiComponent } from './components/klijenti/klijenti.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [KorisnikService,BankaService,DelatnostService,DrzavaService,ValutaService,
+  providers: [KorisnikService,BankaService,DelatnostService,DrzavaService,ValutaService,KlijentService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

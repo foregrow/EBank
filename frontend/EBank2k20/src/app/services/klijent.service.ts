@@ -15,4 +15,8 @@ export class KlijentService {
   getAll() : Observable<Klijent[]>{
     return this._http.get<Klijent[]>(this.klijentBaseUrl);
   }
+
+  getByKorIme(korIme): Observable<Klijent[]>{
+    return this._http.get<Klijent[]>(`${this.klijentBaseUrl}/korisnik/${korIme}`);
+  }
 }

@@ -63,8 +63,27 @@
             </thead>
             <tbody *ngFor="let racun of banka.racuni; index as i">
                 <tr>
-                <td>{{i+1}}</td><td>{{racun.brojRacuna}}</td><td>{{racun.datumKreiranja}}</td>
+                <td>{{i+1}}</td><td>{{racun.brojRacuna}}</td><td>{{racun.datumKreiranja | date:'short'}}</td>
                 <td>{{racun.stanje}}</td><td>{{racun.klijent.ime}}</td>
+                </tr>
+            </tbody>
+            </table>
+    </div>
+    <div class="container-fluid mt-5" *ngIf="banka !== undefined">
+        <h2 class="mt-3">Kursne liste banke: </h2>
+        <table class="table table-hover w-50">
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>Broj</th>
+                <th>Datum</th>
+                <th>Datum primene</th>   
+                </tr>
+            </thead>
+            <tbody *ngFor="let kl of banka.kursneListe; index as i">
+                <tr>
+                <td>{{i+1}}</td><td>{{kl.broj}}</td><td>{{kl.datum | date:'short'}}</td>
+                <td>{{kl.datumPrimene | date:'short'}}</td>
                 </tr>
             </tbody>
             </table>

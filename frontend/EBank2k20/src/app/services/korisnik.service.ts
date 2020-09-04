@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Server } from '../util/server';
 import { Observable } from 'rxjs';
 import { Korisnik } from '../model/korisnik';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,16 @@ export class KorisnikService {
     return this._http.get<Korisnik[]>(this.korisnikBaseUrl);
   }
 
+  getById(id): Observable<Korisnik[]>{
+    return this._http.get<Korisnik[]>(`${this.korisnikBaseUrl}/${+id}`);
+  }
+
   add(data:Korisnik){
     return this._http.post<any>(this.korisnikBaseUrl,data);
+  }
+
+  update(data:Korisnik){
+    return this._http.put<any>(this.korisnikBaseUrl,data);
   }
 
   login(userData){
@@ -54,6 +62,13 @@ export class KorisnikService {
 
   getToken(){
     return localStorage.getItem('jwt');
+  }
+
+  getLoggedInUserKorIme(){
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(this.getToken());
+    const kor = decodedToken.sub;
+    return kor;
   }
 
   getRole(){
