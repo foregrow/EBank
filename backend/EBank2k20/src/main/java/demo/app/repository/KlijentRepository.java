@@ -6,4 +6,5 @@ import demo.app.entity.Klijent;
 
 public interface KlijentRepository extends JpaRepository<Klijent, Long> {
 
+	Klijent getByKorisnikId(long id);
 }

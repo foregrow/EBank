@@ -74,4 +74,17 @@ public class KorisnikController {
 		return new ResponseEntity<>(new KorisnikDTO(kor), HttpStatus.OK);
 	}
 	
+	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+    public ResponseEntity<KorisnikDTO> update(@RequestBody KorisnikDTO korDTO){
+        Korisnik kor = ks.findOne(korDTO.getId());
+ 
+        if(kor == null)
+            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+        
+        kor.setLozinka(PasswordBCrypt.hashPassword(korDTO.getLozinka()));
+        ks.save(kor);
+       
+        return new ResponseEntity<>(new KorisnikDTO(kor), HttpStatus.OK);
+    }
+	
 }

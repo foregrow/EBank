@@ -13,5 +13,7 @@ public interface KlijentServiceInterface {
 	Klijent save(Klijent klijent);
 	
 	void remove(long id);
+	
+	Klijent getByKorisnikId(long id);
 
 }

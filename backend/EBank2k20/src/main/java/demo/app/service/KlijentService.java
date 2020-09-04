@@ -46,6 +46,11 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 	}
 	
 	@Override
+	public Klijent getByKorisnikId(long id) {
+		return kr.getByKorisnikId(id);
+	}
+	
+	@Override
 	public List<KlijentDTO> getAllDTOs(List<Klijent> klijenti) {
 		List<KlijentDTO> dtos = new ArrayList<>();
 		for(Klijent k : klijenti) {
@@ -62,5 +67,8 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 		dto.setRacuniListFromSet(klijent.getRacuni());
 		return dto;
 	}
+
+
+	
 	
 }

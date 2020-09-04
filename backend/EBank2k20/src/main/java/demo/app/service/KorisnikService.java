@@ -33,10 +33,12 @@ public class KorisnikService  implements KorisnikServiceInterface, KorisnikDTOSe
 		return kr.findById(id).orElse(null);
 	}
 	@Override
+	@Transactional(readOnly = false)
 	public Korisnik save(Korisnik kor) {
 		return kr.save(kor);
 	}
 	@Override
+	@Transactional(readOnly = false)
 	public void remove(long id) {
 		kr.deleteById(id);
 	}
