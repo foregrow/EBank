@@ -21,14 +21,12 @@ import demo.app.entity.Klijent;
 import demo.app.entity.Korisnik;
 import demo.app.entity.Racun;
 import demo.app.entity.Valuta;
-import demo.app.enums.UlogaKorisnika;
 import demo.app.service.BankaService;
 import demo.app.service.DelatnostService;
 import demo.app.service.KlijentService;
 import demo.app.service.KorisnikService;
 import demo.app.service.RacunService;
 import demo.app.service.ValutaService;
-import demo.app.util.PasswordBCrypt;
 import demo.app.web.dto.KlijentDTO;
 
 @RestController
@@ -101,34 +99,36 @@ public class KlijentController {
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/zahtev/{bid}/{vid}",method=RequestMethod.POST, consumes="application/json")
-	public ResponseEntity<?> save(@PathVariable long bid, @PathVariable long vid, @RequestBody KlijentDTO dto){
+	@RequestMapping(value="/zahtev/{bid}/{vid}/{param}",method=RequestMethod.POST, consumes="application/json")
+	public ResponseEntity<?> save(@PathVariable long bid, @PathVariable long vid, @PathVariable int param,
+			@RequestBody KlijentDTO dto){
 		Banka banka = bs.findOne(bid);
 		Valuta valuta = vs.findOne(vid);
 		if(banka == null)
 			return new ResponseEntity<>("Nepostojeca banka!",HttpStatus.NOT_FOUND);
 		if(valuta == null)
 			return new ResponseEntity<>("Nepostojeca valuta!",HttpStatus.NOT_FOUND);
-		
-		Korisnik k = new Korisnik();
-		String korIme = kos.createKorIme(dto.getIme(), dto.getPrezime());
-		k.setKorisnickoIme(korIme);
-		k.setUloga(UlogaKorisnika.KORISNIK);
-		k.setLozinka(PasswordBCrypt.hashPassword(dto.getIme()));
-		
-		Klijent kl = new Klijent();
-		kl.setAdresa(dto.getAdresa());
-		if(dto.getDelatnost() != null) {
-			Delatnost del = ds.findOne(dto.getDelatnost().getId());
-			kl.setDelatnost(del);
+		Klijent kl = null;
+		if(param == 1) {
+			//ako nema acc
+			kl = new Klijent();
+			kl.setAdresa(dto.getAdresa());
+			if(dto.getDelatnost() != null) {
+				Delatnost del = ds.findOne(dto.getDelatnost().getId());
+				kl.setDelatnost(del);
+			}
+			kl.setIme(dto.getIme());
+			kl.setPrezime(dto.getPrezime());
+			kl.setJmbg(dto.getJmbg());
+			kl.setOdobren(false);
+			kl.setTelefon(dto.getTelefon());
+			kl.setTipKlijenta(dto.getTipKlijenta());
+			
+		}else if(param == 0) {
+			//vec ima acc pa mu samo pravimo nov racun
+			kl = ks.findOne(dto.getId());
 		}
-		kl.setIme(dto.getIme());
-		kl.setPrezime(dto.getPrezime());
-		kl.setJmbg(dto.getJmbg());
-		kl.setOdobren(false);
-		kl.setTelefon(dto.getTelefon());
-		kl.setTipKlijenta(dto.getTipKlijenta());
-		
+		//racun se u oba slucaja pravi
 		Racun racun = new Racun();
 		racun.setBrojRacuna(rs.createBrojRacuna(banka));
 		racun.setBanka(banka);
@@ -137,31 +137,51 @@ public class KlijentController {
 		racun.setOdobren(false);
 		racun.setValuta(valuta);
 		racun.setStanje(0);
-		ks.zahtevZaOtvaranjeRacuna(kl, racun, k);
+		
+		ks.zahtevZaOtvaranjeRacuna(kl, racun);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
-	public ResponseEntity<?> update(@RequestBody KlijentDTO dto){
+	@RequestMapping(value="/{param}/{racunId}",method=RequestMethod.PUT, consumes="application/json")
+	public ResponseEntity<?> update(@PathVariable int param,@PathVariable long racunId,@RequestBody KlijentDTO dto){
 		Klijent klijent = ks.findOne(dto.getId());
 		if(klijent == null)
 			return new ResponseEntity<>("Greska prilikom prihvatanja zahteva", HttpStatus.NOT_FOUND);
-		ks.prihvatanjeZahtevaKlijenta(klijent);
+		Racun racun = rs.findOne(racunId);
+		if(racun == null && param == 0) {
+			//racun se salje samo u slucaju kad klijent vec postoji
+			return new ResponseEntity<>("Racun null", HttpStatus.NOT_FOUND);
+		}
+			
+		ks.prihvatanjeZahtevaKlijenta(klijent,racun,param);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<?> delete(@PathVariable long id){
-		
+	@RequestMapping(value="/{id}/{racunId}/{param}", method=RequestMethod.DELETE)
+	public ResponseEntity<?> delete(@PathVariable long id,@PathVariable long racunId,@PathVariable int param){
 		Klijent klijent = ks.findOne(id);
-		if (klijent != null){
-			ks.remove(id);
+		if(param == 1) {
+			if (klijent != null){
+				ks.remove(id);
+				return new ResponseEntity<>(HttpStatus.OK);
+			}	
+				
+		}else if(param == 0) {
+			Racun racun = null;
 			
-			return new ResponseEntity<>(HttpStatus.OK);
-		} else		
-			return new ResponseEntity<>("Greska prilikom brisanja zahteva!",HttpStatus.NOT_FOUND);
+			if (klijent != null){
+				for(Racun r : klijent.getRacuni()) {
+					if(r.getId() == racunId)
+						racun = r;
+				}
+				klijent.getRacuni().remove(racun);
+				rs.remove(racun.getId());
+				return new ResponseEntity<>(HttpStatus.OK);
+			}	
+		}
 		
+		return new ResponseEntity<>("Greska prilikom brisanja zahteva!",HttpStatus.NOT_FOUND);
 	}
 	
 

@@ -24,15 +24,15 @@ export class KlijentService {
   }
 
   //klijent salje zahtev za otvaranje racuna
-  add(data:Klijent,bid,vid){
-    return this._http.post<any>(`${this.klijentBaseUrl}/zahtev/${+bid}/${+vid}`,data);
+  add(data:Klijent,bid,vid,param){
+    return this._http.post<any>(`${this.klijentBaseUrl}/zahtev/${+bid}/${+vid}/${+param}`,data);
   }
 
-  update(data:Klijent){
-    return this._http.put<any>(this.klijentBaseUrl,data);
+  update(param,racunId,data:Klijent){
+    return this._http.put<any>(`${this.klijentBaseUrl}/${+param}/${+racunId}`,data);
   }
 
-  delete(id){
-    return this._http.delete(`${this.klijentBaseUrl}/${+id}`);
+  delete(id,racunId,param){
+    return this._http.delete(`${this.klijentBaseUrl}/${+id}/${+racunId}/${+param}`);
   }
 }

@@ -154,6 +154,15 @@ public class KlijentDTO {
 		}
 			
 	}
+	
+	public void setRacuniListFromSet(Set<Racun> racuni) {
+		List<Racun> ra = new ArrayList<Racun>(racuni);
+		for(Racun obj: ra) {
+			
+			this.racuni.add(new RacunDTO(obj));	
+		}
+			
+	}
 
 	
 }

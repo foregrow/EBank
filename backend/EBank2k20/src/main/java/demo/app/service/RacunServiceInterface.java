@@ -17,6 +17,7 @@ public interface RacunServiceInterface {
 	
 	void remove(long id);
 	
+	List<Racun> getByBankaIdAndOdobrenAndIzbrisan(long id, boolean odobren, boolean izbrisan);
 
 	
 }

@@ -17,7 +17,8 @@
             <tr>
             <td>{{i+1}}</td><td>{{obj.ime}}</td><td>{{obj.prezime}}</td>
             <td>{{obj.jmbg}}</td><td>{{obj.adresa}}</td><td>{{obj.telefon}}</td>
-            <td>{{obj.tipKlijenta}}</td><td>{{obj.delatnost.naziv}}</td>
+            <td>{{obj.tipKlijenta}}</td><td *ngIf="obj.delatnost !== null">{{obj.delatnost.naziv}}</td>
+            <td *ngIf="obj.delatnost === null">/</td>
             </tr>
         </tbody>
         </table>

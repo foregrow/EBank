@@ -10,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import demo.app.entity.Klijent;
 import demo.app.entity.Korisnik;
 import demo.app.entity.Racun;
+import demo.app.enums.UlogaKorisnika;
 import demo.app.repository.KlijentRepository;
+import demo.app.util.PasswordBCrypt;
 import demo.app.web.dto.KlijentDTO;
 
 @Service
@@ -63,7 +65,7 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 		List<KlijentDTO> dtos = new ArrayList<>();
 		for(Klijent k : klijenti) {
 			KlijentDTO dto = new KlijentDTO(k);
-			dto.setRacuniAktivniListFromSet(k.getRacuni());
+			dto.setRacuniListFromSet(k.getRacuni());
 			dtos.add(dto);
 		}
 		return dtos;
@@ -72,7 +74,7 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 	@Override
 	public KlijentDTO getKlijentDTO(Klijent klijent) {
 		KlijentDTO dto = new KlijentDTO(klijent);
-		dto.setRacuniAktivniListFromSet(klijent.getRacuni());
+		dto.setRacuniListFromSet(klijent.getRacuni());
 		return dto;
 	}
 
@@ -89,26 +91,40 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 
 
 	@Transactional(readOnly = false)
-	public void zahtevZaOtvaranjeRacuna(Klijent klijent, Racun racun, Korisnik korisnik) {
-		klijent.setKorisnik(korisnik);
+	public void zahtevZaOtvaranjeRacuna(Klijent klijent, Racun racun) {
 		klijent.getRacuni().add(racun);
 		kr.save(klijent);
 		
 		racun.setKlijent(klijent);
 		rs.save(racun);
 		
-		korisnik.setKlijent(klijent);
-		ks.save(korisnik);
 	}
 	
 	@Transactional(readOnly = false)
-	public void prihvatanjeZahtevaKlijenta(Klijent klijent) {
-		klijent.setOdobren(true);
-		for(Racun r : klijent.getRacuni()) {
-			r.setOdobren(true);
-			rs.save(r);
+	public void prihvatanjeZahtevaKlijenta(Klijent klijent,Racun racun, int param) {
+		if(param == 1) {
+			klijent.setOdobren(true);
+			for(Racun r : klijent.getRacuni()) {
+				r.setOdobren(true);
+				rs.save(r);
+			}
+			Korisnik k = new Korisnik();
+			String korIme = ks.createKorIme(klijent.getIme(), klijent.getPrezime());
+			k.setKorisnickoIme(korIme);
+			k.setUloga(UlogaKorisnika.KORISNIK);
+			k.setLozinka(PasswordBCrypt.hashPassword(klijent.getIme()));
+			k.setKlijent(klijent);
+			ks.save(k);
+			klijent.setKorisnik(k);
+			kr.save(klijent);
+			
+		}else if(param == 0) {
+			//ima vec acc 
+			racun.setOdobren(true);
+			rs.save(racun);
 		}
-		kr.save(klijent);
+		
+		
 	}
 	
 	

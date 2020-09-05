@@ -47,9 +47,21 @@ public class RacunService  implements RacunServiceInterface, RacunDTOServiceInte
 		for (Racun r : rl) {
 			if(!r.isIzbrisan() && r.isOdobren()) {
 				RacunDTO dto = new RacunDTO(r);
+				dto.setDnevnoStanjeListFromSet(r.getDnevnoStanje());
 				dtos.add(dto);
 			}
 		}
+		return dtos;
+	}
+	@Override
+	public List<RacunDTO> getAllDTOs(List<Racun> racuni) {
+		List<RacunDTO> dtos = new ArrayList<>();
+		for (Racun r : racuni) {
+			RacunDTO dto = new RacunDTO(r);
+			dto.setDnevnoStanjeListFromSet(r.getDnevnoStanje());
+			dtos.add(dto);
+		}
+		
 		return dtos;
 	}
 	@Override
@@ -77,5 +89,10 @@ public class RacunService  implements RacunServiceInterface, RacunDTOServiceInte
 		brojRacuna.append(checksum);
 		return brojRacuna.toString();
 	}
+	@Override
+	public List<Racun> getByBankaIdAndOdobrenAndIzbrisan(long id, boolean odobren, boolean izbrisan) {
+		return rr.getByBankaIdAndOdobrenAndIzbrisan(id, odobren, izbrisan);
+	}
+	
 
 }

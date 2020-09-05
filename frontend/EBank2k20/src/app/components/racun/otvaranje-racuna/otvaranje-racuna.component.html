@@ -69,7 +69,7 @@
           </select> 
           <small *ngIf="!valutaSelected && valuta.touched" class="text-danger">Molimo vas izaberite valutu!</small> 
     </div>
-    <button class="btn btn-primary" (click)="submitZahtev()" [disabled]="addEditForm.invalid || jmbgExists || !valutaSelected || !bankaSelected || !tipSelected" type="submit">Posalji zahtev</button>
+    <button class="btn btn-primary" (click)="submitZahtev(1)" [disabled]="addEditForm.invalid || jmbgExists || !valutaSelected || !bankaSelected || !tipSelected" type="submit">Posalji zahtev</button>
     </form>
 
     

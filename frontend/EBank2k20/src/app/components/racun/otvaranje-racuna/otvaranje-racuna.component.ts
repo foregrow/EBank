@@ -105,7 +105,7 @@ export class OtvaranjeRacunaComponent implements OnInit {
       this.jmbgExists = false;
   }
 
-  submitZahtev(){
+  submitZahtev(param){
     let ime = this.ime.value;
     let prezime = this.prezime.value;
     let jmbg = this.jmbg.value;
@@ -124,7 +124,7 @@ export class OtvaranjeRacunaComponent implements OnInit {
     }
     console.log(this.delatnost);
     
-    this._ks.add(klijent,banka.id,valuta.id).subscribe(
+    this._ks.add(klijent,banka.id,valuta.id,param).subscribe(
       data=>{
         this._router.navigate(['login']);
         alert("Uspesno poslat zahtev!");
