@@ -18,10 +18,10 @@ export class KorisnikComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getByKorId();
+    this.getByKorIme();
   }
 
-  getByKorId(){
+  getByKorIme(){
     this._kls.getByKorIme(this._ks.getLoggedInUserKorIme()).subscribe(
       data => {
         this.klijent = data;

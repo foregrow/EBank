@@ -8,5 +8,7 @@ export class Server{
     public static readonly drzava: string = "drzava";
     public static readonly valuta: string = "valuta";
     public static readonly klijent: string = "klijent";
+    public static readonly ukidanjeRacuna: string = "ukidanjeRacuna";
+    public static readonly racun: string = "racun";
 }
 

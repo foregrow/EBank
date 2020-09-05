@@ -18,6 +18,8 @@ import { ValutaDetailComponent } from './components/valuta/valuta-detail/valuta-
 import { DrzavaDetailComponent } from './components/drzava/drzava-detail/drzava-detail.component';
 import { KorisniciDetailComponent } from './components/korisnici/korisnici-detail/korisnici-detail.component';
 import { KlijentiComponent } from './components/klijenti/klijenti.component';
+import { UkidanjeRacunaComponent } from './components/ukidanje-racuna/ukidanje-racuna.component';
+import { UkidanjeRacunaIzvrsilacComponent } from './components/ukidanje-racuna-izvrsilac/ukidanje-racuna-izvrsilac.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'korisnik', pathMatch: 'full'},
@@ -76,10 +78,18 @@ const routes: Routes = [
   data: {
       roles: ['ADMIN']
     }},
-    {path: 'klijenti', component: KlijentiComponent, canActivate: [AuthGuard,RoleGuard],
-    data: {
-      roles: ['ADMIN']
-    }},
+  {path: 'klijenti', component: KlijentiComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+    roles: ['ADMIN']
+  }},
+  {path: 'zahtev-ukidanja', component: UkidanjeRacunaComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+    roles: ['KORISNIK']
+  }},
+  {path: 'proces-zahteva-ukidanja', component: UkidanjeRacunaIzvrsilacComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+    roles: ['IZVRSILAC']
+  }},
   {path: 'not-found', component:NotFoundComponent},
   {path: '**', redirectTo: 'korisnik', pathMatch: 'full'}
 ];
@@ -92,4 +102,5 @@ export class AppRoutingModule { }
 
 export const routingComponents = [
 LoginComponent,AdminComponent,KorisnikComponent,IzvrsilacComponent,BankaComponent,DelatnostComponent,BankaDetailComponent,DelatnostDetailComponent,
-NotFoundComponent,KorisniciComponent,KorisniciDetailComponent,DrzavaComponent,DrzavaDetailComponent,ValutaComponent,ValutaDetailComponent,KlijentiComponent]
+NotFoundComponent,KorisniciComponent,KorisniciDetailComponent,DrzavaComponent,DrzavaDetailComponent,ValutaComponent,ValutaDetailComponent,KlijentiComponent,
+UkidanjeRacunaComponent,UkidanjeRacunaIzvrsilacComponent]

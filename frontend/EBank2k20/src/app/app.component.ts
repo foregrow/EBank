@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { KorisnikService } from './services/korisnik.service';
-import { RouterLink, ActivatedRoute } from '@angular/router';
+import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,13 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
   constructor(public korisnikService: KorisnikService,
-    public router: ActivatedRoute){
+    public route: ActivatedRoute,
+    public router: Router){}
 
+  klijentUkidanjeRacuna(){
+    this.router.navigate(['zahtev-ukidanja']);
+  }
+  izvrsilacUkidanjeRacuna(){
+    this.router.navigate(['proces-zahteva-ukidanja']);
   }
 }
