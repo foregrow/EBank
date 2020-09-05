@@ -12,6 +12,7 @@ import { UkidanjeRacuna } from 'src/app/model/ukidanjeracuna';
 export class UkidanjeRacunaIzvrsilacComponent implements OnInit {
 
   ukidanjaUToku = [];
+  ukinutiRacuni = [];
   constructor(
     private _urs: UkidanjeRacunaService,
     private _kls: KlijentService,
@@ -20,13 +21,20 @@ export class UkidanjeRacunaIzvrsilacComponent implements OnInit {
   ngOnInit(): void {
 
     this.getAllForBankaUToku();
+    this.getAllForBankaUkinuti();
   }
 
 
   getAllForBankaUToku(){
-    this._urs.getAllForBankaUToku(this._ks.getLoggedInUserKorIme()).subscribe(
+    this._urs.getAllForBanka(this._ks.getLoggedInUserKorIme(), 0).subscribe(
       data=>{
         this.ukidanjaUToku = data;
+      });
+  }
+  getAllForBankaUkinuti(){
+    this._urs.getAllForBanka(this._ks.getLoggedInUserKorIme(), 1).subscribe(
+      data=>{
+        this.ukinutiRacuni = data;
       });
   }
 
@@ -35,7 +43,9 @@ export class UkidanjeRacunaIzvrsilacComponent implements OnInit {
       var ukidanje = new UkidanjeRacuna(id,null,null,null,null,null);
       this._urs.update(ukidanje).subscribe(
         data=>{
+          alert("Uspesno ukidanje racuna! ");
           this.getAllForBankaUToku();
+          this.getAllForBankaUkinuti();
         },error=>{
           alert(error.error);
         });
@@ -43,7 +53,9 @@ export class UkidanjeRacunaIzvrsilacComponent implements OnInit {
       //odbijeno ukidanje racuna (delete)
       this._urs.delete(id).subscribe(
         data=>{
+          alert("Uspesno odbijanje zahteva za ukidanje! ");
           this.getAllForBankaUToku();
+          this.getAllForBankaUkinuti();
         },error=>{
           alert(error.error);
         });

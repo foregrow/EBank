@@ -36,12 +36,22 @@ public class UkidanjeRacunaController {
 	@Autowired
 	KorisnikService ks;
 	
-	@RequestMapping(value="/izvrsilac/{korIme}",method = RequestMethod.GET)
-	public ResponseEntity<List<UkidanjeRacunaDTO>> getAllForBankaUToku(@PathVariable String korIme) {
+	@RequestMapping(value="/izvrsilac/{korIme}/{param}",method = RequestMethod.GET)
+	public ResponseEntity<List<UkidanjeRacunaDTO>> getAllForBanka(@PathVariable String korIme,@PathVariable int param) {
 		Korisnik kor = ks.findByKorisnickoIme(korIme);
 		if(kor == null)
 			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
-		List<UkidanjeRacuna> ukidanjaRacuna = urs.findAllByBankaIdUToku(kor.getBanka().getId());
+		List<UkidanjeRacuna> ukidanjaRacuna = null;
+		switch (param) {
+		case 0: //u toku ukidanja
+			ukidanjaRacuna = urs.findAllByBankaIdUToku(kor.getBanka().getId());
+			break;
+		case 1: //ukinuti racuni
+			ukidanjaRacuna = urs.findAllByBankaIdUkinuti(kor.getBanka().getId());
+			break;
+		default:
+			break;
+		}
 		List<UkidanjeRacunaDTO> dtos = urs.getAllDTOs(ukidanjaRacuna);
 		
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
