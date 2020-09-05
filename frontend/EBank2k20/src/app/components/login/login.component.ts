@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   
   }
   constructor(private fb: FormBuilder,
-    private _korisnikService: KorisnikService){}
+    private _korisnikService: KorisnikService,
+    private _router: Router){}
 
   loginForm = this.fb.group({
   korisnickoIme: [''],
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  submitZahtev(){
-    
+  goToOtvaranjeRacuna(){
+    this._router.navigate(['zahtev-otvaranja-racuna']);
   }
 }

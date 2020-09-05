@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import demo.app.entity.Klijent;
+import demo.app.entity.Korisnik;
+import demo.app.entity.Racun;
 import demo.app.repository.KlijentRepository;
 import demo.app.web.dto.KlijentDTO;
 
@@ -17,6 +19,12 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 	
 	@Autowired
 	KlijentRepository kr;
+	
+	@Autowired
+	RacunService rs;
+	
+	@Autowired
+	KorisnikService ks;
 	
 	@Override
 	public List<Klijent> findAll(){
@@ -70,11 +78,38 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 
 
 	@Override
-	public List<Klijent> getByBankaId(long id) {
-		return kr.getByBankaId(id);
+	public List<Klijent> getOdobreniByBankaId(long id) {
+		return kr.getOdobreniByBankaId(id);
+	}
+	
+	@Override
+	public List<Klijent> getNeodobreniByBankaId(long id) {
+		return kr.getNeodobreniByBankaId(id);
 	}
 
 
+	@Transactional(readOnly = false)
+	public void zahtevZaOtvaranjeRacuna(Klijent klijent, Racun racun, Korisnik korisnik) {
+		klijent.setKorisnik(korisnik);
+		klijent.getRacuni().add(racun);
+		kr.save(klijent);
+		
+		racun.setKlijent(klijent);
+		rs.save(racun);
+		
+		korisnik.setKlijent(klijent);
+		ks.save(korisnik);
+	}
+	
+	@Transactional(readOnly = false)
+	public void prihvatanjeZahtevaKlijenta(Klijent klijent) {
+		klijent.setOdobren(true);
+		for(Racun r : klijent.getRacuni()) {
+			r.setOdobren(true);
+			rs.save(r);
+		}
+		kr.save(klijent);
+	}
 	
 	
 }

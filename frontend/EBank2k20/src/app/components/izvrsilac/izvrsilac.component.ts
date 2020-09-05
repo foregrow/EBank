@@ -18,11 +18,11 @@ export class IzvrsilacComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getAllOfBanka();
+    this.getOdobreniOfBanka();
   }
 
-  getAllOfBanka(){
-    this._kls.getAllOfBanka(this._ks.getLoggedInUserKorIme()).subscribe(
+  getOdobreniOfBanka(){
+    this._kls.getOdobreniOrNeodobreniOfBanka(this._ks.getLoggedInUserKorIme(),1).subscribe(
       data => {
         this.klijenti = data;
       });

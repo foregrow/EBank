@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <h4 class="mt-5 mb-3" >Zahtev za otvaranje racuna</h4>
+    <form [formGroup]="addEditForm" class="w-25">
+        <div class="form-group">
+            <label>Ime</label>
+            <input formControlName="ime" type="text" class="form-control">
+            <small [class.d-none]="ime.valid || ime.untouched" class="text-danger">Ime je obavezno!</small> 
+        </div>
+        <div class="form-group">
+          <label>Prezime</label>
+          <input formControlName="prezime" type="text" class="form-control">
+          <small [class.d-none]="prezime.valid || prezime.untouched" class="text-danger">Prezime je obavezno</small> 
+      </div>
+      <div class="form-group">
+        <label>Adresa</label>
+        <input formControlName="adresa" type="text" class="form-control">
+        <small [class.d-none]="adresa.valid || adresa.untouched" class="text-danger">Adresa je obavezna!</small> 
+    </div>
+    <div class="form-group">
+        <label>JMBG</label>
+        <input formControlName="jmbg" type="text" class="form-control">
+        <small [class.d-none]="jmbg.valid || jmbg.untouched" class="text-danger">JMBG je obavezan i mora se sastojati od 13 cifara!</small> 
+        <small *ngIf="jmbgExists" class="text-danger">Uneti JMBG vec postoji!</small> 
+
+    </div>
+    <div class="form-group">
+        <label>Telefon</label>
+        <input formControlName="telefon" type="text" class="form-control">
+        <small [class.d-none]="telefon.valid || telefon.untouched" class="text-danger">Telefon je obavezan i mora biti u formatu!(064XXXXXXX)</small> 
+
+    </div>
+    <div class="form-group">
+        <label class="control-label">Tip klijenta</label>
+        <select class="form-control" formControlName="tipKlijenta">
+            <option disabled>Izaberite tip</option>
+            <option *ngFor="let tipk of tipoviKlijenta" [ngValue]="tipk">
+              {{ tipk }}
+            </option>
+          </select> 
+          <small *ngIf="!tipSelected && tipKlijenta.touched" class="text-danger">Molimo vas izaberite tip!</small> 
+
+    </div>
+    <div class="form-group">
+        <label class="control-label">Banka</label>
+        <select class="form-control" formControlName="banka" >
+            <option disabled>Izaberite banku</option>
+            <option *ngFor="let banka of banke" [ngValue]="banka">
+              {{ banka.naziv }}, {{ banka.sifra }}
+            </option>
+          </select> 
+          <small *ngIf="!bankaSelected && banka.touched" class="text-danger">Molimo vas izaberite banku!</small> 
+    </div>
+    <div class="form-group">
+        <label class="control-label">Delatnost</label>
+        <select class="form-control" formControlName="delatnost" >
+            <option disabled>Izaberite delatnost</option>
+            <option *ngFor="let delatnost of delatnosti" [ngValue]="delatnost">
+              {{ delatnost.naziv }}, {{ delatnost.sifra }}
+            </option>
+          </select> 
+    </div>
+    <div class="form-group">
+        <label class="control-label">Valuta</label>
+        <select class="form-control" formControlName="valuta" >
+            <option disabled>Izaberite valutu</option>
+            <option *ngFor="let valuta of valute" [ngValue]="valuta">
+              {{ valuta.naziv }}, {{ valuta.sifra }}
+            </option>
+          </select> 
+          <small *ngIf="!valutaSelected && valuta.touched" class="text-danger">Molimo vas izaberite valutu!</small> 
+    </div>
+    <button class="btn btn-primary" (click)="submitZahtev()" [disabled]="addEditForm.invalid || jmbgExists || !valutaSelected || !bankaSelected || !tipSelected" type="submit">Posalji zahtev</button>
+    </form>
+
+    
+</div>

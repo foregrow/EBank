@@ -13,9 +13,13 @@ export class AppComponent {
     public router: Router){}
 
   klijentUkidanjeRacuna(){
-    this.router.navigate(['zahtev-ukidanja']);
+    this.router.navigate(['zahtev-ukidanja-racuna']);
   }
   izvrsilacUkidanjeRacuna(){
     this.router.navigate(['proces-zahteva-ukidanja']);
   }
+  izvrsilacOtvaranjeRacuna(){
+    this.router.navigate(['proces-zahteva-otvaranja']);
+  }
+  
 }

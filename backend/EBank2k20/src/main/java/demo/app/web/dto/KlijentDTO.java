@@ -18,6 +18,7 @@ public class KlijentDTO {
 	private String telefon;
 	private String adresa;
 	private TipKlijenta tipKlijenta;
+	private boolean odobren;
 	
 	private KorisnikDTO korisnik;
 	private DelatnostDTO delatnost;
@@ -35,6 +36,7 @@ public class KlijentDTO {
 		jmbg = obj.getJmbg();
 		telefon = obj.getTelefon();
 		adresa = obj.getAdresa();
+		odobren = obj.isOdobren();
 		tipKlijenta = obj.getTipKlijenta();
 		if(obj.getKorisnik() != null)
 			korisnik = new KorisnikDTO(obj.getKorisnik());
@@ -43,7 +45,7 @@ public class KlijentDTO {
 	}
 
 	public KlijentDTO(long id, String ime, String prezime, String jmbg, String telefon, String adresa,
-			TipKlijenta tipKlijenta,  KorisnikDTO korisnik, DelatnostDTO delatnost, List<RacunDTO> racuni) {
+			TipKlijenta tipKlijenta,  KorisnikDTO korisnik, DelatnostDTO delatnost, List<RacunDTO> racuni, boolean odobren) {
 		super();
 		this.id = id;
 		this.ime = ime;
@@ -55,6 +57,7 @@ public class KlijentDTO {
 		this.korisnik = korisnik;
 		this.delatnost = delatnost;
 		this.racuni = racuni;
+		this.odobren = odobren;
 	}
 
 	public long getId() {
@@ -128,6 +131,15 @@ public class KlijentDTO {
 
 	public void setDelatnost(DelatnostDTO delatnost) {
 		this.delatnost = delatnost;
+	}
+	
+
+	public boolean isOdobren() {
+		return odobren;
+	}
+
+	public void setOdobren(boolean odobren) {
+		this.odobren = odobren;
 	}
 
 	public List<RacunDTO> getRacuni() {

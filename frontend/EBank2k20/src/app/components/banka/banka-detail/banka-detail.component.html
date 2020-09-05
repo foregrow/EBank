@@ -41,7 +41,7 @@
     <div class="form-group">
         <label>Sifra</label>
         <input formControlName="sifra" type="text" class="form-control">
-        <small [class.d-none]="sifra.valid || sifra.untouched" class="text-danger">Sifra je obavezna i mora biti u ispravnom formatu!(XXXX)</small> 
+        <small [class.d-none]="sifra.valid || sifra.untouched" class="text-danger">Sifra je obavezna i mora biti u ispravnom formatu!(111)</small> 
         <small *ngIf="sifraExists && addEditParam === 'add'" class="text-danger">Sifra vec postoji!</small>
     </div>
     <button *ngIf="this.addEditParam === 'add'" class="btn btn-primary" (click)="submitBanku('add')" [disabled]="addEditForm.invalid || sifraExists || swiftExists" type="submit">Dodaj</button>

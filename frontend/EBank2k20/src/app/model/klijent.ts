@@ -11,6 +11,7 @@ export class Klijent{
    telefon: string;
    adresa: string;
    tipKlijenta: string;
+   odobren: boolean;
 
    korisnik: Korisnik;
    delatnost: Delatnost;
@@ -18,7 +19,7 @@ export class Klijent{
 
    constructor(id:number,ime:string,prezime:string,
     jmbg:string, telefon:string, adresa:string, tipKlijenta: string, korisnik: Korisnik,
-    delatnost: Delatnost, racuni: Racun[]){
+    delatnost: Delatnost, racuni: Racun[], odobren: boolean){
     this.id = id;
     this.ime = ime;
     this.prezime = prezime;
@@ -29,5 +30,6 @@ export class Klijent{
     this.korisnik = korisnik;
     this.delatnost = delatnost;
     this.racuni = racuni;
+    this.odobren = odobren;
     }
 }

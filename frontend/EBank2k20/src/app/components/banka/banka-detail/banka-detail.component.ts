@@ -40,7 +40,7 @@ export class BankaDetailComponent implements OnInit {
       telefon: ['',Validators.required],
       web: ['',Validators.required],
       swift: ['',[Validators.required,Validators.pattern("^[A-Z]{6}[0-9]{2}")]],
-      sifra: ['',[Validators.required,Validators.pattern("^[A-Z]{4}")]],
+      sifra: ['',[Validators.required,Validators.pattern("^[0-9]{3}")]],
     });
     this.getAllSifreAndSwift();
     this.sifra.valueChanges.subscribe(data =>

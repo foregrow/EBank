@@ -35,6 +35,8 @@ public class Klijent {
 	private String adresa;
 	@Column(unique = false, nullable = false)
 	private TipKlijenta tipKlijenta;
+	@Column(unique = false, nullable = false)
+	private boolean odobren;
 	
 	@OneToOne
 	private Korisnik korisnik;
@@ -50,7 +52,7 @@ public class Klijent {
 	}
 
 	public Klijent(long id, String ime, String prezime, String jmbg, String telefon, String adresa,
-			TipKlijenta tipKlijenta,  Korisnik korisnik, Delatnost delatnost, Set<Racun> racuni) {
+			TipKlijenta tipKlijenta,  Korisnik korisnik, Delatnost delatnost, Set<Racun> racuni, boolean odobren) {
 		super();
 		this.id = id;
 		this.ime = ime;
@@ -62,6 +64,7 @@ public class Klijent {
 		this.korisnik = korisnik;
 		this.delatnost = delatnost;
 		this.racuni = racuni;
+		this.odobren = odobren;
 	}
 
 	public long getId() {
@@ -143,6 +146,14 @@ public class Klijent {
 
 	public void setRacuni(Set<Racun> racuni) {
 		this.racuni = racuni;
+	}
+
+	public boolean isOdobren() {
+		return odobren;
+	}
+
+	public void setOdobren(boolean odobren) {
+		this.odobren = odobren;
 	}
 	
 	

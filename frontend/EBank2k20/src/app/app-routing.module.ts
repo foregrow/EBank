@@ -20,30 +20,26 @@ import { KorisniciDetailComponent } from './components/korisnici/korisnici-detai
 import { KlijentiComponent } from './components/klijenti/klijenti.component';
 import { UkidanjeRacunaComponent } from './components/ukidanje-racuna/ukidanje-racuna.component';
 import { UkidanjeRacunaIzvrsilacComponent } from './components/ukidanje-racuna-izvrsilac/ukidanje-racuna-izvrsilac.component';
-
+import { RacunComponent } from './components/racun/racun.component';
+import { OtvaranjeRacunaComponent } from './components/racun/otvaranje-racuna/otvaranje-racuna.component';
+import { OtvaranjeRacunaIzvrsilacComponent } from './components/racun/otvaranje-racuna-izvrsilac/otvaranje-racuna-izvrsilac.component';
 const routes: Routes = [
   {path: '', redirectTo: 'korisnik', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
+  {path: 'zahtev-otvaranja-racuna', component: OtvaranjeRacunaComponent},
+  //*************************admin */
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
       roles: ['ADMIN']
-    }},
-  {path: 'korisnik', component: KorisnikComponent, canActivate: [AuthGuard,RoleGuard],
+    }}, 
+  {path: 'korisnici', component: KorisniciComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['KORISNIK']
-    }},
-  {path: 'izvrsilac', component: IzvrsilacComponent, canActivate: [AuthGuard,RoleGuard],
-  data: {
-    roles: ['IZVRSILAC']
+      roles: ['ADMIN']
   }},
-    {path: 'korisnici', component: KorisniciComponent, canActivate: [AuthGuard,RoleGuard],
-    data: {
-        roles: ['ADMIN']
+  {path: 'korisnici-detail/:id', component: KorisniciDetailComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+      roles: ['ADMIN']
     }},
-    {path: 'korisnici-detail/:id', component: KorisniciDetailComponent, canActivate: [AuthGuard,RoleGuard],
-    data: {
-        roles: ['ADMIN']
-      }},
   {path: 'banke', component: BankaComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
       roles: ['ADMIN']
@@ -82,11 +78,29 @@ const routes: Routes = [
   data: {
     roles: ['ADMIN']
   }},
-  {path: 'zahtev-ukidanja', component: UkidanjeRacunaComponent, canActivate: [AuthGuard,RoleGuard],
+
+  //************korisnik (klijent)
+  {path: 'korisnik', component: KorisnikComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+      roles: ['KORISNIK']
+    }},
+  {path: 'zahtev-ukidanja-racuna', component: UkidanjeRacunaComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
     roles: ['KORISNIK']
   }},
+  
+
+
+  //***************izvrsilac
+  {path: 'izvrsilac', component: IzvrsilacComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+    roles: ['IZVRSILAC']
+  }},
   {path: 'proces-zahteva-ukidanja', component: UkidanjeRacunaIzvrsilacComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+    roles: ['IZVRSILAC']
+  }},
+  {path: 'proces-zahteva-otvaranja', component: OtvaranjeRacunaIzvrsilacComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
     roles: ['IZVRSILAC']
   }},
@@ -103,4 +117,4 @@ export class AppRoutingModule { }
 export const routingComponents = [
 LoginComponent,AdminComponent,KorisnikComponent,IzvrsilacComponent,BankaComponent,DelatnostComponent,BankaDetailComponent,DelatnostDetailComponent,
 NotFoundComponent,KorisniciComponent,KorisniciDetailComponent,DrzavaComponent,DrzavaDetailComponent,ValutaComponent,ValutaDetailComponent,KlijentiComponent,
-UkidanjeRacunaComponent,UkidanjeRacunaIzvrsilacComponent]
+UkidanjeRacunaComponent,UkidanjeRacunaIzvrsilacComponent,RacunComponent,OtvaranjeRacunaComponent,OtvaranjeRacunaIzvrsilacComponent]

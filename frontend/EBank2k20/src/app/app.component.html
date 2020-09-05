@@ -2,7 +2,7 @@
     <a class="navbar-brand" >Welcome to Ebank</a>
     
     <div *ngIf="korisnikService.getRole() === 'ADMIN'" class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto">       
           <a class="nav-link" style="cursor:pointer" (click)="korisnikService.logout()">
           <i class="fa fa-sign-out ml-5" aria-hidden="true"></i> Logout</a>          
       </ul>
@@ -20,6 +20,8 @@
     <div *ngIf="korisnikService.getRole() === 'IZVRSILAC'" class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <ul class="navbar-nav ml-auto">
+        <a class="nav-link" style="cursor:pointer" (click)="this.izvrsilacOtvaranjeRacuna()">
+          <i class="fa fa-sign-out ml-5" aria-hidden="true"></i> Zahtevi za otvaranje racuna</a>  
         <a class="nav-link" style="cursor:pointer" (click)="this.izvrsilacUkidanjeRacuna()">
           <i class="fa fa-sign-out ml-5" aria-hidden="true"></i> Ukidanje racuna</a>
           <a class="nav-link" style="cursor:pointer" (click)="korisnikService.logout()">

@@ -15,6 +15,8 @@ import { DrzavaService } from './services/drzava.service';
 import { ValutaService } from './services/valuta.service';
 import { KlijentService } from './services/klijent.service';
 import { UkidanjeRacunaService } from './services/ukidanje-racuna.service';
+import { RacunService } from './services/racun.service';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { UkidanjeRacunaService } from './services/ukidanje-racuna.service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [KorisnikService,BankaService,DelatnostService,DrzavaService,ValutaService,KlijentService,UkidanjeRacunaService,
+  providers: [KorisnikService,BankaService,DelatnostService,DrzavaService,ValutaService,KlijentService,UkidanjeRacunaService,RacunService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

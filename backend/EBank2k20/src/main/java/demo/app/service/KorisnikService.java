@@ -69,4 +69,19 @@ public class KorisnikService  implements KorisnikServiceInterface, KorisnikDTOSe
 		KorisnikDTO dto = new KorisnikDTO(k);
 		return dto;
 	}
+	
+	public String createKorIme(String ime, String prezime) {
+		long count = 0;
+		StringBuilder strKorIme = new StringBuilder();
+		strKorIme.append(ime);
+		strKorIme.append(".");
+		strKorIme.append(prezime);
+		Korisnik kor = kr.findByKorisnickoIme(strKorIme.toString());
+		while(kor != null) {
+			strKorIme.append(++count);
+			kor = kr.findByKorisnickoIme(strKorIme.toString());
+		}
+		
+		return strKorIme.toString();
+	}
 }

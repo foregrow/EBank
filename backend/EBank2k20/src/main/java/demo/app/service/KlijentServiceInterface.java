@@ -16,5 +16,8 @@ public interface KlijentServiceInterface {
 	
 	Klijent getByKorisnikId(long id);
 	
-	List<Klijent> getByBankaId(long id);
+	List<Klijent> getOdobreniByBankaId(long id);
+	
+	List<Klijent> getNeodobreniByBankaId(long id);
+	
 }

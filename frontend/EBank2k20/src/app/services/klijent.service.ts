@@ -19,7 +19,20 @@ export class KlijentService {
   getByKorIme(korIme): Observable<Klijent[]>{
     return this._http.get<Klijent[]>(`${this.klijentBaseUrl}/korisnik/${korIme}`);
   }
-  getAllOfBanka(korIme): Observable<Klijent[]>{
-    return this._http.get<Klijent[]>(`${this.klijentBaseUrl}/banka/${korIme}`);
+  getOdobreniOrNeodobreniOfBanka(korIme,param): Observable<Klijent[]>{
+    return this._http.get<Klijent[]>(`${this.klijentBaseUrl}/banka/${korIme}/${+param}`);
+  }
+
+  //klijent salje zahtev za otvaranje racuna
+  add(data:Klijent,bid,vid){
+    return this._http.post<any>(`${this.klijentBaseUrl}/zahtev/${+bid}/${+vid}`,data);
+  }
+
+  update(data:Klijent){
+    return this._http.put<any>(this.klijentBaseUrl,data);
+  }
+
+  delete(id){
+    return this._http.delete(`${this.klijentBaseUrl}/${+id}`);
   }
 }
