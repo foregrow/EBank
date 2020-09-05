@@ -48,9 +48,10 @@ public class KlijentController {
 		if(k == null)
 			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
 		
-		KlijentDTO dto = ks.getKlijentDTOs(k);
+		KlijentDTO dto = ks.getKlijentDTO(k);
 		
 		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
+	
 
 }

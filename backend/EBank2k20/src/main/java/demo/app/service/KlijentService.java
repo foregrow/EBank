@@ -55,16 +55,16 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 		List<KlijentDTO> dtos = new ArrayList<>();
 		for(Klijent k : klijenti) {
 			KlijentDTO dto = new KlijentDTO(k);
-			dto.setRacuniListFromSet(k.getRacuni());
+			dto.setRacuniAktivniListFromSet(k.getRacuni());
 			dtos.add(dto);
 		}
 		return dtos;
 	}
 
 	@Override
-	public KlijentDTO getKlijentDTOs(Klijent klijent) {
+	public KlijentDTO getKlijentDTO(Klijent klijent) {
 		KlijentDTO dto = new KlijentDTO(klijent);
-		dto.setRacuniListFromSet(klijent.getRacuni());
+		dto.setRacuniAktivniListFromSet(klijent.getRacuni());
 		return dto;
 	}
 

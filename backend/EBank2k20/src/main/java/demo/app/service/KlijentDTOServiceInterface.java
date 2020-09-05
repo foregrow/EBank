@@ -9,6 +9,6 @@ public interface KlijentDTOServiceInterface {
 	
 	List<KlijentDTO> getAllDTOs(List<Klijent> klijenti);
 	
-	KlijentDTO getKlijentDTOs (Klijent klijent);
+	KlijentDTO getKlijentDTO (Klijent klijent);
 
 }

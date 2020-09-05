@@ -134,10 +134,13 @@ public class KlijentDTO {
 		return racuni;
 	}
 	
-	public void setRacuniListFromSet(Set<Racun> racuni) {
+	public void setRacuniAktivniListFromSet(Set<Racun> racuni) {
 		List<Racun> ra = new ArrayList<Racun>(racuni);
-		for(Racun obj: ra)
-			this.racuni.add(new RacunDTO(obj));
+		for(Racun obj: ra) {
+			if(!obj.isIzbrisan() && obj.isOdobren())
+				this.racuni.add(new RacunDTO(obj));	
+		}
+			
 	}
 
 	

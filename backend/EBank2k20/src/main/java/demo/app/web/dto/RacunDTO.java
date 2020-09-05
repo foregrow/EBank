@@ -1,9 +1,12 @@
 package demo.app.web.dto;
 
 import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
+import demo.app.entity.DnevnoStanje;
 import demo.app.entity.Racun;
 
 public class RacunDTO {
@@ -144,6 +147,10 @@ public class RacunDTO {
 		this.odobren = odobren;
 	}
 	
-
+	public void setDnevnoStanjeListFromSet(Set<DnevnoStanje> dnevnoStanje) {
+		List<DnevnoStanje> dsl = new ArrayList<DnevnoStanje>(dnevnoStanje);
+		for(DnevnoStanje obj : dsl)
+			this.dnevnoStanje.add(new DnevnoStanjeDTO(obj));
+	}
 	
 }
