@@ -25,12 +25,9 @@ export class UkidanjeRacunaComponent implements OnInit {
   ukidanjaUToku = [];
   constructor(
     private _fb: FormBuilder,
-    private _router: Router,
     private _urs: UkidanjeRacunaService,
     private _kls: KlijentService,
-    private _ks: KorisnikService,
-    private _route: ActivatedRoute, 
-    private _http: HttpClient) {}
+    private _ks: KorisnikService) {}
 
   ngOnInit(): void{
     this.addEditForm = this._fb.group({

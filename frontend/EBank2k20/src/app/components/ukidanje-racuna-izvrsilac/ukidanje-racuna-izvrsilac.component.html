@@ -1,1 +1,26 @@
-<p>ukidanje-racuna-izvrsilac works!</p>
+<div class="container-fluid">
+    <div class="container-fluid mt-5">
+        <h2 class="mt-3">Aktivni zahtevi za ukidanje racuna: </h2>
+        <table class="table table-hover w-50">
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>Datum kreiranja</th>
+                <th>Racun za ukidanje</th>
+                <th>Racun za prenos novca</th>    
+                <th>Stanje racuna koji se ukida</th>
+                <th>Ukidanje racuna</th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let obj of ukidanjaUToku; index as i">
+                <tr>
+                <td>{{i+1}}</td><td>{{obj.datumKreiranja | date:'short'}}</td><td>{{obj.racunZaUkidanje.brojRacuna}}</td>
+                <td>{{obj.racunZaPrenosNovca.brojRacuna}}</td><td>{{obj.racunZaUkidanje.stanje}} {{obj.racunZaUkidanje.valuta.sifra}}</td>
+                <td><a class="btn btn-sm text-white btn-danger" (click)="submitUkidanje('accepted',obj.id)">Odobri zahtev</a></td>
+                <td><a class="btn btn-sm text-white btn-primary" (click)="submitUkidanje('rejected',obj.id)">Odbij zahtev</a></td>
+                </tr>
+            </tbody>
+            </table>
+    </div>
+</div>

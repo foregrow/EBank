@@ -40,12 +40,13 @@
                 <th>Datum kreiranja</th>
                 <th>Racun za ukidanje</th>
                 <th>Racun za prenos novca</th>    
+                <th>Stanje racuna koji se ukida</th>
                 </tr>
             </thead>
             <tbody *ngFor="let obj of ukidanjaUToku; index as i">
                 <tr>
                 <td>{{i+1}}</td><td>{{obj.datumKreiranja | date:'short'}}</td><td>{{obj.racunZaUkidanje.brojRacuna}}</td>
-                <td>{{obj.racunZaPrenosNovca.brojRacuna}}</td>
+                <td>{{obj.racunZaPrenosNovca.brojRacuna}}</td><td>{{obj.racunZaUkidanje.stanje}} {{obj.racunZaUkidanje.valuta.sifra}}</td>
                 </tr>
             </tbody>
             </table>

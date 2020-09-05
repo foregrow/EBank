@@ -2,6 +2,7 @@ package demo.app.service;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import demo.app.entity.Racun;
 import demo.app.entity.UkidanjeRacuna;
 import demo.app.repository.UkidanjeRacunaRepository;
 import demo.app.web.dto.UkidanjeRacunaDTO;
@@ -20,6 +22,9 @@ public class UkidanjeRacunaService  implements UkidanjeRacunaServiceInterface, U
 
 	@Autowired
 	UkidanjeRacunaRepository urr;
+	
+	@Autowired
+	RacunService rs;
 	
 	@Override
 	public List<UkidanjeRacuna> findAll() {
@@ -40,8 +45,8 @@ public class UkidanjeRacunaService  implements UkidanjeRacunaServiceInterface, U
 		urr.deleteById(id);
 	}
 	@Override
-	public List<UkidanjeRacuna> findAllByBankaId(long id) {
-		return urr.findAllByBankaId(id);
+	public List<UkidanjeRacuna> findAllByBankaIdUToku(long id) {
+		return urr.findAllByBankaIdUToku(id);
 	}
 	@Override
 	public List<UkidanjeRacuna> findAllByKlijentIdWhereZavrsenoFalse(long id) {
@@ -65,6 +70,29 @@ public class UkidanjeRacunaService  implements UkidanjeRacunaServiceInterface, U
 	public UkidanjeRacunaDTO getUkidanjeRacunaDTO(UkidanjeRacuna ur) {
 		UkidanjeRacunaDTO dto = new UkidanjeRacunaDTO(ur);
 		return dto;
+	}
+	@Override
+	@Transactional(readOnly = false)
+	public void ukidanjeRacunaAccepted(UkidanjeRacuna ur) {
+		ur.setZavrseno(true);
+		Racun rZaUkidanje = ur.getRacunZaUkidanje();
+		Racun rZaPrenosNovca = ur.getRacunZaPrenosNovca();
+		rZaUkidanje.setIzbrisan(true);
+		if(rZaPrenosNovca == null) {
+			rZaUkidanje.setStanje(0);
+			rs.save(rZaUkidanje);
+		}else {
+			rZaPrenosNovca.setStanje(rZaPrenosNovca.getStanje() + rZaUkidanje.getStanje());
+			rZaUkidanje.setStanje(0);
+			rs.save(rZaUkidanje);
+			rs.save(rZaPrenosNovca);
+		}
+		urr.save(ur);
+		
+	}
+	@Override
+	public List<UkidanjeRacuna> findAllByBankaIdUkinuti(long id) {
+		return urr.findAllByBankaIdUkinuti(id);
 	}
 	
 	

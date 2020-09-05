@@ -37,11 +37,11 @@ public class UkidanjeRacunaController {
 	KorisnikService ks;
 	
 	@RequestMapping(value="/izvrsilac/{korIme}",method = RequestMethod.GET)
-	public ResponseEntity<List<UkidanjeRacunaDTO>> getAllForBanka(@PathVariable String korIme) {
+	public ResponseEntity<List<UkidanjeRacunaDTO>> getAllForBankaUToku(@PathVariable String korIme) {
 		Korisnik kor = ks.findByKorisnickoIme(korIme);
 		if(kor == null)
 			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
-		List<UkidanjeRacuna> ukidanjaRacuna = urs.findAllByBankaId(kor.getBanka().getId());
+		List<UkidanjeRacuna> ukidanjaRacuna = urs.findAllByBankaIdUToku(kor.getBanka().getId());
 		List<UkidanjeRacunaDTO> dtos = urs.getAllDTOs(ukidanjaRacuna);
 		
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
@@ -95,36 +95,28 @@ public class UkidanjeRacunaController {
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
 	}
 	
-	/*@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
-	public ResponseEntity<?> update(@RequestBody BankaDTO dto){
-		Banka banka = bs.findOne(dto.getId());
-		if(banka == null)
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-		banka.setAdresa(dto.getAdresa());
-		banka.setEmail(dto.getEmail());
-		banka.setNaziv(dto.getNaziv());
-		banka.setFax(dto.getFax());
-		banka.setTelefon(dto.getTelefon());
-		banka.setWeb(dto.getWeb());
+	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	public ResponseEntity<?> update(@RequestBody UkidanjeRacunaDTO dto){
+		UkidanjeRacuna ur = urs.findOne(dto.getId());
+		if(ur == null)
+			return new ResponseEntity<>("Greska prilikom ukidanja racuna", HttpStatus.NOT_FOUND);
+		urs.ukidanjeRacunaAccepted(ur);
 		
-		bs.save(banka);
-		return new ResponseEntity<>(new BankaDTO(banka), HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<?> delete(@PathVariable long id){
 		//admin brise
-		Banka banka = bs.findOne(id);
-		if (banka != null){
-			bs.remove(id);
-			List<Banka> banke = bs.findAll();
-			List<BankaDTO> dtos = bs.getAllDTOs(banke);
+		UkidanjeRacuna ur = urs.findOne(id);
+		if (ur != null){
+			urs.remove(id);
 			
-			return new ResponseEntity<>(dtos, HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.OK);
 		} else		
-			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>("Greska prilikom brisanja zahteva!",HttpStatus.NOT_FOUND);
 		
-	}*/
+	}
 
 
 }

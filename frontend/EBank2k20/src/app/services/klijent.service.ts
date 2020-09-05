@@ -19,4 +19,7 @@ export class KlijentService {
   getByKorIme(korIme): Observable<Klijent[]>{
     return this._http.get<Klijent[]>(`${this.klijentBaseUrl}/korisnik/${korIme}`);
   }
+  getAllOfBanka(korIme): Observable<Klijent[]>{
+    return this._http.get<Klijent[]>(`${this.klijentBaseUrl}/banka/${korIme}`);
+  }
 }

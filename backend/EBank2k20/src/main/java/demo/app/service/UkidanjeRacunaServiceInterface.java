@@ -16,11 +16,15 @@ public interface UkidanjeRacunaServiceInterface {
 	
 	void remove(long id);
 	
-	List<UkidanjeRacuna> findAllByBankaId(long id);
+	List<UkidanjeRacuna> findAllByBankaIdUToku(long id);
 	
 	List<UkidanjeRacuna> findAllByKlijentIdWhereZavrsenoFalse(long id);
 	
 	UkidanjeRacuna findByRacunZaUkidanjeId(long id);
+	
+	void ukidanjeRacunaAccepted(UkidanjeRacuna ur);
+	
+	List<UkidanjeRacuna> findAllByBankaIdUkinuti(long id);
 
 	
 }

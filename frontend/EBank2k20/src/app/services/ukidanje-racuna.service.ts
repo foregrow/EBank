@@ -13,15 +13,23 @@ export class UkidanjeRacunaService {
   private readonly ukidanjeRacunaBaseUrl = `${Server.baseUrl}/${Server.api}/${Server.ukidanjeRacuna}`;
   constructor(private _http: HttpClient) { }
 
-  getAllForBanka(korIme) : Observable<UkidanjeRacuna[]>{
+  getAllForBankaUToku(korIme) : Observable<UkidanjeRacuna[]>{
     return this._http.get<UkidanjeRacuna[]>(`${this.ukidanjeRacunaBaseUrl}/izvrsilac/${korIme}`);
   }
   getAllForKlijentUToku(korIme) : Observable<UkidanjeRacuna[]>{
     return this._http.get<UkidanjeRacuna[]>(`${this.ukidanjeRacunaBaseUrl}/klijent/${korIme}`);
   }
 
-
   add(data:UkidanjeRacuna){
     return this._http.post<any>(this.ukidanjeRacunaBaseUrl,data);
+  }
+
+  //prihvaceno ukidanje racuna
+  update(data:UkidanjeRacuna){
+    return this._http.put<any>(this.ukidanjeRacunaBaseUrl,data);
+  }
+  //odbijeno ukidanje racuna
+  delete(id){
+    return this._http.delete(`${this.ukidanjeRacunaBaseUrl}/${+id}`);
   }
 }

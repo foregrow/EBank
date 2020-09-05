@@ -69,6 +69,12 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 	}
 
 
+	@Override
+	public List<Klijent> getByBankaId(long id) {
+		return kr.getByBankaId(id);
+	}
+
+
 	
 	
 }

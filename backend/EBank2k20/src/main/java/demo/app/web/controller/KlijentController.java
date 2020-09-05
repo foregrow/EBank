@@ -53,5 +53,18 @@ public class KlijentController {
 		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/banka/{korIme}", method=RequestMethod.GET)
+	public ResponseEntity<?> getAllOfBanka(@PathVariable String korIme){
+		Korisnik kor = kos.findByKorisnickoIme(korIme);
+		if(kor == null)
+			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+		
+		List<Klijent> klijenti = ks.getByBankaId(kor.getBanka().getId());
+		
+		List<KlijentDTO> dtos = ks.getAllDTOs(klijenti);
+		
+		return new ResponseEntity<>(dtos, HttpStatus.OK);
+	}
+	
 
 }

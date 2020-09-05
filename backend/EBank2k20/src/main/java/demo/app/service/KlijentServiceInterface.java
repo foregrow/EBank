@@ -15,5 +15,6 @@ public interface KlijentServiceInterface {
 	void remove(long id);
 	
 	Klijent getByKorisnikId(long id);
-
+	
+	List<Klijent> getByBankaId(long id);
 }
