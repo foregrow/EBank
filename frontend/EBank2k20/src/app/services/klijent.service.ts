@@ -16,6 +16,10 @@ export class KlijentService {
     return this._http.get<Klijent[]>(this.klijentBaseUrl);
   }
 
+  getById(id): Observable<Klijent[]>{
+    return this._http.get<Klijent[]>(`${this.klijentBaseUrl}/${+id}`);
+  }
+
   getByKorIme(korIme): Observable<Klijent[]>{
     return this._http.get<Klijent[]>(`${this.klijentBaseUrl}/korisnik/${korIme}`);
   }

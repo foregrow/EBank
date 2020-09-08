@@ -184,5 +184,16 @@ public class KlijentController {
 		return new ResponseEntity<>("Greska prilikom brisanja zahteva!",HttpStatus.NOT_FOUND);
 	}
 	
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	public ResponseEntity<KlijentDTO> getById(@PathVariable long id){
+		Klijent klijent = ks.findOne(id);
+		
+		if(klijent == null)
+			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+		
+		KlijentDTO dto = ks.getKlijentDTO(klijent);
+		return new ResponseEntity<>(dto, HttpStatus.OK);
+	}
 
 }

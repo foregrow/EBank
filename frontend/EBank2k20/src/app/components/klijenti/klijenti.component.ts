@@ -25,4 +25,8 @@ export class KlijentiComponent implements OnInit {
             .subscribe(data => this.klijenti = data);
       }
 
+      details(kli){
+        this._router.navigate(['klijenti-detail/'+kli.id]);
+      }
+
 }
