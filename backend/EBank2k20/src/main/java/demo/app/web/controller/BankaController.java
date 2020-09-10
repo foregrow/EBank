@@ -2,6 +2,8 @@ package demo.app.web.controller;
 
 
 
+import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import demo.app.entity.Banka;
 import demo.app.service.BankaService;
+import demo.app.service.NalogService;
 import demo.app.web.dto.BankaDTO;
+import net.sf.jasperreports.engine.JRException;
 
 @RestController
 @CrossOrigin(origins ="*",allowedHeaders = "*")
@@ -26,8 +30,13 @@ public class BankaController {
 	@Autowired
 	BankaService bs;
 	
+	@Autowired
+	NalogService ns;
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<BankaDTO>> getAll() {
+	public ResponseEntity<List<BankaDTO>> getAll() throws FileNotFoundException, ParseException, JRException {
+		//JAVA TECHIE UHUHUHU
+		//ns.exportReport();
 		List<Banka> banke = bs.findAll();	
 		List<BankaDTO> dtos = bs.getAllDTOs(banke);		
 		
