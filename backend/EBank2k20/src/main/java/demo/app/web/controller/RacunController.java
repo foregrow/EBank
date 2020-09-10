@@ -5,11 +5,13 @@ package demo.app.web.controller;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,6 +53,31 @@ public class RacunController {
 		List<RacunDTO> dtos = rs.getAllDTOs(racuni);		
 		
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
+	}
+	
+	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	public ResponseEntity<?> update(@RequestBody RacunDTO dto){
+		//izvrsialc odobrio racun
+		
+		Racun racun = rs.findOne(dto.getId());
+		if(racun == null)
+			return new ResponseEntity<>("Greska prilikom odobravanja zahteva", HttpStatus.NOT_FOUND);
+		
+		rs.save(racun);
+		
+		return new ResponseEntity<>("Uspesno odobravanje zahteva!",HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/{racunId}", method=RequestMethod.DELETE)
+	public ResponseEntity<?> delete(@PathVariable long racunId){
+		//izvrsilac odbio racun
+		Racun racun = rs.findOne(racunId);
+		if (racun != null){
+			rs.remove(racunId);
+			return new ResponseEntity<>("Uspesno odbijanje zahteva!",HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>("Greska prilikom odbijanja zahteva!",HttpStatus.NOT_FOUND);
 	}
 	
 	

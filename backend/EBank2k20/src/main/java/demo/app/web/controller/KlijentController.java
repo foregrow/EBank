@@ -120,7 +120,6 @@ public class KlijentController {
 			kl.setIme(dto.getIme());
 			kl.setPrezime(dto.getPrezime());
 			kl.setJmbg(dto.getJmbg());
-			kl.setOdobren(false);
 			kl.setTelefon(dto.getTelefon());
 			kl.setTipKlijenta(dto.getTipKlijenta());
 			
@@ -142,7 +141,7 @@ public class KlijentController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/{param}/{racunId}",method=RequestMethod.PUT, consumes="application/json")
+	/*@RequestMapping(value="/{param}/{racunId}",method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<?> update(@PathVariable int param,@PathVariable long racunId,@RequestBody KlijentDTO dto){
 		Klijent klijent = ks.findOne(dto.getId());
 		if(klijent == null)
@@ -158,16 +157,18 @@ public class KlijentController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/{id}/{racunId}/{param}", method=RequestMethod.DELETE)
-	public ResponseEntity<?> delete(@PathVariable long id,@PathVariable long racunId,@PathVariable int param){
+	@RequestMapping(value="/{id}/{racunId}", method=RequestMethod.DELETE)
+	public ResponseEntity<?> delete(@PathVariable long id,@PathVariable long racunId){
+		//ako pronadje klijenta znaci 
 		Klijent klijent = ks.findOne(id);
-		if(param == 1) {
-			if (klijent != null){
-				ks.remove(id);
-				return new ResponseEntity<>(HttpStatus.OK);
-			}	
+		if (klijent != null){
+			ks.remove(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		//if(param == 1) {
 				
-		}else if(param == 0) {
+				
+		//}else if(param == 0) {
 			Racun racun = null;
 			
 			if (klijent != null){
@@ -179,10 +180,10 @@ public class KlijentController {
 				rs.remove(racun.getId());
 				return new ResponseEntity<>(HttpStatus.OK);
 			}	
-		}
+		//}
 		
 		return new ResponseEntity<>("Greska prilikom brisanja zahteva!",HttpStatus.NOT_FOUND);
-	}
+	}*/
 	
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)

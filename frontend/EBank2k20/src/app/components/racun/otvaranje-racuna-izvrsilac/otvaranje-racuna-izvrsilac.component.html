@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="container-fluid mt-5">
     <h2 class="mt-3">Aktivni zahtevi za otvaranje korisnickih naloga klijentima: </h2>
     <table class="table table-hover w-50">
@@ -28,10 +28,10 @@
             </tr>
         </tbody>
         </table>
-</div>
+</div> -->
 
 <div class="container-fluid mt-5">
-    <h2 class="mt-3">Aktivni zahtevi za otvaranje racuna postojecim korisnicima: </h2>
+    <h2 class="mt-3">Aktivni zahtevi za otvaranje racuna korisnicima: </h2>
     <table class="table table-hover w-50">
         <thead>
             <tr>
@@ -50,8 +50,8 @@
             <td>{{obj.brojRacuna}}</td><td>{{obj.datumKreiranja | date:'short'}}</td>
             <td>{{obj.stanje}}</td><td>{{obj.klijent.ime }} {{obj.klijent.prezime}}</td>
             <td>{{obj.valuta.sifra}}</td>
-            <td><a class="btn btn-sm text-white btn-success" (click)="submit('accepted',obj,0)">Odobri</a></td>
-            <td><a class="btn btn-sm text-white btn-danger" (click)="submit('rejected',obj,0)">Odbij</a></td>
+            <td><a class="btn btn-sm text-white btn-success" (click)="submit('accepted',obj)">Odobri</a></td>
+            <td><a class="btn btn-sm text-white btn-danger" (click)="submit('rejected',obj)">Odbij</a></td>
             </tr>
         </tbody>
         </table>

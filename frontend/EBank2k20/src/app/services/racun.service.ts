@@ -24,4 +24,12 @@ export class RacunService {
   getAllNeodobreniByBanka(korime): Observable<Racun[]>{
     return this._http.get<Racun[]>(`${this.racunBaseUrl}/izvrsilac/${korime}`);
   }
+
+  update(data:Racun){
+    return this._http.put<any>(this.racunBaseUrl,data);
+  }
+
+  delete(racunId){
+    return this._http.delete<any>(`${this.racunBaseUrl}/${+racunId}`);
+  }
 }

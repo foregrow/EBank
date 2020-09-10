@@ -32,11 +32,4 @@ export class KlijentService {
     return this._http.post<any>(`${this.klijentBaseUrl}/zahtev/${+bid}/${+vid}/${+param}`,data);
   }
 
-  update(param,racunId,data:Klijent){
-    return this._http.put<any>(`${this.klijentBaseUrl}/${+param}/${+racunId}`,data);
-  }
-
-  delete(id,racunId,param){
-    return this._http.delete(`${this.klijentBaseUrl}/${+id}/${+racunId}/${+param}`);
-  }
 }
