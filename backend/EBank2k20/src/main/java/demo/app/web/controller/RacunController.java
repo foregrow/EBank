@@ -16,10 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import demo.app.entity.Klijent;
 import demo.app.entity.Korisnik;
 import demo.app.entity.Racun;
+import demo.app.service.KlijentService;
 import demo.app.service.KorisnikService;
 import demo.app.service.RacunService;
+import demo.app.web.dto.KlijentDTO;
 import demo.app.web.dto.RacunDTO;
 
 
@@ -33,6 +36,9 @@ public class RacunController {
 	
 	@Autowired
 	KorisnikService ks;
+	
+	@Autowired
+	KlijentService kls;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<RacunDTO>> getAll() {
@@ -62,7 +68,8 @@ public class RacunController {
 		Racun racun = rs.findOne(dto.getId());
 		if(racun == null)
 			return new ResponseEntity<>("Greska prilikom odobravanja zahteva", HttpStatus.NOT_FOUND);
-		
+		System.out.println(racun.getId());
+		racun.setOdobren(true);
 		rs.save(racun);
 		
 		return new ResponseEntity<>("Uspesno odobravanje zahteva!",HttpStatus.OK);
@@ -72,12 +79,31 @@ public class RacunController {
 	public ResponseEntity<?> delete(@PathVariable long racunId){
 		//izvrsilac odbio racun
 		Racun racun = rs.findOne(racunId);
-		if (racun != null){
-			rs.remove(racunId);
-			return new ResponseEntity<>("Uspesno odbijanje zahteva!",HttpStatus.OK);
+		if(racun == null || racun.getKlijent() == null)
+			return new ResponseEntity<>("Greska prilikom odbijanja zahteva!",HttpStatus.NOT_FOUND);
+		Klijent klijent = kls.findOne(racun.getKlijent().getId());
+		if(klijent != null) {
+			klijent.getRacuni().remove(racun);
+			kls.save(klijent);
+			
+			System.out.println("racun id: " +racun.getId());
+			rs.remove(racun);			
 		}
 		
-		return new ResponseEntity<>("Greska prilikom odbijanja zahteva!",HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("Uspesno odbijanje zahteva!",HttpStatus.OK);
+			
+	}
+	
+	@RequestMapping(value="/korisnikRacunAktivacija/{korIme}",method = RequestMethod.GET)
+	public ResponseEntity<?> getAllRacunAktivacijaUToku(@PathVariable String korIme) {
+		Korisnik kor = ks.findByKorisnickoIme(korIme);
+		Klijent k = kls.findOne(kor.getKlijent().getId());
+		
+		List<Racun> racuni = rs.getByKlijentIdAndOdobrenAndIzbrisan(k.getId(), false, false);
+		List<RacunDTO> dtos = rs.getAllDTOs(racuni);
+		
+		return new ResponseEntity<>(dtos,HttpStatus.OK);
+		
 	}
 	
 	

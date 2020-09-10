@@ -88,7 +88,9 @@ public class UkidanjeRacunaController {
 		if(ukRacuna != null)
 			return new ResponseEntity<>("Zahtev za ukidanje ovog racuna vec postoji!",HttpStatus.NOT_FOUND);
 		Racun racunZaUkidanje = rs.findOne(dto.getRacunZaUkidanje().getId());
-		Racun racunZaPrenosNovca = rs.findOne(dto.getRacunZaPrenosNovca().getId());
+		Racun racunZaPrenosNovca= null;
+		if(dto.getRacunZaPrenosNovca() != null)
+			racunZaPrenosNovca = rs.findOne(dto.getRacunZaPrenosNovca().getId());
 		
 		UkidanjeRacuna ur = new UkidanjeRacuna();
 		ur.setObrazlozenje(dto.getObrazlozenje());

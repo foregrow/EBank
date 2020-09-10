@@ -164,5 +164,14 @@ public class KlijentDTO {
 			
 	}
 
+	public void setAktivniRacuniListFromSet(Set<Racun> racuni) {
+		List<Racun> ra = new ArrayList<Racun>(racuni);
+		for(Racun obj: ra) {
+			if(!obj.isIzbrisan() && obj.isOdobren()) {
+				this.racuni.add(new RacunDTO(obj));	
+			}	
+		}
+			
+	}
 	
 }

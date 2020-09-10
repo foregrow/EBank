@@ -77,9 +77,16 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 		dto.setRacuniListFromSet(klijent.getRacuni());
 		return dto;
 	}
-
-
+	
 	@Override
+	public KlijentDTO getKlijentDTOWithActivniRacuni(Klijent klijent) {
+		KlijentDTO dto = new KlijentDTO(klijent);
+		dto.setAktivniRacuniListFromSet(klijent.getRacuni());
+		return dto;
+	}
+
+
+	/*@Override
 	public List<Klijent> getOdobreniByBankaId(long id) {
 		return kr.getOdobreniByBankaId(id);
 	}
@@ -87,27 +94,17 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 	@Override
 	public List<Klijent> getNeodobreniByBankaId(long id) {
 		return kr.getNeodobreniByBankaId(id);
-	}
+	}*/
 
 
 	@Transactional(readOnly = false)
-	public void zahtevZaOtvaranjeRacuna(Klijent klijent, Racun racun) {
-		klijent.getRacuni().add(racun);
-		kr.save(klijent);
+	public void zahtevZaOtvaranjeRacuna(Klijent klijent, Racun racun, int param) {
 		
-		racun.setKlijent(klijent);
-		rs.save(racun);
 		
-	}
-	
-	@Transactional(readOnly = false)
-	public void prihvatanjeZahtevaKlijenta(Klijent klijent,Racun racun, int param) {
+		
 		if(param == 1) {
-			klijent.setOdobren(true);
-			for(Racun r : klijent.getRacuni()) {
-				r.setOdobren(true);
-				rs.save(r);
-			}
+			klijent.getRacuni().add(racun);
+			kr.save(klijent);
 			Korisnik k = new Korisnik();
 			String korIme = ks.createKorIme(klijent.getIme(), klijent.getPrezime());
 			k.setKorisnickoIme(korIme);
@@ -117,14 +114,16 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 			ks.save(k);
 			klijent.setKorisnik(k);
 			kr.save(klijent);
-			
-		}else if(param == 0) {
-			//ima vec acc 
-			racun.setOdobren(true);
-			rs.save(racun);
 		}
+		racun.setKlijent(klijent);
+		rs.save(racun);
 		
-		
+	}
+
+
+	@Override
+	public List<Klijent> getAllWithAktivanRacunByBanka(long id) {
+		return kr.getAllWithAktivanRacunByBanka(id);
 	}
 	
 	

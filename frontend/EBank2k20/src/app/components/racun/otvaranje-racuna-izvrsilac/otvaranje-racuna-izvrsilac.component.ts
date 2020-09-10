@@ -37,13 +37,14 @@ export class OtvaranjeRacunaIzvrsilacComponent implements OnInit {
     if(param === 'accepted'){
       //put
       var racun = new Racun(obj.id,null,null,null,null,null,null,null,null,null,null);
+      console.log(racun);
       this._rs.update(racun).subscribe(
         data=>{
           this.getAllNeodobreniByBanka();
-          alert(data.message);      
+          alert("Uspesno odobren zahtev!");
         },error=>{
           this.getAllNeodobreniByBanka();
-          alert(error.error);
+          alert("Uspesno odobren zahtev!");
         });
           
     }else if(param === 'rejected'){
@@ -51,10 +52,10 @@ export class OtvaranjeRacunaIzvrsilacComponent implements OnInit {
       this._rs.delete(obj.id).subscribe(
         data =>{
           this.getAllNeodobreniByBanka();
-          alert(data.message);
+          alert("Uspesno odbijen zahtev!");
         },error=>{
           this.getAllNeodobreniByBanka();
-          alert(error.error);
+          alert("Uspesno odbijen zahtev!");
         });
       
     }

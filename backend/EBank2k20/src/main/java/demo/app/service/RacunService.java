@@ -38,8 +38,8 @@ public class RacunService  implements RacunServiceInterface, RacunDTOServiceInte
 	}
 	@Override
 	@Transactional(readOnly = false)
-	public void remove(long id) {
-		rr.deleteById(id);
+	public void remove(Racun racun) {
+		rr.delete(racun);
 	}
 	@Override
 	public List<RacunDTO> getAllAktivniDTOs(List<Racun> rl) {
@@ -92,6 +92,10 @@ public class RacunService  implements RacunServiceInterface, RacunDTOServiceInte
 	@Override
 	public List<Racun> getByBankaIdAndOdobrenAndIzbrisan(long id, boolean odobren, boolean izbrisan) {
 		return rr.getByBankaIdAndOdobrenAndIzbrisan(id, odobren, izbrisan);
+	}
+	@Override
+	public List<Racun> getByKlijentIdAndOdobrenAndIzbrisan(long id, boolean odobren, boolean izbrisan) {
+		return rr.getByKlijentIdAndOdobrenAndIzbrisan(id, odobren, izbrisan);
 	}
 	
 

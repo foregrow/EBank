@@ -71,7 +71,7 @@ public class KlijentController {
 		if(k == null)
 			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
 		
-		KlijentDTO dto = ks.getKlijentDTO(k);
+		KlijentDTO dto = ks.getKlijentDTOWithActivniRacuni(k);
 		
 		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
@@ -85,10 +85,10 @@ public class KlijentController {
 		List<Klijent> klijenti = null;
 		switch(param) {
 			case 0:
-				klijenti = ks.getNeodobreniByBankaId(kor.getBanka().getId());
+				//klijenti = ks.getNeodobreniByBankaId(kor.getBanka().getId());
 				break;
 			case 1:
-				klijenti = ks.getOdobreniByBankaId(kor.getBanka().getId());
+				klijenti = ks.getAllWithAktivanRacunByBanka(kor.getBanka().getId());
 				break;
 			default:
 				break;
@@ -102,6 +102,7 @@ public class KlijentController {
 	@RequestMapping(value="/zahtev/{bid}/{vid}/{param}",method=RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<?> save(@PathVariable long bid, @PathVariable long vid, @PathVariable int param,
 			@RequestBody KlijentDTO dto){
+		//korisnik poslao zahtev za otvaranje racuna
 		Banka banka = bs.findOne(bid);
 		Valuta valuta = vs.findOne(vid);
 		if(banka == null)
@@ -120,6 +121,7 @@ public class KlijentController {
 			kl.setIme(dto.getIme());
 			kl.setPrezime(dto.getPrezime());
 			kl.setJmbg(dto.getJmbg());
+			kl.setOdobren(true);
 			kl.setTelefon(dto.getTelefon());
 			kl.setTipKlijenta(dto.getTipKlijenta());
 			
@@ -137,7 +139,7 @@ public class KlijentController {
 		racun.setValuta(valuta);
 		racun.setStanje(0);
 		
-		ks.zahtevZaOtvaranjeRacuna(kl, racun);
+		ks.zahtevZaOtvaranjeRacuna(kl, racun,param);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
@@ -196,5 +198,6 @@ public class KlijentController {
 		KlijentDTO dto = ks.getKlijentDTO(klijent);
 		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
+	
 
 }

@@ -21,7 +21,9 @@
             <td *ngIf="obj.racunZaUkidanje !== undefined && obj.racunZaUkidanje.klijent !== undefined">
                 {{obj.racunZaUkidanje.klijent.ime}} {{obj.racunZaUkidanje.klijent.prezime}}</td>
             <td>{{obj.datumKreiranja | date:'short'}}</td><td>{{obj.racunZaUkidanje.brojRacuna}}</td>
-            <td>{{obj.racunZaPrenosNovca.brojRacuna}}</td><td>{{obj.racunZaUkidanje.stanje}} {{obj.racunZaUkidanje.valuta.sifra}}</td>
+            <td *ngIf="obj.racunZaPrenosNovca !== null">{{obj.racunZaPrenosNovca.brojRacuna}}</td>
+            <td *ngIf="obj.racunZaPrenosNovca === null">/</td>
+            <td>{{obj.racunZaUkidanje.stanje}} {{obj.racunZaUkidanje.valuta.sifra}}</td>
             <td><a class="btn btn-sm text-white btn-danger" (click)="submitUkidanje('accepted',obj.id)">Ukini</a></td>
             <td><a class="btn btn-sm text-white btn-primary" (click)="submitUkidanje('rejected',obj.id)">Odbij</a></td>
             </tr>
@@ -47,7 +49,8 @@
                 <td *ngIf="obj.racunZaUkidanje !== undefined && obj.racunZaUkidanje.klijent !== undefined">
                     {{obj.racunZaUkidanje.klijent.ime}} {{obj.racunZaUkidanje.klijent.prezime}}</td>
                 <td>{{obj.datumKreiranja | date:'short'}}</td><td>{{obj.racunZaUkidanje.brojRacuna}}</td>
-                <td>{{obj.racunZaPrenosNovca.brojRacuna}}</td>
+                <td *ngIf="obj.racunZaPrenosNovca !== null">{{obj.racunZaPrenosNovca.brojRacuna}}</td>
+            <td *ngIf="obj.racunZaPrenosNovca === null">/</td>
             </tr>
         </tbody>
         </table>

@@ -23,7 +23,7 @@ export class KlijentService {
   getByKorIme(korIme): Observable<Klijent[]>{
     return this._http.get<Klijent[]>(`${this.klijentBaseUrl}/korisnik/${korIme}`);
   }
-  getOdobreniOrNeodobreniOfBanka(korIme,param): Observable<Klijent[]>{
+  getAktivniOfBanka(korIme,param): Observable<Klijent[]>{
     return this._http.get<Klijent[]>(`${this.klijentBaseUrl}/banka/${korIme}/${+param}`);
   }
 

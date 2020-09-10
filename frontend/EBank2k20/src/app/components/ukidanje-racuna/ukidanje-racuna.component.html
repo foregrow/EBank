@@ -46,7 +46,9 @@
             <tbody *ngFor="let obj of ukidanjaUToku; index as i">
                 <tr>
                 <td>{{i+1}}</td><td>{{obj.datumKreiranja | date:'short'}}</td><td>{{obj.racunZaUkidanje.brojRacuna}}</td>
-                <td>{{obj.racunZaPrenosNovca.brojRacuna}}</td><td>{{obj.racunZaUkidanje.stanje}} {{obj.racunZaUkidanje.valuta.sifra}}</td>
+                <td *ngIf="obj.racunZaPrenosNovca !== null">{{obj.racunZaPrenosNovca.brojRacuna}}</td>
+                <td *ngIf="obj.racunZaPrenosNovca === null">/</td>
+                <td>{{obj.racunZaUkidanje.stanje}} {{obj.racunZaUkidanje.valuta.sifra}}</td>
                 </tr>
             </tbody>
             </table>

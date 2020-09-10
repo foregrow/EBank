@@ -16,14 +16,11 @@ import { ValutaService } from './services/valuta.service';
 import { KlijentService } from './services/klijent.service';
 import { UkidanjeRacunaService } from './services/ukidanje-racuna.service';
 import { RacunService } from './services/racun.service';
-import { KlijentiDetailComponent } from './components/klijenti/klijenti-detail/klijenti-detail.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
-    KlijentiDetailComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,

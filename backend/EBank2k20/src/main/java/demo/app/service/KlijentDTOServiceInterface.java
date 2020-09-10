@@ -10,5 +10,7 @@ public interface KlijentDTOServiceInterface {
 	List<KlijentDTO> getAllDTOs(List<Klijent> klijenti);
 	
 	KlijentDTO getKlijentDTO (Klijent klijent);
+	
+	KlijentDTO getKlijentDTOWithActivniRacuni(Klijent klijent);
 
 }

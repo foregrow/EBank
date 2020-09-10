@@ -15,9 +15,11 @@ public interface RacunServiceInterface {
 	
 	Racun save(Racun r);
 	
-	void remove(long id);
+	void remove(Racun racun);
 	
 	List<Racun> getByBankaIdAndOdobrenAndIzbrisan(long id, boolean odobren, boolean izbrisan);
+	
+	List<Racun> getByKlijentIdAndOdobrenAndIzbrisan(long id, boolean odobren, boolean izbrisan);
 
 	
 }

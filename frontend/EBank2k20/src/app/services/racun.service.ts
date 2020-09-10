@@ -32,4 +32,8 @@ export class RacunService {
   delete(racunId){
     return this._http.delete<any>(`${this.racunBaseUrl}/${+racunId}`);
   }
+
+  getAllRacunAktivacijaUToku(korime){
+    return this._http.get<Racun[]>(`${this.racunBaseUrl}/korisnikRacunAktivacija/${korime}`);
+  }
 }

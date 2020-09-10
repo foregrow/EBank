@@ -24,6 +24,7 @@ import { RacunComponent } from './components/racun/racun.component';
 import { OtvaranjeRacunaComponent } from './components/racun/otvaranje-racuna/otvaranje-racuna.component';
 import { OtvaranjeRacunaIzvrsilacComponent } from './components/racun/otvaranje-racuna-izvrsilac/otvaranje-racuna-izvrsilac.component';
 import { KlijentiDetailComponent } from './components/klijenti/klijenti-detail/klijenti-detail.component';
+import { OtvaranjeRacunaUlogovanogComponent } from './components/racun/otvaranje-racuna-ulogovanog/otvaranje-racuna-ulogovanog.component';
 const routes: Routes = [
   {path: '', redirectTo: 'korisnik', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
@@ -93,6 +94,10 @@ const routes: Routes = [
   data: {
     roles: ['KORISNIK']
   }},
+  {path: 'zahtev-otvaranja-racuna-klijenta', component: OtvaranjeRacunaUlogovanogComponent, canActivate: [AuthGuard,RoleGuard],
+  data: {
+    roles: ['KORISNIK']
+  }},
   
 
 
@@ -122,4 +127,5 @@ export class AppRoutingModule { }
 export const routingComponents = [
 LoginComponent,AdminComponent,KorisnikComponent,IzvrsilacComponent,BankaComponent,DelatnostComponent,BankaDetailComponent,DelatnostDetailComponent,
 NotFoundComponent,KorisniciComponent,KorisniciDetailComponent,DrzavaComponent,DrzavaDetailComponent,ValutaComponent,ValutaDetailComponent,KlijentiComponent,
-UkidanjeRacunaComponent,UkidanjeRacunaIzvrsilacComponent,RacunComponent,OtvaranjeRacunaComponent,OtvaranjeRacunaIzvrsilacComponent,KlijentiDetailComponent]
+UkidanjeRacunaComponent,UkidanjeRacunaIzvrsilacComponent,RacunComponent,OtvaranjeRacunaComponent,OtvaranjeRacunaIzvrsilacComponent,KlijentiDetailComponent,
+OtvaranjeRacunaUlogovanogComponent]

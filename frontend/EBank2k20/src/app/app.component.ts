@@ -12,6 +12,9 @@ export class AppComponent {
     public route: ActivatedRoute,
     public router: Router){}
 
+  klijentOtvaranjeRacuna(){
+    this.router.navigate(['zahtev-otvaranja-racuna-klijenta']);
+  }
   klijentUkidanjeRacuna(){
     this.router.navigate(['zahtev-ukidanja-racuna']);
   }
@@ -21,5 +24,6 @@ export class AppComponent {
   izvrsilacOtvaranjeRacuna(){
     this.router.navigate(['proces-zahteva-otvaranja']);
   }
+
   
 }
