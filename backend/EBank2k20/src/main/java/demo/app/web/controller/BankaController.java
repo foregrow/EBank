@@ -3,6 +3,7 @@ package demo.app.web.controller;
 
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
 
@@ -34,9 +35,9 @@ public class BankaController {
 	NalogService ns;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<BankaDTO>> getAll() throws FileNotFoundException, ParseException, JRException {
+	public ResponseEntity<List<BankaDTO>> getAll() throws ParseException, JRException, IOException {
 		//JAVA TECHIE UHUHUHU
-		//ns.exportReport();
+		ns.exportReport();
 		List<Banka> banke = bs.findAll();	
 		List<BankaDTO> dtos = bs.getAllDTOs(banke);		
 		

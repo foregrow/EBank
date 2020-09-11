@@ -1,7 +1,9 @@
 package demo.app.service;
 
 import java.io.File;
+
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,12 +14,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ResourceUtils;
 
+import demo.app.entity.DnevnoStanje;
 import demo.app.entity.Nalog;
 import demo.app.repository.NalogRepository;
+import demo.app.web.dto.RacunIzvestajDTO;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -33,6 +38,9 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 
 	@Autowired
 	NalogRepository nr;
+	
+	@Autowired
+	DnevnoStanjeService dss;
 	
 	@Override
 	public List<Nalog> findAll() {
@@ -57,36 +65,77 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 		return nr.naloziDnevnogStanja(odDatum, doDatum, racunId);
 	}
 	
-	public String exportReport() throws ParseException, FileNotFoundException, JRException {
-		//String pdf = "pdf";
-		String path = "D:\\jasperData";
-		String strod = "2020-09-09";
-		DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
-		Date odDatum = formatter.parse(strod);
-		String strdo = "2020-09-11";
-		DateFormat formatte2 = new SimpleDateFormat("yyyy-mm-dd");
-		Date doDatum = formatte2.parse(strdo);
-		//List<Nalog> nalozi = nr.naloziDnevnogStanja(odDatum, doDatum, 9);
-		List<Nalog> nalozi = nr.findAll();
-		if(nalozi.isEmpty()) {
-			System.out.println("empty");
+	public void exportReport(){
+		List<DnevnoStanje> dnevnoStanje = dss.findAll();
+		List<RacunIzvestajDTO> izvestaji = new ArrayList<RacunIzvestajDTO>();
+		RacunIzvestajDTO iz = new RacunIzvestajDTO();
+		izvestaji.add(iz);
+		for(DnevnoStanje ds : dnevnoStanje) {
+			for(Nalog n : ds.getNalozi()) {
+				iz = new RacunIzvestajDTO();
+				iz.setBrojIzvoda(ds.getBrojIzvoda());
+				iz.setDatumPrometa(ds.getDatumPrometa());
+				iz.setNovoStanje(ds.getNovoStanje());
+				iz.setPrethodnoStanje(ds.getPrethodnoStanje());
+				iz.setIznos(n.getIznos());
+				iz.setDuznik(n.getDuznik());
+				iz.setPrimaoc(n.getPrimaoc());
+				iz.setSvrhaPlacanja(n.getSvrhaPlacanja());
+				iz.setVrstaPlacanja(n.getVrstaPlacanja());
+				iz.setValuta(n.getValuta().getSifra());
+				//System.out.println(iz.getBrojIzvoda());
+				izvestaji.add(iz);
+			}
 		}
-		for(Nalog n : nalozi) {
-			System.out.println(n.getDuznik());
+		System.out.println("dnevnoStanje.size()" +dnevnoStanje.size());
+		System.out.println("izvestaji.size()" +izvestaji.size());
+		//izvestaji.remove(1);
+		for(RacunIzvestajDTO r: izvestaji)
+			System.out.println(r.getBrojIzvoda());
+		//JasperRunManager.runReportToPdfStream(reportStream, servletOutputStream, parameterMap, new JREmptyDataSource());
+		String path = "D:\\Stuff\\Programming\\jasperData";
+		
+		File file = null;
+		try {
+			file = ResourceUtils.getFile("classpath:izvestajRacuna.jrxml");
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+			System.out.println("file = resource utils");
 		}
-		//File file = ResourceUtils.getFile("classpath:dnevnoStanje.jrxml");
-		File f = ResourceUtils.getFile("D:\\Workspaces\\poslovna\\src\\main\\resources\\dnevnoStanje.jrxml");
+		//File f = ResourceUtils.getFile("D:\\Workspaces\\poslovna\\src\\main\\resources\\dnevnoStanje.jasper");
 		//System.out.println(file.getAbsolutePath());
-		JasperReport jasperReport = JasperCompileManager.compileReport(f.getAbsolutePath());
-		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(nalozi);
+		JasperReport jasperReport = null;
+		try {
+			jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+		} catch (JRException e) {
+			
+			e.printStackTrace();
+			System.out.println("jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());");
+		}
+		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(izvestaji);
 		
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("providedBy", "EBanking");
-		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,dataSource);
+		parameters.put("CollectionBeanParam", dataSource);
+		JasperPrint jasperPrint = null;
+		try {
+			jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,dataSource);
+		} catch (JRException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,dataSource)");
+		}
 		
-		JasperExportManager.exportReportToPdfFile(jasperPrint, path+"\\dnevnoStanje.pdf");
-		return "report generated in path: "  + path;
+		try {
+			JasperExportManager.exportReportToPdfFile(jasperPrint, path+"\\izvestaj.pdf");
+		} catch (JRException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("JasperExportManager.exportReportToPdfFile(jasperPrint, path+\"\\\\dnevnoStanje.pdf\");");
+		}
+		
 	}
+	
 	
 
 }
