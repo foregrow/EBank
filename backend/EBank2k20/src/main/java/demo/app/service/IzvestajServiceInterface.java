@@ -9,5 +9,5 @@ import demo.app.web.dto.IzvestajDnevnoStanjeRacunDTO;
 public interface IzvestajServiceInterface {
 
 	List<IzvestajDnevnoStanjeRacunDTO> getAllIzvestajDnevnoStanjeRacunDTOs(Date odDatum, Date doDatum, long rid);
-	List<IzvestajBankaRacuniDTO> getAllIzvestajBankaRacuniDTOs(long bid);
+	List<IzvestajBankaRacuniDTO> getAllIzvestajBankaRacuniDTOs(long bid, long kid);
 }

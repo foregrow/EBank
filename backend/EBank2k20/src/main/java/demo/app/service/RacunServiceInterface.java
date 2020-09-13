@@ -21,7 +21,7 @@ public interface RacunServiceInterface {
 	
 	List<Racun> getByKlijentIdAndOdobrenAndIzbrisan(long id, boolean odobren, boolean izbrisan);
 	
-	List<Racun> getByBankaId(long bankaId);
+	List<Racun> getByBankaIdAndKlijentId(long bankaId, long kid);
 
 	
 }

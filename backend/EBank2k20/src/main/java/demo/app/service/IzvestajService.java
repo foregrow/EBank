@@ -59,13 +59,13 @@ public class IzvestajService implements IzvestajServiceInterface {
 	}
 	
 	@Override
-	public List<IzvestajBankaRacuniDTO> getAllIzvestajBankaRacuniDTOs(long bid) {
-		List<Racun> racuni = rs.getByBankaId(bid);
+	public List<IzvestajBankaRacuniDTO> getAllIzvestajBankaRacuniDTOs(long bid, long kid) {
+		List<Racun> racuni = rs.getByBankaIdAndKlijentId(bid,kid);
 		List<IzvestajBankaRacuniDTO> izvestaji = new ArrayList<IzvestajBankaRacuniDTO>();
 		IzvestajBankaRacuniDTO iz = new IzvestajBankaRacuniDTO();
 		izvestaji.add(iz);
 		for(Racun r : racuni) {
-			iz = new IzvestajBankaRacuniDTO(r.getBrojRacuna(),r.getStanje(),r.getDatumKreiranja(),r.getBanka().getNaziv());
+			iz = new IzvestajBankaRacuniDTO(r.getBrojRacuna(),r.getStanje(),r.getDatumKreiranja());
 			izvestaji.add(iz);
 		}
 		return izvestaji;
@@ -93,7 +93,7 @@ public class IzvestajService implements IzvestajServiceInterface {
 		return file;
 	}
 
-	public Map<String, Object> getDataSourceAndFillReport(List<IzvestajDnevnoStanjeRacunDTO> dnevnoStanjeRacuna, List<IzvestajBankaRacuniDTO> racuniBanke, File file, long racunId) throws FileNotFoundException{
+	public Map<String, Object> getDataSourceAndFillReport(List<IzvestajDnevnoStanjeRacunDTO> dnevnoStanjeRacuna, List<IzvestajBankaRacuniDTO> racuniBanke, File file, long klijentID) throws FileNotFoundException{
 		String pdfExtension = ".pdf";
 		String resourceDirectory = Paths.get("src","main","resources").toAbsolutePath().toString();
 		StringBuilder outF = new StringBuilder();
@@ -112,7 +112,7 @@ public class IzvestajService implements IzvestajServiceInterface {
 			if(dnevnoStanjeRacuna.size() > 1) {
 				dataSource = new JRBeanCollectionDataSource(dnevnoStanjeRacuna);
 				outF.append("\\dnevnoStanje\\dnevnoStanje");
-				outF.append(Long.toString(racunId));
+				outF.append(Long.toString(klijentID));
 			}else
 				return null;
 			
@@ -122,7 +122,7 @@ public class IzvestajService implements IzvestajServiceInterface {
 			if(racuniBanke.size() > 1) {
 				dataSource = new JRBeanCollectionDataSource(racuniBanke);
 				outF.append("\\banka\\stanjeRacuna");
-				outF.append(Long.toString(racunId));
+				outF.append(Long.toString(klijentID));
 			}else
 				return null;
 		}
@@ -180,7 +180,7 @@ public class IzvestajService implements IzvestajServiceInterface {
 		}
 		return date;
 	}
-	public File getPdfIzvestaj(Date odDatum, Date doDatum, long racunId, long bankaId, int tipIzvestaja) throws FileNotFoundException, ParseException {
+	public File getPdfIzvestaj(Date odDatum, Date doDatum, long racunId, long bankaId, long klijentId, int tipIzvestaja) throws FileNotFoundException, ParseException {
 		
 		File f = null;
 		List<IzvestajDnevnoStanjeRacunDTO> dnevnoStanjeIzvestaji = null;
@@ -192,10 +192,10 @@ public class IzvestajService implements IzvestajServiceInterface {
 		}
 		else if(tipIzvestaja == 1) {
 			f = this.getResourceFile(tipIzvestaja);
-			racuniBankeIzvestaji = this.getAllIzvestajBankaRacuniDTOs(bankaId);
+			racuniBankeIzvestaji = this.getAllIzvestajBankaRacuniDTOs(bankaId,klijentId);
 		}
 		
-		Map<String,Object> map = this.getDataSourceAndFillReport(dnevnoStanjeIzvestaji,racuniBankeIzvestaji,f,racunId);
+		Map<String,Object> map = this.getDataSourceAndFillReport(dnevnoStanjeIzvestaji,racuniBankeIzvestaji,f,klijentId);
 		String fileLocation = this.exportReportToPdfFileAndGetFileLocation(map);
 		if(fileLocation.equals(GRESKA)) //GRESKA je konstanta
 			return null;

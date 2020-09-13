@@ -7,18 +7,16 @@ public class IzvestajBankaRacuniDTO {
 	private String brojRacuna;
 	private double stanje;
 	private Date datumKreiranja;
-	private String banka;
 	
 	public IzvestajBankaRacuniDTO() {
 		
 	}
 
-	public IzvestajBankaRacuniDTO(String brojRacuna, double stanje, Date datumKreiranja, String banka) {
+	public IzvestajBankaRacuniDTO(String brojRacuna, double stanje, Date datumKreiranja) {
 		super();
 		this.brojRacuna = brojRacuna;
 		this.stanje = stanje;
 		this.datumKreiranja = datumKreiranja;
-		this.banka = banka;
 	}
 
 	public String getBrojRacuna() {
@@ -45,14 +43,6 @@ public class IzvestajBankaRacuniDTO {
 		this.datumKreiranja = datumKreiranja;
 	}
 
-	public String getBanka() {
-		return banka;
-	}
-
-	public void setBanka(String banka) {
-		this.banka = banka;
-	}
-	
 	
 	
 }

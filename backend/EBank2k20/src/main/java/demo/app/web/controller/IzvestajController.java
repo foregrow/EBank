@@ -31,12 +31,12 @@ public class IzvestajController {
 	@Autowired
 	IzvestajService is;
 	
-	@RequestMapping(value="/download/{odStr}/{doStr}/{racunId}/{bankaId}/{tipIzvestaja}",method = RequestMethod.GET)
+	@RequestMapping(value="/download/{odStr}/{doStr}/{racunId}/{bankaId}/{klijentId}/{tipIzvestaja}",method = RequestMethod.GET)
 	public ResponseEntity<?> downloadIzvestaj(@PathVariable String odStr,@PathVariable String doStr,
-			@PathVariable long racunId,@PathVariable long bankaId,@PathVariable int tipIzvestaja) throws ParseException, IOException{
+			@PathVariable long racunId,@PathVariable long bankaId,@PathVariable long klijentId,@PathVariable int tipIzvestaja) throws ParseException, IOException{
 		Date odDatum = is.getDateFromString("09-Sep-2020,13:00:14 PM"); //ovde ide odStr
 		Date doDatum = is.getDateFromString("12-Sep-2020,13:00:14 PM"); //ovde ide doStr
-		File pdf = is.getPdfIzvestaj(odDatum, doDatum, racunId, bankaId, tipIzvestaja); //tipIzvestaja je da znamo da li je dnevnostanje izvestaj ili stanje racuna za banku izvestaj
+		File pdf = is.getPdfIzvestaj(odDatum, doDatum, racunId, bankaId,klijentId, tipIzvestaja); //tipIzvestaja je da znamo da li je dnevnostanje izvestaj ili stanje racuna za banku izvestaj
 		if(pdf != null) {
 			Path filePath = pdf.toPath();
 			String mimeType = Files.probeContentType(filePath);

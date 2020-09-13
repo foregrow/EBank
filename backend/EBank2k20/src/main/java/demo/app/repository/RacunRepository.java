@@ -12,5 +12,5 @@ public interface RacunRepository  extends JpaRepository<Racun, Long>{
 	
 	List<Racun> getByKlijentIdAndOdobrenAndIzbrisan(long id, boolean odobren, boolean izbrisan);
 	
-	List<Racun> getByBankaId(long bankaId);
+	List<Racun> getByBankaIdAndKlijentId(long bankaId, long kid);
 	}
