@@ -10,6 +10,6 @@ import demo.app.entity.Nalog;
 
 public interface NalogRepository extends JpaRepository<Nalog, Long> {
 
-	@Query("select n from Nalog n, DnevnoStanje d where d.id = n.dnevnoStanje.id and (d.datumPrometa BETWEEN :odDatum AND :doDatum) and d.racun.id = :racunId")
-	List<Nalog> naloziDnevnogStanja(Date odDatum, Date doDatum, long racunId);
+	/*@Query("select n from Nalog n, DnevnoStanje d where d.id = n.dnevnoStanje.id and (d.datumPrometa BETWEEN :odDatum AND :doDatum) and d.racun.id = :racunId")
+	List<Nalog> naloziDnevnogStanja(Date odDatum, Date doDatum, long racunId);*/
 }

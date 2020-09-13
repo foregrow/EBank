@@ -2,7 +2,7 @@ package demo.app.web.dto;
 
 import java.util.Date;
 
-public class RacunIzvestajDTO {
+public class IzvestajDnevnoStanjeRacunDTO {
 
 	private String brojIzvoda;
 	private Date datumPrometa;
@@ -15,11 +15,11 @@ public class RacunIzvestajDTO {
 	private String vrstaPlacanja;
 	private String valuta;
 	
-	public RacunIzvestajDTO() {
+	public IzvestajDnevnoStanjeRacunDTO() {
 		
 	}
 	
-	public RacunIzvestajDTO(String brojIzvoda, Date datumPrometa, double novoStanje, double prethodnoStanje,
+	public IzvestajDnevnoStanjeRacunDTO(String brojIzvoda, Date datumPrometa, double novoStanje, double prethodnoStanje,
 			double iznos, String duznik, String promaoc, String svrhaPlacanja, String vrstaPlacanja, String valuta) {
 		super();
 		this.brojIzvoda = brojIzvoda;

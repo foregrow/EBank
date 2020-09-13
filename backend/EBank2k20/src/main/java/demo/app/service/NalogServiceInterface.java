@@ -1,6 +1,6 @@
 package demo.app.service;
 
-import java.util.Date;
+
 import java.util.List;
 
 
@@ -17,6 +17,5 @@ public interface NalogServiceInterface {
 	
 	void remove(long id);
 
-	List<Nalog> naloziDnevnogStanja(Date odDatum, Date doDatum, long racunId);
 
 }

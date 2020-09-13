@@ -97,6 +97,10 @@ public class RacunService  implements RacunServiceInterface, RacunDTOServiceInte
 	public List<Racun> getByKlijentIdAndOdobrenAndIzbrisan(long id, boolean odobren, boolean izbrisan) {
 		return rr.getByKlijentIdAndOdobrenAndIzbrisan(id, odobren, izbrisan);
 	}
+	@Override
+	public List<Racun> getByBankaId(long bankaId) {
+		return rr.getByBankaId(bankaId);
+	}
 	
 
 }

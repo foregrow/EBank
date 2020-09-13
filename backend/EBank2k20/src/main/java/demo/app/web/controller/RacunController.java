@@ -1,7 +1,6 @@
 package demo.app.web.controller;
 
 
-
 import java.util.List;
 
 
@@ -22,7 +21,6 @@ import demo.app.entity.Racun;
 import demo.app.service.KlijentService;
 import demo.app.service.KorisnikService;
 import demo.app.service.RacunService;
-import demo.app.web.dto.KlijentDTO;
 import demo.app.web.dto.RacunDTO;
 
 
@@ -105,6 +103,8 @@ public class RacunController {
 		return new ResponseEntity<>(dtos,HttpStatus.OK);
 		
 	}
+	
+
 	
 	
 
