@@ -17,8 +17,8 @@ public interface DnevnoStanjeServiceInterface {
 	
 	void remove(long id);
 	
-	List<DnevnoStanje> dnevnoStanjeZaRacunPoDatumu(Date odDatum, Date doDatum, long rid);
+	List<DnevnoStanje> dnevnoStanjeZaDatum(Date datum, long rid);
 
-
+	int countDnevnoStanje();
 	
 }

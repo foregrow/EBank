@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import demo.app.entity.DnevnoStanje;
+import demo.app.entity.Nalog;
 import demo.app.repository.DnevnoStanjeRepository;
 
 
@@ -38,9 +39,14 @@ public class DnevnoStanjeService  implements DnevnoStanjeServiceInterface, Dnevn
 	public void remove(long id) {
 		dr.deleteById(id);
 	}
+
 	@Override
-	public List<DnevnoStanje> dnevnoStanjeZaRacunPoDatumu(Date odDatum, Date doDatum, long rid) {
-		return dr.dnevnoStanjeZaRacunPoDatumu(odDatum, doDatum, rid);
+	public List<DnevnoStanje> dnevnoStanjeZaDatum(Date datum, long rid) {
+		return dr.dnevnoStanjeZaDatum(datum,rid);
+	}
+	@Override
+	public int countDnevnoStanje() {
+		return dr.countDnevnoStanje();
 	}
 	
 

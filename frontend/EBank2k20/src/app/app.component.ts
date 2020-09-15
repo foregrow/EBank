@@ -12,6 +12,9 @@ export class AppComponent {
     public route: ActivatedRoute,
     public router: Router){}
 
+  klijentTransakcija(){
+    this.router.navigate(['transakcija']);
+  }
   klijentOtvaranjeRacuna(){
     this.router.navigate(['zahtev-otvaranja-racuna-klijenta']);
   }

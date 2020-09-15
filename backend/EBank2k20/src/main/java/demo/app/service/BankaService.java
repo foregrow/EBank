@@ -58,5 +58,9 @@ public class BankaService  implements BankaServiceInterface, BankaDTOServiceInte
 		dto.setIzvrsiociListFromSet(b.getIzvrsioci());
 		return dto;
 	}
+	@Override
+	public List<Banka> bankeUKojimaKlijentImaRacun(long kid) {
+		return br.bankeUKojimaKlijentImaRacun(kid);
+	}
 
 }

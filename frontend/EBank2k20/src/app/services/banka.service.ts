@@ -21,6 +21,10 @@ export class BankaService {
     return this._http.get<Banka[]>(`${this.bankaBaseUrl}/${+id}`);
   }
 
+  bankeKlijenta(korIme: string): Observable<Banka[]>{
+    return this._http.get<Banka[]>(`${this.bankaBaseUrl}/bankeKlijenta/${korIme}`);
+  }
+
   delete(id): Observable<Banka[]>{
     return this._http.delete<Banka[]>(`${this.bankaBaseUrl}/${+id}`);
   }

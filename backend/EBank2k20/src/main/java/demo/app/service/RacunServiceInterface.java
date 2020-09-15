@@ -23,5 +23,5 @@ public interface RacunServiceInterface {
 	
 	List<Racun> getByBankaIdAndKlijentId(long bankaId, long kid);
 
-	
+	Racun getByBrojRacuna(String brojRacuna);
 }

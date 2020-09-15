@@ -15,5 +15,5 @@ public interface BankaServiceInterface {
 	
 	void remove(long id);
 
-	
+	List<Banka> bankeUKojimaKlijentImaRacun(long kid);
 }

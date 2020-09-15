@@ -11,5 +11,6 @@ export class Server{
     public static readonly ukidanjeRacuna: string = "ukidanjeRacuna";
     public static readonly racun: string = "racun";
     public static readonly izvestaj: string = "izvestaj";
+    public static readonly nalog: string = "nalog";
 }
 

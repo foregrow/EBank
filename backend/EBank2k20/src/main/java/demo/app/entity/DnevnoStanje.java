@@ -1,6 +1,7 @@
 package demo.app.entity;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 
 import java.util.HashSet;

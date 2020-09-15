@@ -18,6 +18,9 @@ import { UkidanjeRacunaService } from './services/ukidanje-racuna.service';
 import { RacunService } from './services/racun.service';
 import { IzvestajService } from './services/izvestaj.service';
 import * as FileSaver from 'file-saver';
+import { DatePipe } from '@angular/common';
+import { NalogService } from './services/nalog.service';
+
 
 @NgModule({
   declarations: [
@@ -31,12 +34,12 @@ import * as FileSaver from 'file-saver';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [KorisnikService,BankaService,DelatnostService,DrzavaService,ValutaService,KlijentService,UkidanjeRacunaService,RacunService,IzvestajService,
+  providers: [KorisnikService,BankaService,DelatnostService,DrzavaService,ValutaService,KlijentService,UkidanjeRacunaService,RacunService,IzvestajService,NalogService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true //za multiple interceptors ako su potrebni
-    },AuthGuard,RoleGuard],
+    },AuthGuard,RoleGuard,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

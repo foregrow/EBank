@@ -4,6 +4,7 @@ package demo.app.web.controller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,9 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import demo.app.entity.Banka;
+import demo.app.entity.Klijent;
+import demo.app.entity.Korisnik;
 import demo.app.service.BankaService;
 import demo.app.service.NalogService;
 import demo.app.service.IzvestajService;
+import demo.app.service.KorisnikService;
 import demo.app.web.dto.BankaDTO;
 
 @RestController
@@ -34,7 +38,8 @@ public class BankaController {
 	@Autowired
 	NalogService ns;
 	
-
+	@Autowired
+	KorisnikService ks;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<BankaDTO>> getAll() throws FileNotFoundException, ParseException {
@@ -101,6 +106,21 @@ public class BankaController {
 			return new ResponseEntity<>(dtos, HttpStatus.OK);
 		} else		
 			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+		
+	}
+	
+	@RequestMapping(value="/bankeKlijenta/{korIme}", method=RequestMethod.GET)
+	public ResponseEntity<?> bankeUKojimaKlijentImaRacun(@PathVariable String korIme){
+		Korisnik kor = ks.findByKorisnickoIme(korIme);
+		if(kor == null || kor.getKlijent() == null)
+			return new ResponseEntity<>("Greska!",HttpStatus.NOT_FOUND);
+					
+		List<Banka> banke = new ArrayList<Banka>();
+		banke = bs.bankeUKojimaKlijentImaRacun(kor.getKlijent().getId());
+		List<BankaDTO> dtos = bs.getAllDTOs(banke);
+		
+		return new ResponseEntity<>(dtos, HttpStatus.OK);
+		
 		
 	}
 

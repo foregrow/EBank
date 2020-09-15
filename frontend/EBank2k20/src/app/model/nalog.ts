@@ -53,7 +53,7 @@ export class Nalog{
    constructor(id:number,primaoc:string,svrhaPlacanja:string,duznik:string,
     datumPrijema:any,datumValute:any,modelZaduzenja:string,pozivNaBrojZaduzenja:string,
     hitno:boolean,iznos: number,status: boolean,tipGreske: string,racunDuznika: Racun,racunPrimaoca: Racun,vrstaPlacanja: string,
-    drzava: Drzava,dnevnoStanje: DnevnoStanje,valuta: Valuta){
+    drzava: Drzava,dnevnoStanje: DnevnoStanje,valuta: Valuta,pozivNaBrojOdobrenja:string,modelOdobrenja:string){
     this.id = id;
     this.primaoc = primaoc;
     this.svrhaPlacanja = svrhaPlacanja;
@@ -72,5 +72,7 @@ export class Nalog{
     this.drzava = drzava;
     this.dnevnoStanje = dnevnoStanje;
     this.valuta = valuta;
+    this.pozivNaBrojOdobrenja = pozivNaBrojOdobrenja;
+    this.modelOdobrenja = modelOdobrenja;
     }
 }

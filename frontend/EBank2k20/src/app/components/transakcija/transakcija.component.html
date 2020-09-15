@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <h4 class="mt-5 mb-3">Transakcije</h4>
+    <form [formGroup]="addEditForm" class="w-25">
+        <div class="form-group">
+            <label class="control-label">Vasi racuni</label>
+            <select class="form-control" formControlName="racunDuznika">
+                <option disabled>Izaberite racun sa kog zelite da posaljete novac</option>
+                <option *ngFor="let racunDuznika of racuniDuznika" [ngValue]="racunDuznika">
+                  {{racunDuznika.brojRacuna}}, {{racunDuznika.banka.naziv}}, {{racunDuznika.stanje}}{{racunDuznika.valuta.sifra}}
+                </option>
+              </select> 
+        </div>
+        <div class="form-group">
+            <label>Racun primaoca</label>
+            <input formControlName="racunPrimaoca" type="text" class="form-control">
+            <small [class.d-none]="racunPrimaoca.valid || racunPrimaoca.untouched" class="text-danger">Molimo vas unesite racun primaoca!</small> 
+        </div>
+        <div class="form-group">
+            <label>Svrha placanja</label>
+            <input formControlName="svrhaPlacanja" type="text" class="form-control">
+            <small [class.d-none]="svrhaPlacanja.valid || svrhaPlacanja.untouched" class="text-danger">Molimo vas unesite svrhu placanja!</small> 
+        </div>
+        <div class="form-group">
+            <label>Poziv na broj zaduzenja</label>
+            <input formControlName="pozivNaBrojZaduzenja" type="text" class="form-control">
+            <small [class.d-none]="pozivNaBrojZaduzenja.valid || pozivNaBrojZaduzenja.untouched" class="text-danger">Molimo vas unesite poziv na broj zaduzenja!</small> 
+        </div>
+        <div class="form-group">
+            <label>Model zaduzenja</label>
+            <input formControlName="modelZaduzenja" type="text" class="form-control">
+            <small [class.d-none]="modelZaduzenja.valid || modelZaduzenja.untouched" class="text-danger">Molimo vas unesite model zaduzenja!</small> 
+        </div>
+        <div class="form-group">
+            <label>Poziv na broj odobrenja</label>
+            <input formControlName="pozivNaBrojOdobrenja" type="text" class="form-control">
+            <small [class.d-none]="pozivNaBrojOdobrenja.valid || pozivNaBrojOdobrenja.untouched" class="text-danger">Molimo vas unesite poziv na broj odobrenja!</small> 
+        </div>
+        <div class="form-group">
+            <label>Model odobrenja</label>
+            <input formControlName="modelOdobrenja" type="text" class="form-control">
+            <small [class.d-none]="modelOdobrenja.valid || modelOdobrenja.untouched" class="text-danger">Molimo vas unesite model odobrenja!</small> 
+        </div>
+        <div class="form-group">
+            <label class="control-label">Drzave</label>
+            <select class="form-control" formControlName="drzava">
+                <option disabled>Izaberite drzavu</option>
+                <option *ngFor="let drzava of drzave" [ngValue]="drzava">
+                  {{drzava.naziv}}, {{drzava.sifra}}
+                </option>
+              </select> 
+        </div>
+        <div class="form-group">
+            <label class="control-label">Valute</label>
+            <select class="form-control" formControlName="valuta">
+                <option disabled>Izaberite valutu</option>
+                <option *ngFor="let valuta of valute" [ngValue]="valuta">
+                  {{valuta.sifra}}
+                </option>
+              </select> 
+        </div>
+        <div class="form-group">
+            <label class="control-label">Hitno</label>
+            <input type="checkbox" formControlName="hitno">
+        </div>
+        <div class="form-group">
+            <label>Iznos</label>
+            <input formControlName="iznos" type="text" class="form-control">
+            <small [class.d-none]="iznos.valid || iznos.untouched" class="text-danger">Molimo vas unesite iznos!</small> 
+        </div>
+    <button class="btn btn-primary" (click)="submitTransakcija()" [disabled]="addEditForm.invalid || !selectedRacunDuznika || !selectedDrzava
+    || !selectedValuta" type="submit">Posalji novac</button>
+    </form>
+</div>

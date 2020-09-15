@@ -1,6 +1,7 @@
 package demo.app.repository;
 
 import java.util.Date;
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +11,7 @@ import demo.app.entity.Nalog;
 
 public interface NalogRepository extends JpaRepository<Nalog, Long> {
 
-	/*@Query("select n from Nalog n, DnevnoStanje d where d.id = n.dnevnoStanje.id and (d.datumPrometa BETWEEN :odDatum AND :doDatum) and d.racun.id = :racunId")
-	List<Nalog> naloziDnevnogStanja(Date odDatum, Date doDatum, long racunId);*/
+	@Query("SELECT n FROM Nalog n, DnevnoStanje d WHERE (n.racunDuznika.id = :rid OR n.racunPrimaoca.id = :rid) AND "
+			+ "(date(d.datumPrometa) BETWEEN :odDatum AND :doDatum AND date(n.datumPrijema) BETWEEN :odDatum AND :doDatum) AND n.dnevnoStanje.id = d.id AND d.racun.id = :rid ORDER BY n.id DESC")
+	List<Nalog> naloziDnevnogStanjaZaRacunPoDatumu(Date odDatum, Date doDatum, long rid);
 }

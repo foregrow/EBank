@@ -34,8 +34,14 @@ public class IzvestajController {
 	@RequestMapping(value="/download/{odMili}/{doMili}/{racunId}/{bankaId}/{klijentId}/{tipIzvestaja}",method = RequestMethod.GET)
 	public ResponseEntity<?> downloadIzvestaj(@PathVariable long odMili,@PathVariable long doMili,
 			@PathVariable long racunId,@PathVariable long bankaId,@PathVariable long klijentId,@PathVariable int tipIzvestaja) throws ParseException, IOException{
-		Date odDatum = is.getDateFromMillis(odMili); //ovde ide odStr
-		Date doDatum = is.getDateFromMillis(doMili); //ovde ide doStr
+		
+		Date odDatum = null;
+		Date doDatum = null;
+		if(tipIzvestaja==0) {
+			odDatum = is.getDateFromMillis(odMili);
+			doDatum = is.getDateFromMillis(doMili);
+		}
+		
 		File pdf = is.getPdfIzvestaj(odDatum, doDatum, racunId, bankaId,klijentId, tipIzvestaja); //tipIzvestaja je da znamo da li je dnevnostanje izvestaj ili stanje racuna za banku izvestaj
 		if(pdf != null) {
 			Path filePath = pdf.toPath();
