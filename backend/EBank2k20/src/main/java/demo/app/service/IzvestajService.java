@@ -16,12 +16,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
+import org.thymeleaf.expression.Lists;
 
 import demo.app.entity.DnevnoStanje;
 import demo.app.entity.Nalog;
 import demo.app.entity.Racun;
 import demo.app.web.dto.IzvestajBankaRacuniDTO;
 import demo.app.web.dto.IzvestajDnevnoStanjeRacunDTO;
+import io.jsonwebtoken.lang.Collections;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -47,13 +49,42 @@ public class IzvestajService implements IzvestajServiceInterface {
 		List<IzvestajDnevnoStanjeRacunDTO> izvestaji = new ArrayList<IzvestajDnevnoStanjeRacunDTO>();
 		IzvestajDnevnoStanjeRacunDTO iz = new IzvestajDnevnoStanjeRacunDTO();
 		izvestaji.add(iz);
-		for(DnevnoStanje ds : dnevnoStanje) {
-			for(Nalog n : ds.getNalozi()) {
-				iz = new IzvestajDnevnoStanjeRacunDTO(ds.getBrojIzvoda(),ds.getDatumPrometa(),ds.getNovoStanje(),ds.getPrethodnoStanje(),
-						n.getIznos(),n.getDuznik(),n.getPrimaoc(),n.getSvrhaPlacanja(),n.getVrstaPlacanja(),n.getValuta().getSifra());
+
+		double trenutnoStanje = 0;
+		for(int i=0;i<dnevnoStanje.size();i++) {
+			DnevnoStanje ds = dnevnoStanje.get(i);
+			System.out.println("ds novo stanje"+ ds.getNovoStanje());
+			List<Nalog> naloziTrenutnogDnevnogStanja = new ArrayList<Nalog>(dnevnoStanje.get(i).getNalozi());
+			for(int j=naloziTrenutnogDnevnogStanja.size()-1;j>=0;j--) {
+				Nalog trenutniNalog = naloziTrenutnogDnevnogStanja.get(j);
+				System.out.println("trenutniNalog iznos"+ trenutniNalog.getIznos());
+				System.out.println("trenutniNalog duznik"+ trenutniNalog.getDuznik());
+				double novoStanje = ds.getNovoStanje(); //21500
+				double prethodno = ds.getPrethodnoStanje(); //20000
+				if(j==naloziTrenutnogDnevnogStanja.size()-1) {
+					trenutnoStanje = prethodno;
+				}else {
+					if(rid == trenutniNalog.getRacunDuznika().getId()) {
+						novoStanje = trenutnoStanje;
+						prethodno = novoStanje + trenutniNalog.getIznos(); 
+						trenutnoStanje=prethodno;
+						
+					}else if(rid == trenutniNalog.getRacunPrimaoca().getId()) {
+						novoStanje = trenutnoStanje;
+						prethodno = novoStanje - trenutniNalog.getIznos(); 
+						trenutnoStanje=prethodno;
+					}
+				}
+				
+
+				iz = new IzvestajDnevnoStanjeRacunDTO(ds.getBrojIzvoda(),ds.getDatumPrometa(),novoStanje,prethodno,
+						trenutniNalog.getIznos(),trenutniNalog.getDuznik(),trenutniNalog.getPrimaoc(),trenutniNalog.getSvrhaPlacanja(),
+						trenutniNalog.getVrstaPlacanja(),trenutniNalog.getValuta().getSifra());
 				izvestaji.add(iz);
+				System.out.println("trenutnoStanje:" + trenutnoStanje);
 			}
 		}
+		
 		
 		return izvestaji;
 	}
@@ -169,15 +200,11 @@ public class IzvestajService implements IzvestajServiceInterface {
 			
 	}
 	
-	public Date getDateFromString(String str) {
+	public Date getDateFromMillis(long millis) {
 		SimpleDateFormat formatter = new SimpleDateFormat("d-MMM-yyyy,HH:mm:ss aaa");
-		Date date = null;
-		try {
-			date = formatter.parse(str);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Date date = new Date(millis);
+		formatter.format(date);
+		System.out.println("print datuma iz servisa" + date.toString());
 		return date;
 	}
 	public File getPdfIzvestaj(Date odDatum, Date doDatum, long racunId, long bankaId, long klijentId, int tipIzvestaja) throws FileNotFoundException, ParseException {
