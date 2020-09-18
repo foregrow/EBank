@@ -23,7 +23,7 @@ import demo.app.entity.Klijent;
 import demo.app.entity.Korisnik;
 import demo.app.service.BankaService;
 import demo.app.service.NalogService;
-import demo.app.service.IzvestajService;
+import demo.app.service.IzvestajIObradeService;
 import demo.app.service.KorisnikService;
 import demo.app.web.dto.BankaDTO;
 

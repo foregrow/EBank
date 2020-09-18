@@ -3,8 +3,10 @@ package demo.app.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,12 +43,18 @@ public class Banka {
 	private Set<KursnaLista> kursneListe = new HashSet<KursnaLista>();
 	@OneToMany(mappedBy = "banka")
 	private Set<Korisnik> izvrsioci = new HashSet<Korisnik>();
+	@OneToMany(mappedBy = "bankaDuznika")
+	private Set<MedjubankarskiPrenos> medjubankarskiPrenosDuznik = new HashSet<MedjubankarskiPrenos>();
+	@OneToMany(mappedBy = "bankaPrimaoca")
+	private Set<MedjubankarskiPrenos> medjubankarskiPrenosPrimaoc = new HashSet<MedjubankarskiPrenos>();
+	
 	public Banka() {
 		
 	}
 	
 	public Banka(long id, String sifra, String naziv, String adresa, String email, String web, String telefon,
-			String fax, String swift, String obracunskiRacun, Set<Racun> racuni, Set<KursnaLista> kursneListe,Set<Korisnik> izvrsioci) {
+			String fax, String swift, String obracunskiRacun, Set<Racun> racuni, Set<KursnaLista> kursneListe,Set<Korisnik> izvrsioci,
+			Set<Poruka> porukeDuznik,Set<Poruka> porukePrimaoc) {
 		super();
 		this.id = id;
 		this.sifra = sifra;
@@ -166,6 +174,25 @@ public class Banka {
 	public void setIzvrsioci(Set<Korisnik> izvrsioci) {
 		this.izvrsioci = izvrsioci;
 	}
+
+	public Set<MedjubankarskiPrenos> getMedjubankarskiPrenosDuznik() {
+		return medjubankarskiPrenosDuznik;
+	}
+
+	public void setMedjubankarskiPrenosDuznik(Set<MedjubankarskiPrenos> medjubankarskiPrenosDuznik) {
+		this.medjubankarskiPrenosDuznik = medjubankarskiPrenosDuznik;
+	}
+
+	public Set<MedjubankarskiPrenos> getMedjubankarskiPrenosPrimaoca() {
+		return medjubankarskiPrenosPrimaoc;
+	}
+
+	public void setMedjubankarskiPrenosPrimaoca(Set<MedjubankarskiPrenos> medjubankarskiPrenosPrimaoca) {
+		this.medjubankarskiPrenosPrimaoc = medjubankarskiPrenosPrimaoca;
+	}
+
+	
+	
 	
 	
 }

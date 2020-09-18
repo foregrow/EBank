@@ -29,12 +29,12 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 	DnevnoStanjeService dss;
 	
 	@Autowired
-	IzvestajService is;
+	IzvestajIObradeService is;
 	
 	@Autowired
 	RacunService rs;
 
-	
+	private static final int BROJ_NALOGA_ZA_KREIRANJE = 2;
 	@Override
 	public List<Nalog> findAll() {
 		return nr.findAll();
@@ -66,11 +66,9 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 		Date datumValute = is.getDateFromMillis(System.currentTimeMillis());
 
 		List<DnevnoStanje> dnevnoStanjeZaDatum = new ArrayList<>();
-		//List<DnevnoStanje> primaocDnevnoStanjeZaDatum = new ArrayList<>();
-		
-		
+
 		Nalog nalog = null;
-		for(int i=1;i<3;i++){
+		for(int i=0;i<BROJ_NALOGA_ZA_KREIRANJE;i++){
 			nalog = new Nalog();
 			nalog.setDatumPrijema(datumPrijema);
 			nalog.setDatumValute(datumValute);
@@ -93,11 +91,11 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 			
 			DnevnoStanje ds = null;
 			double novoStanje = 0;
-			if(i == 1) {
+			if(i == 0) {
 				dnevnoStanjeZaDatum = dss.dnevnoStanjeZaDatum(datumPrijema, racunDuznika.getId());
 				novoStanje = racunDuznika.getStanje()-nalog.getIznos();
 				racunDuznika.setStanje(novoStanje);
-			}else if(i == 2) {
+			}else if(i == 1) {
 				dnevnoStanjeZaDatum = dss.dnevnoStanjeZaDatum(datumPrijema, racunPrimaoca.getId());
 				novoStanje = racunPrimaoca.getStanje()+nalog.getIznos();	
 				racunPrimaoca.setStanje(novoStanje);
@@ -109,13 +107,13 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 				count++;
 				ds.setBrojIzvoda(Integer.toString(count));
 				ds.setDatumPrometa(datumPrijema);
-				if(i == 1) {
+				if(i == 0) {
 					ds.setPrethodnoStanje(novoStanje+nalog.getIznos());
 					ds.setNovoStanje(novoStanje);
 					ds.setPrometNaTeret(nalog.getIznos());
 					ds.setPrometUKorist(0);
 					ds.setRacun(racunDuznika);
-				}else if(i == 2) {
+				}else if(i == 1) {
 					ds.setPrethodnoStanje(novoStanje-nalog.getIznos());
 					ds.setNovoStanje(novoStanje);
 					ds.setPrometNaTeret(0);
@@ -130,10 +128,10 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 				for(DnevnoStanje d : dnevnoStanjeZaDatum) {
 					d.setPrethodnoStanje(d.getNovoStanje());
 					d.setNovoStanje(novoStanje);
-					if(i == 1) {
+					if(i == 0) {
 						d.setPrometNaTeret(nalog.getIznos());
 						d.setPrometUKorist(0);
-					}else if(i == 2) {
+					}else if(i == 1) {
 						d.setPrometNaTeret(0);
 						d.setPrometUKorist(nalog.getIznos());
 					}
@@ -144,9 +142,9 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 			}
 			
 			
-			if(i==1)
+			if(i==0)
 				rs.save(racunDuznika);
-			else if(i==2)
+			else if(i==1)
 				rs.save(racunPrimaoca);
 
 		}

@@ -44,14 +44,34 @@ public class Racun {
 	
 	@OneToMany(cascade = {CascadeType.ALL},fetch = FetchType.LAZY,mappedBy = "racun")
 	private Set<DnevnoStanje> dnevnoStanje = new HashSet<DnevnoStanje>();
+	@OneToMany(mappedBy = "racunDuznika")
+	private Set<MedjubankarskiPrenos> medjubankarskiPrenosDuznik = new HashSet<MedjubankarskiPrenos>();
+	@OneToMany(mappedBy = "racunPrimaoca")
+	private Set<MedjubankarskiPrenos> medjubankarskiPrenosPrimaoc = new HashSet<MedjubankarskiPrenos>();
 	
+	public Set<MedjubankarskiPrenos> getMedjubankarskiPrenosDuznik() {
+		return medjubankarskiPrenosDuznik;
+	}
+
+	public void setMedjubankarskiPrenosDuznik(Set<MedjubankarskiPrenos> medjubankarskiPrenosDuznik) {
+		this.medjubankarskiPrenosDuznik = medjubankarskiPrenosDuznik;
+	}
+
+	public Set<MedjubankarskiPrenos> getMedjubankarskiPrenosPrimaoc() {
+		return medjubankarskiPrenosPrimaoc;
+	}
+
+	public void setMedjubankarskiPrenosPrimaoc(Set<MedjubankarskiPrenos> medjubankarskiPrenosPrimaoc) {
+		this.medjubankarskiPrenosPrimaoc = medjubankarskiPrenosPrimaoc;
+	}
+
 	public Racun() {
 		
 	}
 
 	public Racun(long id, String brojRacuna, double stanje, Date datumKreiranja, boolean izbrisan,
 			UkidanjeRacuna ukidanjeRacuna, Banka banka, Klijent klijent, Valuta valuta,
-			Set<DnevnoStanje> dnevnoStanje, boolean odobren) {
+			Set<DnevnoStanje> dnevnoStanje, boolean odobren, Set<MedjubankarskiPrenos> medjubankarskiPrenosDuznik, Set<MedjubankarskiPrenos> medjubankarskiPrenosPrimaoc) {
 		super();
 		this.id = id;
 		this.brojRacuna = brojRacuna;
@@ -64,6 +84,8 @@ public class Racun {
 		this.valuta = valuta;
 		this.dnevnoStanje = dnevnoStanje;
 		this.odobren = odobren;
+		this.medjubankarskiPrenosDuznik = medjubankarskiPrenosDuznik;
+		this.medjubankarskiPrenosPrimaoc = medjubankarskiPrenosPrimaoc;
 	}
 
 	public long getId() {

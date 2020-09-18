@@ -25,6 +25,8 @@ public class RacunDTO {
 	private ValutaDTO valuta;
 	
 	private List<DnevnoStanjeDTO> dnevnoStanje = new ArrayList<DnevnoStanjeDTO>();
+	private List<MedjubankarskiPrenosDTO> medjubankarskiPrenosDuznik = new ArrayList<MedjubankarskiPrenosDTO>();
+	private List<MedjubankarskiPrenosDTO> medjubankarskiPrenosPrimaoc = new ArrayList<MedjubankarskiPrenosDTO>();
 	
 	public RacunDTO() {
 		
@@ -152,5 +154,15 @@ public class RacunDTO {
 		for(DnevnoStanje obj : dsl)
 			this.dnevnoStanje.add(new DnevnoStanjeDTO(obj));
 	}
+
+	public List<MedjubankarskiPrenosDTO> getMedjubankarskiPrenosDuznik() {
+		return medjubankarskiPrenosDuznik;
+	}
+
+	public List<MedjubankarskiPrenosDTO> getMedjubankarskiPrenosPrimaoc() {
+		return medjubankarskiPrenosPrimaoc;
+	}
+	
+	
 	
 }

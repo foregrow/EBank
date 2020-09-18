@@ -62,10 +62,7 @@ public class Nalog {
 	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	private Valuta valuta;
 	
-	/*
-	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-	private Poruka poruka;*/
-	
+
 	public Nalog() {
 		
 	}
@@ -74,7 +71,7 @@ public class Nalog {
 	public Nalog(long id, String primaoc, String svrhaPlacanja, String duznik, Date datumPrijema, Date datumValute,
 			String modelZaduzenja, String pozivNaBrojZaduzenja, String modelOdobrenja, String pozivNaBrojOdobrenja,
 			boolean hitno, double iznos, boolean status, String tipGreske, Racun racunDuznika, Racun racunPrimaoca,
-			String vrstaPlacanja, Drzava drzava, DnevnoStanje dnevnoStanje, Valuta valuta) {
+			String vrstaPlacanja, Drzava drzava, DnevnoStanje dnevnoStanje, Valuta valuta, Poruka poruka) {
 		super();
 		this.id = id;
 		this.primaoc = primaoc;
@@ -96,6 +93,7 @@ public class Nalog {
 		this.drzava = drzava;
 		this.dnevnoStanje = dnevnoStanje;
 		this.valuta = valuta;
+
 	}
 
 
@@ -258,6 +256,7 @@ public class Nalog {
 	public void setValuta(Valuta valuta) {
 		this.valuta = valuta;
 	}
-	
+
+
 	
 }

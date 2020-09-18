@@ -14,6 +14,7 @@ import demo.app.entity.Drzava;
 import demo.app.entity.Racun;
 import demo.app.entity.Valuta;
 import demo.app.service.DrzavaService;
+import demo.app.service.MedjubankarskiPrenosService;
 import demo.app.service.NalogService;
 import demo.app.service.RacunService;
 import demo.app.service.ValutaService;
@@ -37,6 +38,9 @@ public class NalogController {
 	@Autowired
 	ValutaService vs;
 	
+	@Autowired
+	MedjubankarskiPrenosService mps;
+	
 	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<?> save(@RequestBody NalogDTO dto){
 		Racun racunPrimaoca = rs.getByBrojRacuna(dto.getRacunPrimaoca().getBrojRacuna());
@@ -56,7 +60,7 @@ public class NalogController {
 		if(racunDuznika.getBanka().getId() == racunPrimaoca.getBanka().getId())
 			ns.saveTransakcija(dto,racunDuznika,racunPrimaoca,drzava,valuta);
 		else {
-			//ovde se radi medjubankarski prenos
+			mps.saveMedjubankarskiPrenos(dto,racunDuznika,racunPrimaoca,valuta);
 		}
 			
 		return new ResponseEntity<>(HttpStatus.OK);

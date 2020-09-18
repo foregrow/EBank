@@ -27,6 +27,8 @@ public class BankaDTO {
 	private List<RacunDTO> racuni = new ArrayList<RacunDTO>();
 	private List<KursnaListaDTO> kursneListe = new ArrayList<KursnaListaDTO>();
 	private List<KorisnikDTO> izvrsioci = new ArrayList<KorisnikDTO>();
+	private List<MedjubankarskiPrenosDTO> medjubankarskiPrenosDuznik = new ArrayList<MedjubankarskiPrenosDTO>();
+	private List<MedjubankarskiPrenosDTO> medjubankarskiPrenosPrimaoc = new ArrayList<MedjubankarskiPrenosDTO>();
 	
 	public BankaDTO() {
 		
@@ -173,6 +175,16 @@ public class BankaDTO {
 		List<Korisnik> il = new ArrayList<Korisnik>(izvrsioci);
 		for(Korisnik obj : il)
 			this.izvrsioci.add(new KorisnikDTO(obj));
+	}
+	
+	
+
+	public List<MedjubankarskiPrenosDTO> getMedjubankarskiPrenosDuznik() {
+		return medjubankarskiPrenosDuznik;
+	}
+
+	public List<MedjubankarskiPrenosDTO> getMedjubankarskiPrenosPrimaoc() {
+		return medjubankarskiPrenosPrimaoc;
 	}
 
 	
