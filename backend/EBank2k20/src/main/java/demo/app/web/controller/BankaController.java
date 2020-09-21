@@ -1,11 +1,10 @@
 package demo.app.web.controller;
 
 
-import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import demo.app.entity.Banka;
-import demo.app.entity.Klijent;
 import demo.app.entity.Korisnik;
 import demo.app.service.BankaService;
 import demo.app.service.NalogService;
-import demo.app.service.IzvestajIObradeService;
 import demo.app.service.KorisnikService;
 import demo.app.web.dto.BankaDTO;
 

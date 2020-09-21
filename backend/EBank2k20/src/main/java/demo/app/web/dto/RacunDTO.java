@@ -28,6 +28,8 @@ public class RacunDTO {
 	private List<MedjubankarskiPrenosDTO> medjubankarskiPrenosDuznik = new ArrayList<MedjubankarskiPrenosDTO>();
 	private List<MedjubankarskiPrenosDTO> medjubankarskiPrenosPrimaoc = new ArrayList<MedjubankarskiPrenosDTO>();
 	
+	private double rezervisanIznos;
+	
 	public RacunDTO() {
 		
 	}
@@ -39,6 +41,7 @@ public class RacunDTO {
 		datumKreiranja = obj.getDatumKreiranja();
 		izbrisan = obj.isIzbrisan();
 		odobren = obj.isOdobren();
+		rezervisanIznos = obj.getRezervisanIznos();
 		
 		if(obj.getBanka() != null)
 			banka = new BankaDTO(obj.getBanka());
@@ -50,7 +53,7 @@ public class RacunDTO {
 
 	public RacunDTO(long id, String brojRacuna, double stanje, Date datumKreiranja, boolean izbrisan,
 			UkidanjeRacunaDTO ukidanjeRacuna, BankaDTO banka, KlijentDTO klijent, ValutaDTO valuta,
-			List<DnevnoStanjeDTO> dnevnoStanje, boolean odobren) {
+			List<DnevnoStanjeDTO> dnevnoStanje, boolean odobren, double rezervisanIznos) {
 		super();
 		this.id = id;
 		this.brojRacuna = brojRacuna;
@@ -63,6 +66,7 @@ public class RacunDTO {
 		this.valuta = valuta;
 		this.dnevnoStanje = dnevnoStanje;
 		this.odobren = odobren;
+		this.rezervisanIznos = rezervisanIznos;
 	}
 
 	public long getId() {
@@ -149,6 +153,14 @@ public class RacunDTO {
 		this.odobren = odobren;
 	}
 	
+	public double getRezervisanIznos() {
+		return rezervisanIznos;
+	}
+
+	public void setRezervisanIznos(double rezervisanIznos) {
+		this.rezervisanIznos = rezervisanIznos;
+	}
+
 	public void setDnevnoStanjeListFromSet(Set<DnevnoStanje> dnevnoStanje) {
 		List<DnevnoStanje> dsl = new ArrayList<DnevnoStanje>(dnevnoStanje);
 		for(DnevnoStanje obj : dsl)

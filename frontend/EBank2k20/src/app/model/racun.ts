@@ -32,10 +32,11 @@ export class Racun{
    klijent: Klijent;
    valuta: Valuta;
    dnevnoStanje: DnevnoStanje[] = [];
+   rezervisanIznos: number;
 
    constructor(id:number,brojRacuna:string,stanje:number,datumKreiranja:any,
     izbrisan:boolean,ukidanjeRacuna:UkidanjeRacuna,banka:Banka,klijent:Klijent,
-    valuta:Valuta,dnevnoStanje:DnevnoStanje[], odobren: boolean){
+    valuta:Valuta,dnevnoStanje:DnevnoStanje[], odobren: boolean,rezervisanIznos: number){
     this.id = id;
     this.brojRacuna = brojRacuna;
     this.stanje = stanje;
@@ -47,5 +48,6 @@ export class Racun{
     this.valuta = valuta;
     this.dnevnoStanje = dnevnoStanje;
     this.odobren = odobren;
+    this.rezervisanIznos = rezervisanIznos;
     }
 }

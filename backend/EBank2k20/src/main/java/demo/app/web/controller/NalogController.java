@@ -52,15 +52,15 @@ public class NalogController {
 		Valuta valuta = vs.findOne(dto.getValuta().getId());
 		if(valuta == null)
 			return new ResponseEntity<>("Nepostojeca valuta!", HttpStatus.NOT_FOUND);
-		if(dto.getRacunDuznika().getStanje() - dto.getIznos() < 0)
+		if((dto.getRacunDuznika().getStanje() - dto.getRacunDuznika().getRezervisanIznos()) - dto.getIznos() < 0)
 			return new ResponseEntity<>("Nemate dovoljno novca na racunu!", HttpStatus.NOT_FOUND);
 		Racun racunDuznika = rs.findOne(dto.getRacunDuznika().getId());
 		
 		
 		if(racunDuznika.getBanka().getId() == racunPrimaoca.getBanka().getId())
-			ns.saveTransakcija(dto,racunDuznika,racunPrimaoca,drzava,valuta);
+			ns.saveTransakcija(dto,racunDuznika,racunPrimaoca,drzava,valuta,2);
 		else {
-			mps.saveMedjubankarskiPrenos(dto,racunDuznika,racunPrimaoca,valuta);
+			mps.saveMedjubankarskiPrenos(dto,racunDuznika,racunPrimaoca,drzava,valuta);
 		}
 			
 		return new ResponseEntity<>(HttpStatus.OK);

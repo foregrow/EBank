@@ -1,15 +1,12 @@
 package demo.app.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import demo.app.enums.TipPoruke;
@@ -268,15 +265,6 @@ public class Poruka {
 		this.sifraValute = sifraValute;
 	}
 
-
-	public Poruka getPoruka() {
-		return poruka2;
-	}
-
-
-	public void setPoruka(Poruka poruka) {
-		this.poruka2 = poruka;
-	}
 	
 	
 	

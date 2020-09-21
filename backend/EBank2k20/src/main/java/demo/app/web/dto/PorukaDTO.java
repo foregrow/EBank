@@ -1,6 +1,7 @@
 package demo.app.web.dto;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 
 import demo.app.entity.Poruka;
@@ -56,7 +57,7 @@ public class PorukaDTO {
 		this.pozivNaBrojOdobrenja = p.getPozivNaBrojOdobrenja();
 		this.pozivNaBrojZaduzenja = p.getPozivNaBrojZaduzenja();
 		this.sifraValute = p.getSifraValute();
-		if(p.getPoruka() != null) {
+		if(p.getPoruka2() != null) {
 			this.poruka = new PorukaDTO(p);
 		}
 		

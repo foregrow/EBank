@@ -31,6 +31,8 @@ public class Racun {
 	private boolean izbrisan;
 	@Column(unique = false, nullable = false)
 	private boolean odobren;
+	@Column(unique = false, nullable = false)
+	private double rezervisanIznos;
 	
 	@OneToOne(mappedBy="racunZaUkidanje")
 	private UkidanjeRacuna ukidanjeRacuna;
@@ -71,7 +73,8 @@ public class Racun {
 
 	public Racun(long id, String brojRacuna, double stanje, Date datumKreiranja, boolean izbrisan,
 			UkidanjeRacuna ukidanjeRacuna, Banka banka, Klijent klijent, Valuta valuta,
-			Set<DnevnoStanje> dnevnoStanje, boolean odobren, Set<MedjubankarskiPrenos> medjubankarskiPrenosDuznik, Set<MedjubankarskiPrenos> medjubankarskiPrenosPrimaoc) {
+			Set<DnevnoStanje> dnevnoStanje, boolean odobren, Set<MedjubankarskiPrenos> medjubankarskiPrenosDuznik, Set<MedjubankarskiPrenos> medjubankarskiPrenosPrimaoc,
+			double rezervisanIznos) {
 		super();
 		this.id = id;
 		this.brojRacuna = brojRacuna;
@@ -86,6 +89,7 @@ public class Racun {
 		this.odobren = odobren;
 		this.medjubankarskiPrenosDuznik = medjubankarskiPrenosDuznik;
 		this.medjubankarskiPrenosPrimaoc = medjubankarskiPrenosPrimaoc;
+		this.rezervisanIznos = rezervisanIznos;
 	}
 
 	public long getId() {
@@ -174,6 +178,14 @@ public class Racun {
 
 	public void setOdobren(boolean odobren) {
 		this.odobren = odobren;
+	}
+
+	public double getRezervisanIznos() {
+		return rezervisanIznos;
+	}
+
+	public void setRezervisanIznos(double rezervisanIznos) {
+		this.rezervisanIznos = rezervisanIznos;
 	}
 	
 	

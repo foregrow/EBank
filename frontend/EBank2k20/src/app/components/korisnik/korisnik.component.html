@@ -7,6 +7,7 @@
             <th>Broj racuna</th>
             <th>Datum kreiranja</th>
             <th>Stanje</th>   
+            <th>Trenutni rezervisan iznos</th> 
             <th>Banka</th>  
             <th>Valuta</th> 
             <th></th>
@@ -25,7 +26,7 @@
         <tbody *ngFor="let obj of klijent.racuni; index as i">
             <tr>
             <td>{{i+1}}</td><td>{{obj.brojRacuna}}</td><td>{{obj.datumKreiranja | date:'short'}}</td>
-            <td>{{obj.stanje}}</td><td>{{obj.banka.naziv}}</td><td>{{obj.valuta.sifra}}</td>
+            <td>{{obj.stanje}}</td><td>{{obj.rezervisanIznos}}</td><td>{{obj.banka.naziv}}</td><td>{{obj.valuta.sifra}}</td>
             <td><a class="btn btn-sm text-white btn-primary" (click)="download(obj.id,obj.klijent.id,0,0)">Preuzmi izvestaj</a></td>
             </tr>
         </tbody>

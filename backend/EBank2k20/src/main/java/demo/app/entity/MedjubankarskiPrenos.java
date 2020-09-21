@@ -1,5 +1,7 @@
 package demo.app.entity;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
@@ -24,6 +26,8 @@ public class MedjubankarskiPrenos {
 	private String valuta;
 	@Column(unique = false, nullable = false)
 	private TipTransfera tipTransfera;
+	@Column(unique = false, nullable = false)
+	private Date datumPrenosa;
 	
 	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	private Banka bankaDuznika;
@@ -37,6 +41,24 @@ public class MedjubankarskiPrenos {
 	public MedjubankarskiPrenos() {
 		
 	}
+	
+	
+
+	public MedjubankarskiPrenos(long id, double iznos, String valuta, TipTransfera tipTransfera, Date datumPrenosa,
+			Banka bankaDuznika, Banka bankaPrimaoca, Racun racunDuznika, Racun racunPrimaoca) {
+		super();
+		this.id = id;
+		this.iznos = iznos;
+		this.valuta = valuta;
+		this.tipTransfera = tipTransfera;
+		this.datumPrenosa = datumPrenosa;
+		this.bankaDuznika = bankaDuznika;
+		this.bankaPrimaoca = bankaPrimaoca;
+		this.racunDuznika = racunDuznika;
+		this.racunPrimaoca = racunPrimaoca;
+	}
+
+
 
 	public long getId() {
 		return id;
@@ -101,6 +123,15 @@ public class MedjubankarskiPrenos {
 	public void setTipTransfera(TipTransfera tipTransfera) {
 		this.tipTransfera = tipTransfera;
 	}
+
+	public Date getDatumPrenosa() {
+		return datumPrenosa;
+	}
+
+	public void setDatumPrenosa(Date datumPrenosa) {
+		this.datumPrenosa = datumPrenosa;
+	}
+
 	
 	
 }

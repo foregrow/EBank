@@ -47,7 +47,7 @@ public class DnevnoStanje {
 	}
 
 	public DnevnoStanje(long id, String brojIzvoda, Date datumPrometa, double prethodnoStanje, double prometUKorist,
-			double prometNaTeret, double novoStanje, Racun racun, Set<Nalog> nalozi) {
+			double prometNaTeret, double novoStanje, Racun racun, Set<Nalog> nalozi,Set<MedjubankarskiPrenos> medjubankarskiPrenosi) {
 		super();
 		this.id = id;
 		this.brojIzvoda = brojIzvoda;
@@ -131,6 +131,7 @@ public class DnevnoStanje {
 	public void setNalozi(Set<Nalog> nalozi) {
 		this.nalozi = nalozi;
 	}
+
 	
 	
 	

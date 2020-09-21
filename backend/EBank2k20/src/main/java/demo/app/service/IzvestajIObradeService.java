@@ -1,10 +1,12 @@
 package demo.app.service;
 
+import java.beans.XMLEncoder;
 import java.io.File;
 
 
 
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -16,11 +18,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
-
+import demo.app.entity.MedjubankarskiPrenos;
 import demo.app.entity.Nalog;
 import demo.app.entity.Racun;
 import demo.app.web.dto.IzvestajBankaRacuniDTO;
@@ -272,6 +276,47 @@ public class IzvestajIObradeService implements IzvestajIObradeServiceInterface {
 		
 		
 	}
+	
+	@Transactional
+	public void exportMedjubankarskiPrenos(MedjubankarskiPrenos mp) {
+		try {
+			String resourceDirectory = Paths.get("src","main","resources").toAbsolutePath().toString();
+			StringBuilder outFile = new StringBuilder();
+			outFile.append(resourceDirectory);
+			outFile.append("\\medjubankarskiXml");
+			outFile.append("\\mprenos_");
+			outFile.append(Long.toString(mp.getId()));
+			outFile.append(".xml");
+			FileOutputStream fos = new FileOutputStream(new File(outFile.toString()));
+			XMLEncoder encoder = new XMLEncoder(fos);
+			encoder.writeObject(mp);
+			encoder.close();
+			fos.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Transactional
+	public void exportNalog(Nalog nalog) {
+		try {
+			String resourceDirectory = Paths.get("src","main","resources").toAbsolutePath().toString();
+			StringBuilder outFile = new StringBuilder();
+			outFile.append(resourceDirectory);
+			outFile.append("\\nalogXml");
+			outFile.append("\\nalog_");
+			outFile.append(Long.toString(nalog.getId()));
+			outFile.append(".xml");
+			FileOutputStream fos = new FileOutputStream(new File(outFile.toString()));
+			XMLEncoder encoder = new XMLEncoder(fos);
+			encoder.writeObject(nalog);
+			encoder.close();
+			fos.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+    
 	
 	
 }

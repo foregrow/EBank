@@ -2,6 +2,7 @@ package demo.app.service;
 
 
 import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 	@Autowired
 	RacunService rs;
 
-	private static final int BROJ_NALOGA_ZA_KREIRANJE = 2;
+	private final int BROJ_NALOGA = 2;
 	@Override
 	public List<Nalog> findAll() {
 		return nr.findAll();
@@ -60,7 +61,7 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 
 	@Override
 	@Transactional(readOnly = false)
-	public void saveTransakcija(NalogDTO dto,Racun racunDuznika,Racun racunPrimaoca, Drzava drzava, Valuta valuta){
+	public void saveTransakcija(NalogDTO dto,Racun racunDuznika,Racun racunPrimaoca, Drzava drzava, Valuta valuta, int param){
 
 		Date datumPrijema = is.getDateFromMillis(System.currentTimeMillis());
 		Date datumValute = is.getDateFromMillis(System.currentTimeMillis());
@@ -68,7 +69,7 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 		List<DnevnoStanje> dnevnoStanjeZaDatum = new ArrayList<>();
 
 		Nalog nalog = null;
-		for(int i=0;i<BROJ_NALOGA_ZA_KREIRANJE;i++){
+		for(int i=0;i<BROJ_NALOGA;i++){
 			nalog = new Nalog();
 			nalog.setDatumPrijema(datumPrijema);
 			nalog.setDatumValute(datumValute);
@@ -142,8 +143,12 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 			}
 			
 			
-			if(i==0)
+			if(i==0){
+				is.exportNalog(nalog);
+				if(param==1)
+					racunDuznika.setRezervisanIznos(0); 	
 				rs.save(racunDuznika);
+			}
 			else if(i==1)
 				rs.save(racunPrimaoca);
 

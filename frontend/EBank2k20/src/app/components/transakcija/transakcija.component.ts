@@ -96,7 +96,7 @@ export class TransakcijaComponent implements OnInit {
       alert('Nemate dovoljno novca na racunu!');
       return;
     }
-    let primaocRacun = new Racun(null,racunPrimaoca,null,null,null,null,null,null,null,null,null);
+    let primaocRacun = new Racun(null,racunPrimaoca,null,null,null,null,null,null,null,null,null,null);
     var nalog = new Nalog(null,null,svrhaPlacanja,null,null,null,modelZaduzenja,pozivNaBrojZaduzenja,hitno,iznos,null,null,racunDuznika,primaocRacun,
       null,drzava,null,valuta,pozivNaBrojOdobrenja,modelOdobrenja);
     this._ns.addNalog(nalog).subscribe(

@@ -1,6 +1,8 @@
 package demo.app.web.dto;
 
 
+import java.util.Date;
+
 import demo.app.entity.MedjubankarskiPrenos;
 import demo.app.enums.TipTransfera;
 
@@ -11,7 +13,7 @@ public class MedjubankarskiPrenosDTO {
 	private double iznos;
 	private String valuta;
 	private TipTransfera tipTransfera;
-	
+	private Date datumPrenosa;
 
 	private BankaDTO bankaDuznika;
 	private BankaDTO bankaPrimaoca;
@@ -27,6 +29,8 @@ public class MedjubankarskiPrenosDTO {
 		this.iznos = m.getIznos();
 		this.valuta = m.getValuta();
 		this.tipTransfera = m.getTipTransfera();
+		this.datumPrenosa = m.getDatumPrenosa();
+		
 		if(m.getBankaDuznika() != null) {
 			this.bankaDuznika = new BankaDTO(m.getBankaDuznika());
 		}
@@ -104,6 +108,15 @@ public class MedjubankarskiPrenosDTO {
 	public void setTipTransfera(TipTransfera tipTransfera) {
 		this.tipTransfera = tipTransfera;
 	}
+
+	public Date getDatumPrenosa() {
+		return datumPrenosa;
+	}
+
+	public void setDatumPrenosa(Date datumPrenosa) {
+		this.datumPrenosa = datumPrenosa;
+	}
+
 	
 	
 }

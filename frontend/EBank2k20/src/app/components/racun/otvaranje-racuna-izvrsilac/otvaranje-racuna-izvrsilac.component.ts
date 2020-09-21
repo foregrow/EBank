@@ -36,7 +36,7 @@ export class OtvaranjeRacunaIzvrsilacComponent implements OnInit {
   submit(param,obj){
     if(param === 'accepted'){
       //put
-      var racun = new Racun(obj.id,null,null,null,null,null,null,null,null,null,null);
+      var racun = new Racun(obj.id,null,null,null,null,null,null,null,null,null,null,null);
       console.log(racun);
       this._rs.update(racun).subscribe(
         data=>{

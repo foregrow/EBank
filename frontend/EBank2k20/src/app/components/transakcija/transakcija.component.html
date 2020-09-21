@@ -6,7 +6,7 @@
             <select class="form-control" formControlName="racunDuznika">
                 <option disabled>Izaberite racun sa kog zelite da posaljete novac</option>
                 <option *ngFor="let racunDuznika of racuniDuznika" [ngValue]="racunDuznika">
-                  {{racunDuznika.brojRacuna}}, {{racunDuznika.banka.naziv}}, {{racunDuznika.stanje}}{{racunDuznika.valuta.sifra}}
+                  {{racunDuznika.brojRacuna}}, {{racunDuznika.banka.naziv}}, {{racunDuznika.stanje-racunDuznika.rezervisanIznos}} {{racunDuznika.valuta.sifra}}
                 </option>
               </select> 
         </div>
