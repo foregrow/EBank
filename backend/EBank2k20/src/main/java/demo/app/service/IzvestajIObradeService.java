@@ -1,10 +1,10 @@
 package demo.app.service;
 
+import java.beans.XMLDecoder;
+
 import java.beans.XMLEncoder;
 import java.io.File;
-
-
-
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -317,6 +317,31 @@ public class IzvestajIObradeService implements IzvestajIObradeServiceInterface {
 		}
 	}
     
+	
+	@Transactional
+	public Nalog importNalog(String fileName) {
+		Nalog nalog = null;
+		try {
+			
+			String resourceDirectory = Paths.get("src","main","resources").toAbsolutePath().toString();
+			StringBuilder outFile = new StringBuilder();
+			outFile.append(resourceDirectory);
+			outFile.append("\\nalogXml\\");
+			FileInputStream fis = null;
+			XMLDecoder decoder = null;
+			
+			outFile.append(fileName);
+			fis = new FileInputStream(new File(outFile.toString()));
+			decoder = new XMLDecoder(fis);
+			nalog = (Nalog) decoder.readObject();	
+			decoder.close();
+			fis.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return nalog;
+	}
 	
 	
 }

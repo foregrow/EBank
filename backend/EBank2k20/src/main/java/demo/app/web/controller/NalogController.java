@@ -1,19 +1,31 @@
 package demo.app.web.controller;
 
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import demo.app.entity.Drzava;
+import demo.app.entity.Korisnik;
+import demo.app.entity.Nalog;
 import demo.app.entity.Racun;
 import demo.app.entity.Valuta;
 import demo.app.service.DrzavaService;
+import demo.app.service.IzvestajIObradeService;
+import demo.app.service.KorisnikService;
 import demo.app.service.MedjubankarskiPrenosService;
 import demo.app.service.NalogService;
 import demo.app.service.RacunService;
@@ -30,6 +42,9 @@ public class NalogController {
 	NalogService ns;
 	
 	@Autowired
+	KorisnikService ks;
+	
+	@Autowired
 	RacunService rs;
 	
 	@Autowired
@@ -40,6 +55,9 @@ public class NalogController {
 	
 	@Autowired
 	MedjubankarskiPrenosService mps;
+	
+	@Autowired
+	IzvestajIObradeService is;
 	
 	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<?> save(@RequestBody NalogDTO dto){
@@ -66,7 +84,27 @@ public class NalogController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	
+	@PostMapping("/importFiles")
+	public ResponseEntity<?> upload(@RequestParam("files") MultipartFile[] files) throws IOException {
+		
+		List<Nalog> nalozi = new ArrayList<Nalog>();
+		for(MultipartFile file : files) {
+			String extension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1, file.getOriginalFilename().length());
+			if(extension.equals("xml")) {
+				Nalog n = is.importNalog(file.getOriginalFilename());
+				nalozi.add(n);
+			}
+			
+		}
+		List<NalogDTO> dtos = new ArrayList<NalogDTO>();
+		for(Nalog n : nalozi) {
+			dtos.add(new NalogDTO(n));
+		}
+			
+		
+		
+		return new ResponseEntity<>(dtos,HttpStatus.OK); 
+	}
 
 
 }

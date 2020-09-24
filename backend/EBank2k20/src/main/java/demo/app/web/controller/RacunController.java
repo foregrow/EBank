@@ -106,7 +106,18 @@ public class RacunController {
 	}
 	
 	
-	
+	@RequestMapping(value="/racuniBanke/{korIme}",method = RequestMethod.GET)
+	public ResponseEntity<?> getAllByBanka(@PathVariable String korIme) {
+		Korisnik kor = ks.findByKorisnickoIme(korIme);
+		if(kor == null || kor.getBanka() == null)
+			return new ResponseEntity<>("Greska!",HttpStatus.NOT_FOUND);
+		
+		List<Racun> racuni = rs.getByBankaIdAndOdobrenAndIzbrisan(kor.getBanka().getId(),true,false);
+		
+		List<RacunDTO> dtos = rs.getAllDTOs(racuni);		
+		
+		return new ResponseEntity<>(dtos, HttpStatus.OK);
+	}
 
 	
 	

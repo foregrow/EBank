@@ -36,4 +36,8 @@ export class RacunService {
   getAllRacunAktivacijaUToku(korime){
     return this._http.get<Racun[]>(`${this.racunBaseUrl}/korisnikRacunAktivacija/${korime}`);
   }
+
+  getAllByBanka(korime): Observable<Racun[]>{
+    return this._http.get<Racun[]>(`${this.racunBaseUrl}/racuniBanke/${korime}`);
+  }
 }

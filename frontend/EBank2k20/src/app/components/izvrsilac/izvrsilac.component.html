@@ -23,3 +23,59 @@
         </tbody>
         </table>
 </div>
+<div class="container-fluid mt-5">
+    <h2 class="mt-3">Svi racuni vase banke: </h2>
+    <table class="table table-hover w-50">
+        <thead>
+            <tr>
+            <th>#</th>
+            <th>Broj racuna</th>
+            <th>Datum kreiranja</th>
+            <th>Stanje</th>   
+            <th>Valuta</th>  
+            <th>Klijent</th> 
+            </tr>
+        </thead>
+        <tbody *ngFor="let obj of racuni; index as i">
+            <tr>
+            <td>{{i+1}}</td><td>{{obj.brojRacuna}}</td><td>{{obj.datumKreiranja | date:'short'}}</td>
+            <td>{{obj.stanje}}</td><td>{{obj.valuta.sifra}}</td><td>{{obj.klijent.ime}} {{obj.klijent.prezime}}</td>
+            </tr>
+        </tbody>
+        </table>
+</div>
+
+
+<div>
+    <h2>Import </h2>
+        <form encType="multipart/form-data">
+            <div>
+                <input type="file" name="uploadDokumenti"  (change)="onFileChanged($event)" multiple required>
+                <input type="submit" (click)="onImport()"  value="import">
+            </div>
+        </form>
+</div>
+
+<div class="container-fluid mt-5">
+    <h2 class="mt-3">Importovane transakcije: </h2>
+    <table class="table table-hover w-50">
+        <thead>
+            <tr>
+            <th>#</th>
+            <th>Datum prijema</th>
+            <th>Racun duznika</th>
+            <th>Racun primaoca</th>   
+            <th>Iznos</th>  
+            <th>Valuta</th>  
+            <th>Svrha placanja</th> 
+            </tr>
+        </thead>
+        <tbody *ngFor="let obj of nalozi; index as i">
+            <tr>
+            <td>{{i+1}}</td><td>{{obj.datumPrijema | date:'short'}}</td><td>{{obj.racunDuznika.brojRacuna}}</td>
+            <td>{{obj.racunPrimaoca.brojRacuna}}</td><td>{{obj.iznos}}</td><td>{{obj.valuta.sifra}}</td>
+            <td>{{obj.svrhaPlacanja}}</td>
+            </tr>
+        </tbody>
+        </table>
+</div>

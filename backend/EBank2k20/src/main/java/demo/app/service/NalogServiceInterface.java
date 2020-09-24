@@ -23,4 +23,5 @@ public interface NalogServiceInterface {
 	List<Nalog> naloziDnevnogStanjaZaRacunPoDatumu(Date odDatum, Date doDatum, long rid);
 	
 	void saveTransakcija(NalogDTO dto,Racun racunDuznika,Racun racunPrimaoca, Drzava drzava, Valuta valuta, int param);
+	
 }

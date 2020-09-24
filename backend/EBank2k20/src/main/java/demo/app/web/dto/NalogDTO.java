@@ -54,7 +54,7 @@ public class NalogDTO {
 		if(obj.getRacunDuznika() != null)
 			racunDuznika = new RacunDTO(obj.getRacunDuznika());
 		if(obj.getRacunPrimaoca() != null)
-			racunDuznika = new RacunDTO(obj.getRacunPrimaoca());
+			racunPrimaoca = new RacunDTO(obj.getRacunPrimaoca());
 		if(obj.getDrzava() != null)
 			drzava = new DrzavaDTO(obj.getDrzava());
 		if(obj.getDnevnoStanje() != null)

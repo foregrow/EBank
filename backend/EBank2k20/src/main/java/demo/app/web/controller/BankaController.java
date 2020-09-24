@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import demo.app.entity.Banka;
 import demo.app.entity.Korisnik;
 import demo.app.service.BankaService;
+import demo.app.service.IzvestajIObradeService;
 import demo.app.service.NalogService;
 import demo.app.service.KorisnikService;
 import demo.app.web.dto.BankaDTO;
@@ -38,10 +39,13 @@ public class BankaController {
 	@Autowired
 	KorisnikService ks;
 	
+	@Autowired
+	IzvestajIObradeService is;
+	
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<BankaDTO>> getAll() throws FileNotFoundException, ParseException {
-		//JAVA TECHIE UHUHUHU
-		
+		//JAVA TECHIE UHUHUU
 		List<Banka> banke = bs.findAll();	
 		List<BankaDTO> dtos = bs.getAllDTOs(banke);		
 		

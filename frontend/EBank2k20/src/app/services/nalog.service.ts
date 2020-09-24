@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Nalog } from '../model/nalog';
 import { Server } from '../util/server';
 
@@ -15,4 +16,8 @@ export class NalogService {
   addNalog(data:Nalog){
     return this._http.post<any>(this.nalogBaseUrl,data);
   }
+  upload(data){
+    return this._http.post<any>(`${this.nalogBaseUrl}/importFiles`, data);
+  }
+
 }

@@ -152,9 +152,11 @@ public class NalogService  implements NalogServiceInterface, NalogDTOServiceInte
 			else if(i==1)
 				rs.save(racunPrimaoca);
 
+			
 		}
 		
 	}
+
 
 	
 	

@@ -14,4 +14,5 @@ public interface NalogRepository extends JpaRepository<Nalog, Long> {
 	@Query("SELECT n FROM Nalog n, DnevnoStanje d WHERE (n.racunDuznika.id = :rid OR n.racunPrimaoca.id = :rid) AND "
 			+ "(date(d.datumPrometa) BETWEEN :odDatum AND :doDatum AND date(n.datumPrijema) BETWEEN :odDatum AND :doDatum) AND n.dnevnoStanje.id = d.id AND d.racun.id = :rid ORDER BY n.id DESC")
 	List<Nalog> naloziDnevnogStanjaZaRacunPoDatumu(Date odDatum, Date doDatum, long rid);
+
 }
