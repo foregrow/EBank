@@ -45,7 +45,7 @@ public class KorisnikService  implements KorisnikServiceInterface, KorisnikDTOSe
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Korisnik user = kr.findByKorisnickoIme(username);
-			
+		
 		List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
 		grantedAuthorities.add(new SimpleGrantedAuthority(user.getUloga().toString()));
 		return new org.springframework.security.core.userdetails.User(user.getKorisnickoIme(),user.getLozinka(), grantedAuthorities);

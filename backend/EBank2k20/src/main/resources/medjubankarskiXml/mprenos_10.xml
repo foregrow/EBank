@@ -71,14 +71,14 @@
   </void>
   <void property="datumPrenosa">
    <object class="java.util.Date">
-    <long>1600724570092</long>
+    <long>1600781455297</long>
    </object>
   </void>
   <void property="id">
-   <long>9</long>
+   <long>10</long>
   </void>
   <void property="iznos">
-   <double>3.0</double>
+   <double>333.0</double>
   </void>
   <void property="racunDuznika">
    <object class="demo.app.entity.Racun" id="Racun0">
@@ -166,7 +166,7 @@
      <boolean>true</boolean>
     </void>
     <void property="stanje">
-     <double>4801.0</double>
+     <double>4457.0</double>
     </void>
     <void property="valuta">
      <object class="demo.app.entity.Valuta" id="Valuta0">
@@ -276,7 +276,7 @@
      <boolean>true</boolean>
     </void>
     <void property="stanje">
-     <double>647.0</double>
+     <double>980.0</double>
     </void>
     <void property="valuta">
      <object idref="Valuta0"/>
@@ -295,6 +295,56 @@
  </object>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
+  <object idref="Banka0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Banka0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Racun1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Banka1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Racun1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Drzava0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Klijent1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Racun0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Banka1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Delatnost1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
   <object idref="Valuta0"/>
  </void>
 </void>
@@ -305,12 +355,42 @@
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
-  <object idref="Banka0"/>
+  <object idref="Racun0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Valuta0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Valuta0"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
   <object idref="Drzava0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Racun1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Racun0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Banka0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Banka1"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
@@ -325,67 +405,12 @@
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
-  <object idref="Banka1"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Banka0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Racun0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Banka0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Valuta0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Racun0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Delatnost1"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Banka1"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Racun1"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Banka1"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Klijent1"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
   <object idref="Klijent0"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
-  <object idref="Racun1"/>
+  <object idref="Banka0"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
@@ -396,31 +421,6 @@
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
   <object idref="Valuta0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Drzava0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Valuta0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Racun0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Banka0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Racun1"/>
  </void>
 </void>
 </java>

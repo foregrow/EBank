@@ -43,11 +43,11 @@ export class KorisnikService {
     if(role == 'GRESKA'){
       this._router.navigate(['login']);
     }else{
-      if(role == 'ADMIN'){
+      if(role == 'ROLE_ADMIN'){
         this._router.navigate(['admin']);
-      }else if(role == 'KORISNIK'){
+      }else if(role == 'ROLE_KORISNIK'){
         this._router.navigate(['korisnik']);
-      }else if(role == 'IZVRSILAC'){
+      }else if(role == 'ROLE_IZVRSILAC'){
         this._router.navigate(['izvrsilac']);
       }
     }  

@@ -3,35 +3,35 @@
  <object class="demo.app.entity.Nalog">
   <void property="datumPrijema">
    <object class="java.util.Date">
-    <long>1600724524118</long>
+    <long>1600781455322</long>
    </object>
   </void>
   <void property="datumValute">
    <object class="java.util.Date">
-    <long>1600724524120</long>
+    <long>1600781455322</long>
    </object>
   </void>
   <void property="dnevnoStanje">
    <object class="demo.app.entity.DnevnoStanje" id="DnevnoStanje0">
     <void property="brojIzvoda">
-     <string>2</string>
+     <string>4</string>
     </void>
     <void property="datumPrometa">
      <object class="java.sql.Timestamp">
-      <long>1600646400000</long>
+      <long>1600732800000</long>
      </object>
     </void>
     <void property="id">
-     <long>17</long>
+     <long>19</long>
     </void>
     <void property="novoStanje">
-     <double>4804.0</double>
+     <double>4457.0</double>
     </void>
     <void property="prethodnoStanje">
-     <double>4826.0</double>
+     <double>4790.0</double>
     </void>
     <void property="prometNaTeret">
-     <double>22.0</double>
+     <double>333.0</double>
     </void>
     <void property="racun">
      <object class="demo.app.entity.Racun" id="Racun0">
@@ -149,8 +149,11 @@
       <void property="odobren">
        <boolean>true</boolean>
       </void>
+      <void property="rezervisanIznos">
+       <double>333.0</double>
+      </void>
       <void property="stanje">
-       <double>4804.0</double>
+       <double>4457.0</double>
       </void>
       <void property="valuta">
        <object class="demo.app.entity.Valuta" id="Valuta0">
@@ -192,22 +195,22 @@
    <boolean>true</boolean>
   </void>
   <void property="id">
-   <long>41</long>
+   <long>47</long>
   </void>
   <void property="iznos">
-   <double>22.0</double>
+   <double>333.0</double>
   </void>
   <void property="modelOdobrenja">
-   <string>23</string>
+   <string>2323</string>
   </void>
   <void property="modelZaduzenja">
-   <string>23</string>
+   <string>3223</string>
   </void>
   <void property="pozivNaBrojOdobrenja">
    <string>23</string>
   </void>
   <void property="pozivNaBrojZaduzenja">
-   <string>3232</string>
+   <string>222</string>
   </void>
   <void property="primaoc">
    <string>a a</string>
@@ -218,18 +221,49 @@
   <void property="racunPrimaoca">
    <object class="demo.app.entity.Racun" id="Racun1">
     <void property="banka">
-     <object idref="Banka0"/>
+     <object class="demo.app.entity.Banka" id="Banka1">
+      <void property="adresa">
+       <string>bbb</string>
+      </void>
+      <void property="email">
+       <string>erste@erste.com</string>
+      </void>
+      <void property="fax">
+       <string>32320230</string>
+      </void>
+      <void property="id">
+       <long>2</long>
+      </void>
+      <void property="naziv">
+       <string>Erste Bank</string>
+      </void>
+      <void property="obracunskiRacun">
+       <string>2222222222222</string>
+      </void>
+      <void property="sifra">
+       <string>222</string>
+      </void>
+      <void property="swift">
+       <string>ERSTRS22</string>
+      </void>
+      <void property="telefon">
+       <string>+381021310999</string>
+      </void>
+      <void property="web">
+       <string>www.erste.com</string>
+      </void>
+     </object>
     </void>
     <void property="brojRacuna">
-     <string>111438152512481956</string>
+     <string>222222222222222222</string>
     </void>
     <void property="datumKreiranja">
      <object class="java.sql.Timestamp">
-      <long>1599781337000</long>
+      <long>1596891600000</long>
      </object>
     </void>
     <void property="id">
-     <long>19</long>
+     <long>1</long>
     </void>
     <void property="klijent">
      <object class="demo.app.entity.Klijent" id="Klijent1">
@@ -295,7 +329,7 @@
      <boolean>true</boolean>
     </void>
     <void property="stanje">
-     <double>1331.0</double>
+     <double>647.0</double>
     </void>
     <void property="valuta">
      <object idref="Valuta0"/>
@@ -306,7 +340,7 @@
    <boolean>true</boolean>
   </void>
   <void property="svrhaPlacanja">
-   <string>11</string>
+   <string>dasasdsad</string>
   </void>
   <void property="tipGreske">
    <string></string>
@@ -320,22 +354,7 @@
  </object>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
-  <object idref="Racun1"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Racun1"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Valuta0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Klijent0"/>
+  <object idref="Banka0"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
@@ -350,7 +369,32 @@
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
-  <object idref="Delatnost0"/>
+  <object idref="Banka1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Racun1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Drzava0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Klijent1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Racun0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Banka1"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
@@ -365,7 +409,12 @@
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
-  <object idref="Drzava0"/>
+  <object idref="Banka1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Racun0"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
@@ -375,32 +424,42 @@
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
+  <object idref="Valuta0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Drzava0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Racun1"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Racun0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
   <object idref="Banka0"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
-  <object idref="Racun0"/>
+  <object idref="Banka1"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
-  <object idref="Racun0"/>
+  <object idref="Banka1"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
-  <object idref="Racun0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Banka0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Klijent1"/>
+  <object idref="Delatnost0"/>
  </void>
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
@@ -410,22 +469,22 @@
 </void>
 <void class="org.hibernate.collection.internal.PersistentSet">
  <void property="owner">
+  <object idref="Klijent0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Banka0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
+  <object idref="Banka0"/>
+ </void>
+</void>
+<void class="org.hibernate.collection.internal.PersistentSet">
+ <void property="owner">
   <object idref="Valuta0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Banka0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Drzava0"/>
- </void>
-</void>
-<void class="org.hibernate.collection.internal.PersistentSet">
- <void property="owner">
-  <object idref="Banka0"/>
  </void>
 </void>
 </java>

@@ -20,13 +20,13 @@ export class RoleGuard implements CanActivate {
           if(match) return true;
           else{
             var roleUlogovanog = this._korService.getRole();
-            if(roleUlogovanog === "ADMIN"){
+            if(roleUlogovanog === "ROLE_ADMIN"){
               this._router.navigate(['admin']);
               return false;
-            }else if(roleUlogovanog === "KORISNIK"){
+            }else if(roleUlogovanog === "ROLE_KORISNIK"){
               this._router.navigate(['korisnik']);
               return false;
-            }else if(roleUlogovanog === "IZVRSILAC"){
+            }else if(roleUlogovanog === "ROLE_IZVRSILAC"){
               this._router.navigate(['izvrsilac']);
               return false;
             }

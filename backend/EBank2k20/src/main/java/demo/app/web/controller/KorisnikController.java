@@ -63,7 +63,7 @@ public class KorisnikController {
 		kor.setKorisnickoIme(korDTO.getKorisnickoIme());
 		kor.setLozinka(PasswordBCrypt.hashPassword(korDTO.getLozinka()));
 		kor.setUloga(korDTO.getUloga());
-		if(korDTO.getUloga().equals(UlogaKorisnika.IZVRSILAC)) {
+		if(korDTO.getUloga().equals(UlogaKorisnika.ROLE_IZVRSILAC)) {
 			if(korDTO.getBanka() == null)
 				return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 			Banka banka = bs.findOne(korDTO.getBanka().getId());

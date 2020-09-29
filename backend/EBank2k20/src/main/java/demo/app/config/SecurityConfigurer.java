@@ -2,6 +2,7 @@ package demo.app.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -39,14 +40,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter{
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
 			.authorizeRequests()
+			//.antMatchers("/api/ucenici/uploadDokumenti").hasRole("ADMIN")
 				.antMatchers("/authenticate").permitAll()
-				.antMatchers("/api/banka").permitAll()
-				.antMatchers("/api/klijent").permitAll()
-				.antMatchers("/api/klijent/zahtev/**").permitAll()
-				.antMatchers("/api/delatnost").permitAll()
-				.antMatchers("/api/valuta").permitAll()
-				.antMatchers("/api/izvestaj/**").permitAll()
-				.antMatchers("/api/nalog/**").permitAll()
 				
 				.anyRequest().authenticated();
 	

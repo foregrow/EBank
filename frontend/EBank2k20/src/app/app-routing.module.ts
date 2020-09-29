@@ -34,75 +34,75 @@ const routes: Routes = [
   //*************************admin */
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['ADMIN']
+      roles: ['ROLE_ADMIN']
     }}, 
   {path: 'korisnici', component: KorisniciComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['ADMIN']
+      roles: ['ROLE_ADMIN']
   }},
   {path: 'korisnici-detail/:id', component: KorisniciDetailComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['ADMIN']
+      roles: ['ROLE_ADMIN']
     }},
   {path: 'banke', component: BankaComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['ADMIN']
+      roles: ['ROLE_ADMIN']
     }},
   {path: 'banke-detail/:id', component: BankaDetailComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['ADMIN']
+      roles: ['ROLE_ADMIN']
     }},
 
   {path: 'delatnosti', component: DelatnostComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['ADMIN']
+      roles: ['ROLE_ADMIN']
     }},
   {path: 'delatnosti-detail/:id', component: DelatnostDetailComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['ADMIN']
+      roles: ['ROLE_ADMIN']
     }},
 
   {path: 'valute', component: ValutaComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['ADMIN']
+      roles: ['ROLE_ADMIN']
     }},
   {path: 'valute-detail/:id', component: ValutaDetailComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['ADMIN']
+      roles: ['ROLE_ADMIN']
     }},
   {path: 'drzave', component: DrzavaComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-    roles: ['ADMIN']
+    roles: ['ROLE_ADMIN']
   }},
   {path: 'drzave-detail/:id', component: DrzavaDetailComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['ADMIN']
+      roles: ['ROLE_ADMIN']
     }},
   {path: 'klijenti', component: KlijentiComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-    roles: ['ADMIN']
+    roles: ['ROLE_ADMIN']
   }},
   {path: 'klijenti-detail/:id', component: KlijentiDetailComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-    roles: ['ADMIN']
+    roles: ['ROLE_ADMIN']
   }},
 
   //************korisnik (klijent)
   {path: 'korisnik', component: KorisnikComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-      roles: ['KORISNIK']
+      roles: ['ROLE_KORISNIK']
     }},
   {path: 'zahtev-ukidanja-racuna', component: UkidanjeRacunaComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-    roles: ['KORISNIK']
+    roles: ['ROLE_KORISNIK']
   }},
   {path: 'zahtev-otvaranja-racuna-klijenta', component: OtvaranjeRacunaUlogovanogComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-    roles: ['KORISNIK']
+    roles: ['ROLE_KORISNIK']
   }},
   {path: 'transakcija', component: TransakcijaComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-    roles: ['KORISNIK']
+    roles: ['ROLE_KORISNIK']
   }},
   
 
@@ -110,15 +110,15 @@ const routes: Routes = [
   //***************izvrsilac
   {path: 'izvrsilac', component: IzvrsilacComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-    roles: ['IZVRSILAC']
+    roles: ['ROLE_IZVRSILAC']
   }},
   {path: 'proces-zahteva-ukidanja', component: UkidanjeRacunaIzvrsilacComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-    roles: ['IZVRSILAC']
+    roles: ['ROLE_IZVRSILAC']
   }},
   {path: 'proces-zahteva-otvaranja', component: OtvaranjeRacunaIzvrsilacComponent, canActivate: [AuthGuard,RoleGuard],
   data: {
-    roles: ['IZVRSILAC']
+    roles: ['ROLE_IZVRSILAC']
   }},
   {path: 'not-found', component:NotFoundComponent},
   {path: '**', redirectTo: 'korisnik', pathMatch: 'full'}

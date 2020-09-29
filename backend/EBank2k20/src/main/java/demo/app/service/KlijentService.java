@@ -108,7 +108,7 @@ public class KlijentService implements KlijentServiceInterface,KlijentDTOService
 			Korisnik k = new Korisnik();
 			String korIme = ks.createKorIme(klijent.getIme(), klijent.getPrezime());
 			k.setKorisnickoIme(korIme);
-			k.setUloga(UlogaKorisnika.KORISNIK);
+			k.setUloga(UlogaKorisnika.ROLE_KORISNIK);
 			k.setLozinka(PasswordBCrypt.hashPassword(klijent.getIme()));
 			k.setKlijent(klijent);
 			ks.save(k);

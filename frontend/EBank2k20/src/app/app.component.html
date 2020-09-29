@@ -1,14 +1,14 @@
 <nav id="navnav" class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="korisnikService.loggedIn()">
     <a class="navbar-brand" >Welcome to Ebank</a>
     
-    <div *ngIf="korisnikService.getRole() === 'ADMIN'" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div *ngIf="korisnikService.getRole() === 'ROLE_ADMIN'" class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">       
           <a class="nav-link" style="cursor:pointer" (click)="korisnikService.logout()">
           <i class="fa fa-sign-out ml-5" aria-hidden="true"></i> Logout</a>          
       </ul>
     </div>
 
-    <div *ngIf="korisnikService.getRole() === 'KORISNIK'" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div *ngIf="korisnikService.getRole() === 'ROLE_KORISNIK'" class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <ul class="navbar-nav ml-auto">
         <a class="nav-link" style="cursor:pointer" (click)="this.klijentTransakcija()">
@@ -21,7 +21,7 @@
           <i class="fa fa-sign-out ml-5" aria-hidden="true"></i> Logout</a>      
       </ul>
     </div>
-    <div *ngIf="korisnikService.getRole() === 'IZVRSILAC'" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div *ngIf="korisnikService.getRole() === 'ROLE_IZVRSILAC'" class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <ul class="navbar-nav ml-auto">
         <a class="nav-link" style="cursor:pointer" (click)="this.izvrsilacOtvaranjeRacuna()">

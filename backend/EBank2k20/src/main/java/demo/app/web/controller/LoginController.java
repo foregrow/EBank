@@ -35,6 +35,7 @@ public class LoginController {
 			authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(authenticationRequest.getKorisnickoIme(), authenticationRequest.getLozinka())
 			);
+			
 		}catch (BadCredentialsException e) {
 			throw new Exception ("netacni podaci username/password", e);
 		}

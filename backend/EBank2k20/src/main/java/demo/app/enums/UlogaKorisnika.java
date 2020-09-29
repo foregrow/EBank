@@ -2,7 +2,7 @@ package demo.app.enums;
 
 public enum UlogaKorisnika {
 
-	ADMIN,
-	KORISNIK,
-	IZVRSILAC
+	ROLE_ADMIN,
+	ROLE_KORISNIK,
+	ROLE_IZVRSILAC
 }
