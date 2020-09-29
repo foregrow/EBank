@@ -42,7 +42,11 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter{
 			.authorizeRequests()
 			//.antMatchers("/api/ucenici/uploadDokumenti").hasRole("ADMIN")
 				.antMatchers("/authenticate").permitAll()
-				
+				.antMatchers("/api/banka").permitAll()
+				.antMatchers("/api/valuta").permitAll()
+				.antMatchers("/api/delatnost").permitAll()
+				.antMatchers("/api/klijent/**").permitAll()
+				.antMatchers("/api/klijent").permitAll()
 				.anyRequest().authenticated();
 	
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

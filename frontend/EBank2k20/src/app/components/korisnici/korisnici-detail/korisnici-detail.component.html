@@ -39,7 +39,7 @@
                 </option>
               </select> 
         </div>
-        <div class="form-group" *ngIf="addEditParam !== 'add' && korisnik !== undefined && korisnik.uloga === 'IZVRSILAC'">
+        <div class="form-group" *ngIf="addEditParam !== 'add' && korisnik !== undefined && korisnik.uloga === 'ROLE_IZVRSILAC'">
             <label>Izvrsioc u banci</label>
             <input formControlName="bankaEdit" type="text" class="form-control">
         </div>

@@ -18,7 +18,7 @@ export class KorisniciDetailComponent implements OnInit {
   korisnik;
   korImena: string[] = [];
   korImeExists = false;
-  uloge: string[] = ['ADMIN','IZVRSILAC'];
+  uloge: string[] = ['ROLE_ADMIN','ROLE_IZVRSILAC'];
   banke= [];
   izvrsilacSelected = false;
   ulogaSelected = false;
@@ -75,7 +75,7 @@ export class KorisniciDetailComponent implements OnInit {
           korisnickoIme: this.korisnik.korisnickoIme,
           ulogaEdit: this.korisnik.uloga
         });
-        if(this.korisnik.uloga === 'IZVRSILAC'){
+        if(this.korisnik.uloga === 'ROLE_IZVRSILAC'){
           this.addEditForm.patchValue({
             bankaEdit: this.korisnik.banka.naziv
           });
@@ -108,10 +108,10 @@ export class KorisniciDetailComponent implements OnInit {
 
   chosenUloga(){
     var cUloga = this.uloga.value;
-    if(cUloga === 'ADMIN'){
+    if(cUloga === 'ROLE_ADMIN'){
       this.ulogaSelected = true;
       this.izvrsilacSelected = false;
-    }else if(cUloga === 'IZVRSILAC'){
+    }else if(cUloga === 'ROLE_IZVRSILAC'){
       this.ulogaSelected = true;
       this.izvrsilacSelected = true;
     }else{
@@ -129,9 +129,9 @@ export class KorisniciDetailComponent implements OnInit {
     if(param === 'add'){
       var banka = this.banka.value;
       let kor;
-      if(uloga === 'IZVRSILAC')
+      if(uloga === 'ROLE_IZVRSILAC')
         kor = new Korisnik(null,korIme,lozinka,uloga,null,banka);
-      else if(uloga === 'ADMIN')
+      else if(uloga === 'ROLE_ADMIN')
         kor = new Korisnik(null,korIme,lozinka,uloga,null,null);
 
       this._ks.add(kor).subscribe(

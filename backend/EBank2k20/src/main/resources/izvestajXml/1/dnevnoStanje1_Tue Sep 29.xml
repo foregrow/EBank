@@ -11,14 +11,14 @@
 	<origin band="columnFooter"/>
 	<origin band="pageFooter"/>
 	<origin band="summary"/>
-	<origin report="izvestajRacuna_IzvestajiDataset_1600952586653_462208" group="__SummaryGroup" band="groupHeader"/>
-	<origin report="izvestajRacuna_IzvestajiDataset_1600952586653_462208" group="__SummaryGroup" band="groupFooter"/>
-	<origin report="izvestajRacuna_IzvestajiDataset_1600952586653_462208" band="title"/>
-	<origin report="izvestajRacuna_IzvestajiDataset_1600952586653_462208" band="columnHeader"/>
-	<origin report="izvestajRacuna_IzvestajiDataset_1600952586653_462208" band="detail"/>
-	<origin report="izvestajRacuna_IzvestajiDataset_1600952586653_462208" band="pageFooter"/>
-	<origin report="izvestajRacuna_IzvestajiDataset_1600952586653_462208" band="lastPageFooter"/>
-	<origin report="izvestajRacuna_IzvestajiDataset_1600952586653_462208" band="summary"/>
+	<origin report="izvestajRacuna_IzvestajiDataset_1601401708783_664023" group="__SummaryGroup" band="groupHeader"/>
+	<origin report="izvestajRacuna_IzvestajiDataset_1601401708783_664023" group="__SummaryGroup" band="groupFooter"/>
+	<origin report="izvestajRacuna_IzvestajiDataset_1601401708783_664023" band="title"/>
+	<origin report="izvestajRacuna_IzvestajiDataset_1601401708783_664023" band="columnHeader"/>
+	<origin report="izvestajRacuna_IzvestajiDataset_1601401708783_664023" band="detail"/>
+	<origin report="izvestajRacuna_IzvestajiDataset_1601401708783_664023" band="pageFooter"/>
+	<origin report="izvestajRacuna_IzvestajiDataset_1601401708783_664023" band="lastPageFooter"/>
+	<origin report="izvestajRacuna_IzvestajiDataset_1601401708783_664023" band="summary"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
@@ -281,65 +281,65 @@ hyf/2Q==]]>
 				<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 			</reportElement>
 			<frame>
-				<reportElement uuid="e197f526-c4b0-4128-ac5b-8ea6547f04c4" style="Table_TH" x="0" y="0" width="40" height="30" origin="10" srcId="19" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_brojIzvoda_987566167_0"/>
+				<reportElement uuid="16ab7569-4be6-4be3-a810-4e623dc45e1a" style="Table_TH" x="0" y="0" width="40" height="30" origin="10" srcId="19" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_brojIzvoda_890326786_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="a483dac3-dbd6-4c38-9303-793a348dea43" style="Table_TH" x="40" y="0" width="55" height="30" origin="10" srcId="20" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_datumPrometa_148859086_0"/>
+				<reportElement uuid="9e0991ae-b939-44eb-8d41-e47a1e712154" style="Table_TH" x="40" y="0" width="55" height="30" origin="10" srcId="20" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_datumPrometa_1755349840_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="76025b6e-be04-4494-89b3-c40f05501e51" style="Table_TH" x="95" y="0" width="50" height="30" origin="10" srcId="21" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_novoStanje_1352945467_0"/>
+				<reportElement uuid="602c1328-c04f-4918-8438-9f195f5b78a1" style="Table_TH" x="95" y="0" width="50" height="30" origin="10" srcId="21" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_novoStanje_800599122_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="cebdaa3c-e9fb-4912-b00a-2fab6bce0d52" style="Table_TH" x="145" y="0" width="50" height="30" origin="10" srcId="22" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_prethodnoStanje_646486984_0"/>
+				<reportElement uuid="358fa0bd-beaf-4380-8044-a080ffc4ac41" style="Table_TH" x="145" y="0" width="50" height="30" origin="10" srcId="22" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_prethodnoStanje_1225940095_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="35f54e73-5507-4e7d-814c-c2bd2776d63c" style="Table_TH" x="195" y="0" width="50" height="30" origin="10" srcId="23" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_iznos_1954900198_0"/>
+				<reportElement uuid="f0138327-72cb-414b-bb4d-d9bb179782c1" style="Table_TH" x="195" y="0" width="50" height="30" origin="10" srcId="23" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_iznos_1992585984_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="3cd8d5fd-95db-4576-9b25-61ce6e5a71a1" style="Table_TH" x="245" y="0" width="80" height="30" origin="10" srcId="24" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_duznik_133162912_0"/>
+				<reportElement uuid="52c5c438-38ea-4e25-9db3-9b65dc3f86e9" style="Table_TH" x="245" y="0" width="80" height="30" origin="10" srcId="24" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_duznik_445826187_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="7e9ebdca-648e-4f80-9c4a-0065e42ce29e" style="Table_TH" x="325" y="0" width="80" height="30" origin="10" srcId="25" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_primaoc_1967177201_0"/>
+				<reportElement uuid="f5c8dde0-d290-4687-b83b-1d999793215a" style="Table_TH" x="325" y="0" width="80" height="30" origin="10" srcId="25" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_primaoc_1957081399_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="62052d9b-09dc-4210-8e8c-3ab6d6fe6859" style="Table_TH" x="405" y="0" width="80" height="30" origin="10" srcId="26" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_svrhaPlacanja_393489994_0"/>
+				<reportElement uuid="0a73e3f7-8b1e-4a90-9d84-cc33c3a1953d" style="Table_TH" x="405" y="0" width="80" height="30" origin="10" srcId="26" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_svrhaPlacanja_789375608_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="ace1920a-ccad-4ddc-b8d7-fc9509a08bdd" style="Table_TH" x="485" y="0" width="80" height="30" origin="10" srcId="27" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_vrstaPlacanja_1223271962_0"/>
+				<reportElement uuid="add9dea8-011c-471a-abfe-4dce15f371c7" style="Table_TH" x="485" y="0" width="80" height="30" origin="10" srcId="27" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_vrstaPlacanja_2047197418_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="08fe5a77-7ba6-44e4-830b-defdaec2b158" style="Table_TH" x="565" y="0" width="40" height="30" origin="10" srcId="28" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_valuta_818121280_0"/>
+				<reportElement uuid="5f1367b5-891c-4ae4-aa8e-f817288dd284" style="Table_TH" x="565" y="0" width="40" height="30" origin="10" srcId="28" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_valuta_1992287677_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="7875bce3-37e8-4c95-90ac-885e2247d8d0" style="Table_CH" x="0" y="30" width="40" height="30" origin="11" srcId="29" printId="1">
-					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="brojIzvoda_987566167_0"/>
+				<reportElement uuid="0d81c74a-b1fa-4f71-8627-d961eb485884" style="Table_CH" x="0" y="30" width="40" height="30" origin="11" srcId="29" printId="1">
+					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="brojIzvoda_890326786_0"/>
 					<property name="net.sf.jasperreports.export.html.class" value="jrcolHeader interactiveElement"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnUUID" value="038afcbc-3288-4eba-9346-d7a36f055c21"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnIndex" value="0"/>
 				</reportElement>
 				<genericElement>
-					<reportElement uuid="23cd64ec-b880-42dc-a36c-010960ad8524" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="30" printId="1">
+					<reportElement uuid="6a215c6c-d796-43c7-9ee4-d379e45a6f20" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="30" printId="1">
 						<property name="net.sf.jasperreports.export.headertoolbar.can.sort" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.can.filter" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.sortColumnType" value="Field"/>
@@ -415,15 +415,15 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="317b731a-b341-4d61-a0ba-9bfc467222ff" style="Table_CH" x="40" y="30" width="55" height="30" origin="11" srcId="32" printId="1">
-					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="datumPrometa_148859086_0"/>
+				<reportElement uuid="27ce0811-c90a-4f78-aa20-4bb817004aa6" style="Table_CH" x="40" y="30" width="55" height="30" origin="11" srcId="32" printId="1">
+					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="datumPrometa_1755349840_0"/>
 					<property name="net.sf.jasperreports.export.html.class" value="jrcolHeader interactiveElement"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnUUID" value="ed22982a-f549-45ce-866d-f8a7a3e8c312"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnIndex" value="1"/>
 				</reportElement>
 				<genericElement>
-					<reportElement uuid="3db158ce-540f-48da-bd91-251ddead9206" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="33" printId="1">
+					<reportElement uuid="0f93cbfb-99e7-4ffb-a297-90ebdc9be718" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="33" printId="1">
 						<property name="net.sf.jasperreports.export.headertoolbar.can.sort" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.can.filter" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.sortColumnType" value="Field"/>
@@ -499,15 +499,15 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="5a043a17-d10d-49c3-839a-f74c3437b029" style="Table_CH" x="95" y="30" width="50" height="30" origin="11" srcId="35" printId="1">
-					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="novoStanje_1352945467_0"/>
+				<reportElement uuid="94c83cbf-3897-40fe-8490-066e8d024b7f" style="Table_CH" x="95" y="30" width="50" height="30" origin="11" srcId="35" printId="1">
+					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="novoStanje_800599122_0"/>
 					<property name="net.sf.jasperreports.export.html.class" value="jrcolHeader interactiveElement"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnUUID" value="3b0cd3de-4a2c-4c21-ad66-a297fef51c7b"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnIndex" value="2"/>
 				</reportElement>
 				<genericElement>
-					<reportElement uuid="b522116f-9ea4-49bd-97df-dc7dcc470541" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="36" printId="1">
+					<reportElement uuid="77e28e75-1edb-4c19-a645-42bf3a167b07" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="36" printId="1">
 						<property name="net.sf.jasperreports.export.headertoolbar.can.sort" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.can.filter" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.sortColumnType" value="Field"/>
@@ -583,15 +583,15 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="e3629b79-8c89-47bb-84f5-91330ed3b142" style="Table_CH" x="145" y="30" width="50" height="30" origin="11" srcId="38" printId="1">
-					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="prethodnoStanje_646486984_0"/>
+				<reportElement uuid="db41bd2a-cc35-475d-9afc-071c97630b01" style="Table_CH" x="145" y="30" width="50" height="30" origin="11" srcId="38" printId="1">
+					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="prethodnoStanje_1225940095_0"/>
 					<property name="net.sf.jasperreports.export.html.class" value="jrcolHeader interactiveElement"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnUUID" value="02b262d9-2a79-4b34-b25f-86b5d10a565f"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnIndex" value="3"/>
 				</reportElement>
 				<genericElement>
-					<reportElement uuid="bcc7384c-f9a4-4f44-941f-f5bfc9851686" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="39" printId="1">
+					<reportElement uuid="bda78cb3-a5ec-4751-b9f5-ad939cb60c7e" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="39" printId="1">
 						<property name="net.sf.jasperreports.export.headertoolbar.can.sort" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.can.filter" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.sortColumnType" value="Field"/>
@@ -667,15 +667,15 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="375e0f56-6a30-41ca-92ef-fe5c03fa56f7" style="Table_CH" x="195" y="30" width="50" height="30" origin="11" srcId="41" printId="1">
-					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="iznos_1954900198_0"/>
+				<reportElement uuid="55ffc473-2c21-462f-9952-3a14a303ee21" style="Table_CH" x="195" y="30" width="50" height="30" origin="11" srcId="41" printId="1">
+					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="iznos_1992585984_0"/>
 					<property name="net.sf.jasperreports.export.html.class" value="jrcolHeader interactiveElement"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnUUID" value="6e20a4c5-5fcc-476a-8a4f-0fa9e720133a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnIndex" value="4"/>
 				</reportElement>
 				<genericElement>
-					<reportElement uuid="a0bef59a-d6cb-4ad2-a2d0-8965bf8dbcb6" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="42" printId="1">
+					<reportElement uuid="7f6175fa-174d-40b2-a757-351fd1a81507" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="42" printId="1">
 						<property name="net.sf.jasperreports.export.headertoolbar.can.sort" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.can.filter" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.sortColumnType" value="Field"/>
@@ -751,15 +751,15 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="d88842e1-836f-4747-97a2-ee19bdc1a74f" style="Table_CH" x="245" y="30" width="80" height="30" origin="11" srcId="44" printId="1">
-					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="duznik_133162912_0"/>
+				<reportElement uuid="f2de309c-250f-45b6-a9f7-1b5afe305a0e" style="Table_CH" x="245" y="30" width="80" height="30" origin="11" srcId="44" printId="1">
+					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="duznik_445826187_0"/>
 					<property name="net.sf.jasperreports.export.html.class" value="jrcolHeader interactiveElement"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnUUID" value="878403da-348a-4766-9740-afe292190a7a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnIndex" value="5"/>
 				</reportElement>
 				<genericElement>
-					<reportElement uuid="fdcdc3ac-d1b5-4c93-bce6-687635512629" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="45" printId="1">
+					<reportElement uuid="6da405f0-b8ca-4523-b8f8-42793f608c78" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="45" printId="1">
 						<property name="net.sf.jasperreports.export.headertoolbar.can.sort" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.can.filter" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.sortColumnType" value="Field"/>
@@ -835,15 +835,15 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="84c56a5c-eab4-4f05-b376-f2c207fa91f6" style="Table_CH" x="325" y="30" width="80" height="30" origin="11" srcId="47" printId="1">
-					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="primaoc_1967177201_0"/>
+				<reportElement uuid="91f71de7-6dbe-4050-aeb0-82d8d9a1c57d" style="Table_CH" x="325" y="30" width="80" height="30" origin="11" srcId="47" printId="1">
+					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="primaoc_1957081399_0"/>
 					<property name="net.sf.jasperreports.export.html.class" value="jrcolHeader interactiveElement"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnUUID" value="e0af3a44-d1b0-4abc-a74c-dd8a5d88fdf2"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnIndex" value="6"/>
 				</reportElement>
 				<genericElement>
-					<reportElement uuid="c0a3b575-72a5-463e-a8ea-625a427726ac" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="48" printId="1">
+					<reportElement uuid="575e19d9-863f-4c16-b42c-5c337ba2b3a1" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="48" printId="1">
 						<property name="net.sf.jasperreports.export.headertoolbar.can.sort" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.can.filter" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.sortColumnType" value="Field"/>
@@ -919,15 +919,15 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="c64bf74f-a399-4b54-aa3a-229480f82988" style="Table_CH" x="405" y="30" width="80" height="30" origin="11" srcId="50" printId="1">
-					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="svrhaPlacanja_393489994_0"/>
+				<reportElement uuid="8c5a5efd-2e79-4c96-867a-cd977af6b6fe" style="Table_CH" x="405" y="30" width="80" height="30" origin="11" srcId="50" printId="1">
+					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="svrhaPlacanja_789375608_0"/>
 					<property name="net.sf.jasperreports.export.html.class" value="jrcolHeader interactiveElement"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnUUID" value="42941343-08be-4a5d-98a3-9419912b9b7d"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnIndex" value="7"/>
 				</reportElement>
 				<genericElement>
-					<reportElement uuid="342be383-11a2-4623-a194-d6a7850c88ab" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="51" printId="1">
+					<reportElement uuid="2a8b1635-b1dc-4f28-8a14-7414e03d3515" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="51" printId="1">
 						<property name="net.sf.jasperreports.export.headertoolbar.can.sort" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.can.filter" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.sortColumnType" value="Field"/>
@@ -1003,15 +1003,15 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="ac27b613-f202-469b-b96e-33e2966947cd" style="Table_CH" x="485" y="30" width="80" height="30" origin="11" srcId="53" printId="1">
-					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="vrstaPlacanja_1223271962_0"/>
+				<reportElement uuid="798f8f54-f012-4279-b5dd-a6b2e915ddbc" style="Table_CH" x="485" y="30" width="80" height="30" origin="11" srcId="53" printId="1">
+					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="vrstaPlacanja_2047197418_0"/>
 					<property name="net.sf.jasperreports.export.html.class" value="jrcolHeader interactiveElement"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnUUID" value="d343d335-fdb0-4aad-820b-a8742cad3a76"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnIndex" value="8"/>
 				</reportElement>
 				<genericElement>
-					<reportElement uuid="b693abf1-6675-4947-9e09-9a883bf1ddc1" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="54" printId="1">
+					<reportElement uuid="9fb8ec97-fcfd-47bb-b018-57b032832733" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="54" printId="1">
 						<property name="net.sf.jasperreports.export.headertoolbar.can.sort" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.can.filter" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.sortColumnType" value="Field"/>
@@ -1087,15 +1087,15 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="424b707f-02f4-4e1a-8ada-5e341daad766" style="Table_CH" x="565" y="30" width="40" height="30" origin="11" srcId="56" printId="1">
-					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="valuta_818121280_0"/>
+				<reportElement uuid="108b9de3-e6a0-4e8b-9d05-48070773aee4" style="Table_CH" x="565" y="30" width="40" height="30" origin="11" srcId="56" printId="1">
+					<property name="net.sf.jasperreports.export.headertoolbar.cellID" value="valuta_1992287677_0"/>
 					<property name="net.sf.jasperreports.export.html.class" value="jrcolHeader interactiveElement"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnUUID" value="a8449033-08c3-481d-81c9-842216ed7ee7"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.tableUUID" value="9bccfd1d-b87d-494e-afae-330b320f653a"/>
 					<property name="net.sf.jasperreports.export.headertoolbar.columnIndex" value="9"/>
 				</reportElement>
 				<genericElement>
-					<reportElement uuid="a9cbff15-dc11-4a0e-a9fb-dd1e74a3ec94" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="57" printId="1">
+					<reportElement uuid="a8b1a95b-e530-4404-bbbb-25bd87097dc4" mode="Transparent" x="0" y="0" width="1" height="1" origin="11" srcId="57" printId="1">
 						<property name="net.sf.jasperreports.export.headertoolbar.can.sort" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.can.filter" value="true"/>
 						<property name="net.sf.jasperreports.export.headertoolbar.sortColumnType" value="Field"/>
@@ -1171,80 +1171,80 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="a8b9bcfe-a883-4130-8f6a-79b15146bdf9" style="Table_TD" x="0" y="60" width="40" height="30" origin="12" srcId="59" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_brojIzvoda_987566167_0"/>
+				<reportElement uuid="4f62ad4e-4783-4e95-b8a7-25f85ff0aa9b" style="Table_TD" x="0" y="60" width="40" height="30" origin="12" srcId="59" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_brojIzvoda_890326786_0"/>
 				</reportElement>
 				<text textAlignment="Center" verticalAlignment="Middle" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
 					<reportElement uuid="9e0787bd-04fb-4078-88d9-ac04d58f1dc5" x="0" y="0" width="40" height="30" origin="12" srcId="60" printId="1"/>
-					<textContent><![CDATA[3]]></textContent>
+					<textContent><![CDATA[1]]></textContent>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="75c27efd-d807-40bf-956e-54e790de9855" style="Table_TD" x="40" y="60" width="55" height="30" origin="12" srcId="61" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_datumPrometa_148859086_0"/>
+				<reportElement uuid="786b1e40-8f44-4884-91af-f34f334d1674" style="Table_TD" x="40" y="60" width="55" height="30" origin="12" srcId="61" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_datumPrometa_1755349840_0"/>
 				</reportElement>
 				<text textAlignment="Center" verticalAlignment="Middle" textHeight="25.15625" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656" valueClass="java.sql.Timestamp" pattern="M/d/yy, h:mm a">
 					<reportElement uuid="00ce8f8d-49d3-4007-a268-1160910ec723" x="0" y="0" width="55" height="30" origin="12" srcId="62" printId="1"/>
-					<textContent><![CDATA[9/24/20, 2:00 AM]]></textContent>
+					<textContent><![CDATA[9/29/20, 7:48 PM]]></textContent>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="e7c6bf63-1e55-4282-8eca-2bfaf1b4e1d1" style="Table_TD" x="95" y="60" width="50" height="30" origin="12" srcId="63" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_novoStanje_1352945467_0"/>
+				<reportElement uuid="e38ee732-5c44-4a41-8bfa-447b64811a44" style="Table_TD" x="95" y="60" width="50" height="30" origin="12" srcId="63" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_novoStanje_800599122_0"/>
 				</reportElement>
 				<text textAlignment="Center" verticalAlignment="Middle" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656" valueClass="java.lang.Double">
 					<reportElement uuid="aa0fe8b4-76ba-4e5e-9401-65fc6fa6dbc1" x="0" y="0" width="50" height="30" origin="12" srcId="64" printId="1"/>
-					<textContent><![CDATA[10000.0]]></textContent>
+					<textContent><![CDATA[2222200.0]]></textContent>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="190a4bd1-ad3b-43a4-8d7d-612159582849" style="Table_TD" x="145" y="60" width="50" height="30" origin="12" srcId="65" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_prethodnoStanje_646486984_0"/>
+				<reportElement uuid="ed42824f-eb97-4916-ae7f-0f1f7e3fec1c" style="Table_TD" x="145" y="60" width="50" height="30" origin="12" srcId="65" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_prethodnoStanje_1225940095_0"/>
 				</reportElement>
 				<text textAlignment="Center" verticalAlignment="Middle" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656" valueClass="java.lang.Double">
 					<reportElement uuid="e68d816f-630d-4ef9-9c8b-f2ddb18efa6a" x="0" y="0" width="50" height="30" origin="12" srcId="66" printId="1"/>
-					<textContent><![CDATA[10500.0]]></textContent>
+					<textContent><![CDATA[2222222.0]]></textContent>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="290ba0e5-5811-40ec-90e4-b91c2cf539a9" style="Table_TD" x="195" y="60" width="50" height="30" origin="12" srcId="67" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_iznos_1954900198_0"/>
+				<reportElement uuid="7aec3270-8394-4a08-aae6-4a0a59f02d9a" style="Table_TD" x="195" y="60" width="50" height="30" origin="12" srcId="67" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_iznos_1992585984_0"/>
 				</reportElement>
 				<text textAlignment="Center" verticalAlignment="Middle" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656" valueClass="java.lang.Double">
 					<reportElement uuid="894210cb-c605-46bf-99e1-2117ef655147" x="0" y="0" width="50" height="30" origin="12" srcId="68" printId="1"/>
-					<textContent><![CDATA[500.0]]></textContent>
+					<textContent><![CDATA[22.0]]></textContent>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="af546a14-8dc6-4feb-a1c1-29c1d9f3386f" style="Table_TD" x="245" y="60" width="80" height="30" origin="12" srcId="69" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_duznik_133162912_0"/>
+				<reportElement uuid="9297764d-b0dd-4c70-b403-75cab9d3b57e" style="Table_TD" x="245" y="60" width="80" height="30" origin="12" srcId="69" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_duznik_445826187_0"/>
 				</reportElement>
 				<text textAlignment="Center" verticalAlignment="Middle" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
 					<reportElement uuid="0c559fce-f92c-4b9d-ae37-416a9758dc7c" x="0" y="0" width="80" height="30" origin="12" srcId="70" printId="1"/>
-					<textContent><![CDATA[b b]]></textContent>
-				</text>
-			</frame>
-			<frame>
-				<reportElement uuid="bac3295e-ceb0-43ef-9009-1603ee703351" style="Table_TD" x="325" y="60" width="80" height="30" origin="12" srcId="71" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_primaoc_1967177201_0"/>
-				</reportElement>
-				<text textAlignment="Center" verticalAlignment="Middle" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
-					<reportElement uuid="8503ef7e-623a-4aa7-9980-85b7559126e9" x="0" y="0" width="80" height="30" origin="12" srcId="72" printId="1"/>
 					<textContent><![CDATA[a a]]></textContent>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="d0e14521-7cd6-43e3-8dd6-1d56cc5b5325" style="Table_TD" x="405" y="60" width="80" height="30" origin="12" srcId="73" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_svrhaPlacanja_393489994_0"/>
+				<reportElement uuid="ebed002d-a976-4fe4-802c-9f46bab631be" style="Table_TD" x="325" y="60" width="80" height="30" origin="12" srcId="71" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_primaoc_1957081399_0"/>
 				</reportElement>
 				<text textAlignment="Center" verticalAlignment="Middle" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
-					<reportElement uuid="b9e8abf6-f075-4235-b02d-2055bc74e644" x="0" y="0" width="80" height="30" origin="12" srcId="74" printId="1"/>
-					<textContent><![CDATA[adgaddga33]]></textContent>
+					<reportElement uuid="8503ef7e-623a-4aa7-9980-85b7559126e9" x="0" y="0" width="80" height="30" origin="12" srcId="72" printId="1"/>
+					<textContent><![CDATA[b b]]></textContent>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="6e413dee-edee-4f32-a94e-3e202066a2f9" style="Table_TD" x="485" y="60" width="80" height="30" origin="12" srcId="75" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_vrstaPlacanja_1223271962_0"/>
+				<reportElement uuid="1452d405-186c-451e-9e32-e72bc724ee4a" style="Table_TD" x="405" y="60" width="80" height="30" origin="12" srcId="73" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_svrhaPlacanja_789375608_0"/>
+				</reportElement>
+				<text textAlignment="Center" verticalAlignment="Middle" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+					<reportElement uuid="b9e8abf6-f075-4235-b02d-2055bc74e644" x="0" y="0" width="80" height="30" origin="12" srcId="74" printId="1"/>
+					<textContent><![CDATA[bla]]></textContent>
+				</text>
+			</frame>
+			<frame>
+				<reportElement uuid="45ed863f-c0de-423e-9c47-d46954d8c967" style="Table_TD" x="485" y="60" width="80" height="30" origin="12" srcId="75" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_vrstaPlacanja_2047197418_0"/>
 				</reportElement>
 				<text textAlignment="Center" verticalAlignment="Middle" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
 					<reportElement uuid="8078740e-5247-4eb8-96be-a381ad0292c2" x="0" y="0" width="80" height="30" origin="12" srcId="76" printId="1"/>
@@ -1252,8 +1252,8 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="aa46d9d5-8850-4825-878c-6a3debe6c299" style="Table_TD" x="565" y="60" width="40" height="30" origin="12" srcId="77" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_valuta_818121280_0"/>
+				<reportElement uuid="1de97be9-dd9f-4a61-82a3-63dc2b8a7348" style="Table_TD" x="565" y="60" width="40" height="30" origin="12" srcId="77" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_valuta_1992287677_0"/>
 				</reportElement>
 				<text textAlignment="Center" verticalAlignment="Middle" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
 					<reportElement uuid="8b3fd1ae-5712-4a6e-b3ba-dbd037fbe5c9" x="0" y="0" width="40" height="30" origin="12" srcId="78" printId="1"/>
@@ -1261,109 +1261,109 @@ hyf/2Q==]]>
 				</text>
 			</frame>
 			<frame>
-				<reportElement uuid="c5b424f8-caef-4d03-8a4b-e4f3f21d6edf" x="0" y="90" width="605" height="30" origin="9" srcId="8" printId="1"/>
+				<reportElement uuid="ed4497ae-a121-490a-9197-6226cbc2d9cc" x="0" y="90" width="605" height="30" origin="9" srcId="8" printId="1"/>
 				<box padding="0">
 					<pen lineWidth="0.0"/>
 				</box>
 				<frame>
-					<reportElement uuid="8751a551-d51a-4c35-a4d8-c28c79530d32" style="Table_CH" x="0" y="0" width="40" height="30" origin="9" srcId="9" printId="1">
-						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_brojIzvoda_987566167_0"/>
+					<reportElement uuid="18179e5b-2a88-4d4a-8e2a-2b94ae41b088" style="Table_CH" x="0" y="0" width="40" height="30" origin="9" srcId="9" printId="1">
+						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_brojIzvoda_890326786_0"/>
 					</reportElement>
 				</frame>
 				<frame>
-					<reportElement uuid="80e30deb-6478-44b9-ab77-371f1f55dda3" style="Table_CH" x="40" y="0" width="55" height="30" origin="9" srcId="10" printId="1">
-						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_datumPrometa_148859086_0"/>
+					<reportElement uuid="e9acbe0c-7642-4837-b9d8-ff8d2a7f399d" style="Table_CH" x="40" y="0" width="55" height="30" origin="9" srcId="10" printId="1">
+						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_datumPrometa_1755349840_0"/>
 					</reportElement>
 				</frame>
 				<frame>
-					<reportElement uuid="6ca5df8a-3fa2-4217-8a32-868415849d73" style="Table_CH" x="95" y="0" width="50" height="30" origin="9" srcId="11" printId="1">
-						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_novoStanje_1352945467_0"/>
+					<reportElement uuid="b62a5307-4daf-4fe0-8054-a0e08e0a1121" style="Table_CH" x="95" y="0" width="50" height="30" origin="9" srcId="11" printId="1">
+						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_novoStanje_800599122_0"/>
 					</reportElement>
 				</frame>
 				<frame>
-					<reportElement uuid="7c2c339f-571f-4095-9695-500b7cab0173" style="Table_CH" x="145" y="0" width="50" height="30" origin="9" srcId="12" printId="1">
-						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_prethodnoStanje_646486984_0"/>
+					<reportElement uuid="dc3e88ed-75f1-4b68-b686-9447837ba4f1" style="Table_CH" x="145" y="0" width="50" height="30" origin="9" srcId="12" printId="1">
+						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_prethodnoStanje_1225940095_0"/>
 					</reportElement>
 				</frame>
 				<frame>
-					<reportElement uuid="a4970766-b14f-48d8-bb5f-161f581f6fc2" style="Table_CH" x="195" y="0" width="50" height="30" origin="9" srcId="13" printId="1">
-						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_iznos_1954900198_0"/>
+					<reportElement uuid="3e431424-bf70-4c24-93e7-47f3596f47f1" style="Table_CH" x="195" y="0" width="50" height="30" origin="9" srcId="13" printId="1">
+						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_iznos_1992585984_0"/>
 					</reportElement>
 				</frame>
 				<frame>
-					<reportElement uuid="21a580a5-da24-414f-9a1f-d8eb3e33c2a6" style="Table_CH" x="245" y="0" width="80" height="30" origin="9" srcId="14" printId="1">
-						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_duznik_133162912_0"/>
+					<reportElement uuid="9ddf12e6-616b-4748-8e60-2a538740c20b" style="Table_CH" x="245" y="0" width="80" height="30" origin="9" srcId="14" printId="1">
+						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_duznik_445826187_0"/>
 					</reportElement>
 				</frame>
 				<frame>
-					<reportElement uuid="72106527-4060-46d6-8c22-e5972ef7c063" style="Table_CH" x="325" y="0" width="80" height="30" origin="9" srcId="15" printId="1">
-						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_primaoc_1967177201_0"/>
+					<reportElement uuid="1ed82a32-02e6-4cf5-908b-b7ac8582e162" style="Table_CH" x="325" y="0" width="80" height="30" origin="9" srcId="15" printId="1">
+						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_primaoc_1957081399_0"/>
 					</reportElement>
 				</frame>
 				<frame>
-					<reportElement uuid="36078879-4dd5-44fa-a108-7acbd29f32f3" style="Table_CH" x="405" y="0" width="80" height="30" origin="9" srcId="16" printId="1">
-						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_svrhaPlacanja_393489994_0"/>
+					<reportElement uuid="33653f00-64d6-465c-a2f3-f265ad726f03" style="Table_CH" x="405" y="0" width="80" height="30" origin="9" srcId="16" printId="1">
+						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_svrhaPlacanja_789375608_0"/>
 					</reportElement>
 				</frame>
 				<frame>
-					<reportElement uuid="c2a41fd2-2bdd-40e7-abb5-c1f870a71c85" style="Table_CH" x="485" y="0" width="80" height="30" origin="9" srcId="17" printId="1">
-						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_vrstaPlacanja_1223271962_0"/>
+					<reportElement uuid="d06378ef-2c2b-4de5-b350-65f863c75af7" style="Table_CH" x="485" y="0" width="80" height="30" origin="9" srcId="17" printId="1">
+						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_vrstaPlacanja_2047197418_0"/>
 					</reportElement>
 				</frame>
 				<frame>
-					<reportElement uuid="c6bd27b0-652d-41da-83fc-cc3aaa78354b" style="Table_CH" x="565" y="0" width="40" height="30" origin="9" srcId="18" printId="1">
-						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_valuta_818121280_0"/>
+					<reportElement uuid="47eb1b39-6703-45f1-957c-43b57d3f4326" style="Table_CH" x="565" y="0" width="40" height="30" origin="9" srcId="18" printId="1">
+						<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_valuta_1992287677_0"/>
 					</reportElement>
 				</frame>
 			</frame>
 			<frame>
-				<reportElement uuid="bb10f875-bfdd-4fbd-bd95-a0354ed08a0d" style="Table_TH" x="0" y="120" width="40" height="30" origin="15" srcId="89" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_brojIzvoda_987566167_0"/>
+				<reportElement uuid="453b8e39-9f37-437f-b4f1-b4c9a66d551b" style="Table_TH" x="0" y="120" width="40" height="30" origin="15" srcId="89" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_brojIzvoda_890326786_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="bee8f04e-c658-414d-87b2-c87ba1d89a17" style="Table_TH" x="40" y="120" width="55" height="30" origin="15" srcId="90" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_datumPrometa_148859086_0"/>
+				<reportElement uuid="9b1977b4-d30c-48b6-a14b-4d2d7ea7ed60" style="Table_TH" x="40" y="120" width="55" height="30" origin="15" srcId="90" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_datumPrometa_1755349840_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="0eb027f7-92d1-423c-bfb4-c1e8a52d7036" style="Table_TH" x="95" y="120" width="50" height="30" origin="15" srcId="91" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_novoStanje_1352945467_0"/>
+				<reportElement uuid="7626330c-cf24-496b-ad9b-5d57078aa03f" style="Table_TH" x="95" y="120" width="50" height="30" origin="15" srcId="91" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_novoStanje_800599122_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="cd1ca11d-6737-4d97-8cec-e148d602f18f" style="Table_TH" x="145" y="120" width="50" height="30" origin="15" srcId="92" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_prethodnoStanje_646486984_0"/>
+				<reportElement uuid="d520cbff-8754-4115-b44f-2d3e96b2a1ca" style="Table_TH" x="145" y="120" width="50" height="30" origin="15" srcId="92" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_prethodnoStanje_1225940095_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="11d3abd3-de67-4336-a048-62272c4eb393" style="Table_TH" x="195" y="120" width="50" height="30" origin="15" srcId="93" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_iznos_1954900198_0"/>
+				<reportElement uuid="49d173f0-609b-4a7a-8842-32f7faa43c22" style="Table_TH" x="195" y="120" width="50" height="30" origin="15" srcId="93" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_iznos_1992585984_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="c6166bf8-2c8c-41e4-97d6-d6780eda9e95" style="Table_TH" x="245" y="120" width="80" height="30" origin="15" srcId="94" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_duznik_133162912_0"/>
+				<reportElement uuid="0207b676-155f-43ec-a87b-36f691fbacd7" style="Table_TH" x="245" y="120" width="80" height="30" origin="15" srcId="94" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_duznik_445826187_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="3473a5f8-c0f1-4e2f-af2e-0f73927cd9ca" style="Table_TH" x="325" y="120" width="80" height="30" origin="15" srcId="95" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_primaoc_1967177201_0"/>
+				<reportElement uuid="c7555f3f-13cc-4ed9-be46-bb25ad24f24b" style="Table_TH" x="325" y="120" width="80" height="30" origin="15" srcId="95" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_primaoc_1957081399_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="a6f38c8b-80c9-4cb5-b19a-1ce102a591a3" style="Table_TH" x="405" y="120" width="80" height="30" origin="15" srcId="96" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_svrhaPlacanja_393489994_0"/>
+				<reportElement uuid="196a490f-5d23-4b9b-9ade-2c408e4db463" style="Table_TH" x="405" y="120" width="80" height="30" origin="15" srcId="96" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_svrhaPlacanja_789375608_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="55284e2b-9d44-4a93-8d5f-7090fa153d7f" style="Table_TH" x="485" y="120" width="80" height="30" origin="15" srcId="97" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_vrstaPlacanja_1223271962_0"/>
+				<reportElement uuid="e978db58-be8e-45e9-ba8a-f13386cfaef1" style="Table_TH" x="485" y="120" width="80" height="30" origin="15" srcId="97" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_vrstaPlacanja_2047197418_0"/>
 				</reportElement>
 			</frame>
 			<frame>
-				<reportElement uuid="f2686420-6604-4f8e-b655-77958085091b" style="Table_TH" x="565" y="120" width="40" height="30" origin="15" srcId="98" printId="1">
-					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_valuta_818121280_0"/>
+				<reportElement uuid="b3af209d-db2e-43f0-98fe-c5e443021452" style="Table_TH" x="565" y="120" width="40" height="30" origin="15" srcId="98" printId="1">
+					<property name="net.sf.jasperreports.export.html.class" value="jrcel cel_valuta_1992287677_0"/>
 				</reportElement>
 			</frame>
 		</frame>
@@ -1381,7 +1381,7 @@ hyf/2Q==]]>
 		<text textAlignment="Right" textHeight="13.798828" lineSpacingFactor="1.1499023" leadingOffset="-2.5429688" valueClass="java.util.Date" pattern="EEEEE dd MMMMM yyyy">
 			<reportElement uuid="95484ca0-40b4-4752-95d8-1afbc33c820b" style="Column header" x="691" y="556" width="131" height="20" forecolor="#000000" origin="6" srcId="6" printId="1"/>
 			<font size="12" isBold="false"/>
-			<textContent><![CDATA[Thursday 24 September ]]></textContent>
+			<textContent><![CDATA[Tuesday 29 September ]]></textContent>
 		</text>
 	</page>
 </jasperPrint>
