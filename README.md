@@ -1,1 +1,1 @@
-# Ebanking REST API developed using Spring Framework
+# Ebanking web application developed using Spring Framework & Angular+typescript
